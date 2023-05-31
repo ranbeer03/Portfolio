@@ -1,0 +1,20 @@
+.scroll-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-button:hover {
+    background-color: black;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+  
