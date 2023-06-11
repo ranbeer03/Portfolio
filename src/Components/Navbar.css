@@ -1,8 +1,3 @@
-@font-face {
-  font-family: 'CustomFont';
-  src: url('./Fonts/MontereyFLF.ttf') format('truetype');
-}
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -15,7 +10,7 @@ nav {
 }
 
 h1 {
-  font-family: 'CustomFont', sans-serif;
+  
 }
 
 .nav-links {

@@ -1,3 +1,32 @@
+/* GalleryPage.css */
+
+.Gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    font-family: Arial, sans-serif;
+}
+
+.Gallery h2 {
+    margin-top: 1em;
+    color: #333;
+    text-align: center;
+}
+
+.Gallery p {
+    text-align: center;
+    color: #777;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+
 .scroll-button {
     display: inline-block;
     margin: 10px;
@@ -14,7 +43,19 @@
     color: white;
 }
 
+h3 {
+    margin-top: 3em;
+    text-align: center;
+    color: #333;
+}
+
+.Card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
 html {
     scroll-behavior: smooth;
-  }
-  
+}

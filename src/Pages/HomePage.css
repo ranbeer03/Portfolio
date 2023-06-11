@@ -1,21 +1,44 @@
+/* HomePage.css */
+
 .home {
-    text-align: center;
-  }
-  
-  .view-more-button {
-    display: inline-block;
-    border: none;
-    padding: 1em 2em;
-    margin: 1em;
-    text-decoration: none;
-    background: #0066ff;
-    color: #ffffff;
-    font-size: 1em;
-    text-align: center;
-    transition: background 0.3s;
-    border-radius: 5px;
+  margin: 2em;
+  font-family: Arial, sans-serif;
+}
+
+.recent-artworks {
+  text-align: center;
+}
+
+.recent-artworks h2 {
+  color: #333;
+}
+
+.recent-artworks p {
+  color: #777;
+  margin-bottom: 2em;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.view-more-button {
+  display: inline-block;
+  border: none;
+  padding: 1em 2em;
+  margin-top: 2em;
+  text-decoration: none;
+  background: #0066ff;
+  color: #ffffff;
+  font-size: 1em;
+  text-align: center;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .view-more-button:hover {
-    background: #004cb7;
+  background: #004cb7;
 }
