@@ -19,9 +19,8 @@ const AboutMe = () => {
       <div className="description">
         <div className="desc-text">
           <h2>I'm <span class="highlight">Ranbeer Chaudhary,</span> a Software Engineer and Artist.</h2>
-          <p>As a fresh graduate from King's College London, where I majored in Computer Science, and a passionate artist, I am currently based in London, UK. My education and interests uniquely situate me at the crossroads of technology and art, allowing me to appreciate and leverage the harmony between aesthetics and functionality.</p>
-          <p>Driven by the fusion of artistic creativity and scientific precision, I'm pursuing opportunities in software engineering, web and app development, UI/UX design, and software management. At the same time, I continue to indulge my love for art by creating and selling original pieces. In both realms, my goal is to design and create products that not only serve their function but also captivate through their visual appeal.</p>
-          <p>I am excited about exploring this interplay of art and science further in my professional journey, seeking experiences that allow for the creation of perfect blends of aesthetics and utility. I welcome the chance to learn, grow, and make a meaningful impact in both the technology and art industries.</p>
+          <p>A recent Computer Science graduate from King's College London and a passionate artist, I reside in London, UK, perfectly poised at the intersection of technology and art. I'm on the lookout for opportunities in software engineering, UI/UX design, and software management, while also creating and selling original artwork, always aiming to merge aesthetics with functionality.</p>
+          <p>Keen on delving deeper into this fusion of art and science, I'm ready to expand my horizons and create perfect blends of beauty and utility in my professional journey. I eagerly anticipate learning, evolving, and making a significant contribution in the tech and art sectors.</p>
         </div>
 
         <div className="personal-info">

@@ -4,9 +4,9 @@ import './Resume.css';
 const Resume = () => {
 
     const education = [
-        { year: "2000 - 2004", degree: "Computer Science", university: "International University", description: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure." },
-        { year: "2005 - 2008", degree: "Bachelor Degree", university: "University of California", description: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure." },
-        { year: "2009 - 2012", degree: "Master Degree", university: "Harvard University", description: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure." },
+        { year: "2020 - 2023", degree: "BSc Computer Science", university: "International University", description: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure." },
+        { year: "2015 - 2020", degree: "Senior Diploma", university: "Pracheen Kala Kendra", description: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure." },
+        { year: "2018 - 2020", degree: "AISSC", university: "Montfort School", description: "Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure." },
     ]
 
     const experience = [
