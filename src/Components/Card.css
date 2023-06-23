@@ -7,7 +7,7 @@
     padding: 1em;
     border: 1px solid #ddd;
     margin: 2em;
-    background-image: url('/Images/crumpled_paper.jpg');
+    /* background-image: url('/Images/crumpled_paper.jpg'); */
 }
 
 .card-content {

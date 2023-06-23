@@ -1,7 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Button } from 'react-bootstrap';
 import Gallery from "react-photo-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
 import './Portfolio.css'
 
 const images = [
@@ -136,35 +134,12 @@ const categories = [
 
 function Portfolio() {
     const [activeCategory, setActiveCategory] = useState("all");
-    const [currentImage, setCurrentImage] = useState(0);
-    const [viewerIsOpen, setViewerIsOpen] = useState(false);
   
     const handleCategoryClick = (medium) => setActiveCategory(medium);
   
     const filteredImages = activeCategory === "all"
       ? images
       : images.filter(image => image.medium === activeCategory);
-  
-    const openLightbox = (event, { index }) => {
-      setCurrentImage(index);
-      setViewerIsOpen(true);
-    };
-  
-    const closeLightbox = () => {
-      setCurrentImage(0);
-      setViewerIsOpen(false);
-    };
-  
-    const renderImageModal = () => (
-      <ModalGateway>
-        {viewerIsOpen && (
-          <Modal onClose={closeLightbox}>
-            <Carousel currentIndex={currentImage} views={filteredImages} />
-          </Modal>
-        )}
-      </ModalGateway>
-    );
-
     const [activeButton, setActiveButton] = useState("All");
   
     return (
@@ -181,9 +156,8 @@ function Portfolio() {
         <button className={`label-button ${activeButton === 'charcoal' ? 'active' : ''}`} key="charcoal" onClick={() =>{handleCategoryClick('charcoal'); setActiveButton('charcoal');}}>Charcoal</button>
         
   
-        <Gallery key={activeCategory} photos={filteredImages} onClick={openLightbox} />
+        <Gallery key={activeCategory} photos={filteredImages} />
 
-    {renderImageModal()}
   </div>
 );
   }
