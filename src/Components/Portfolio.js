@@ -1,8 +1,9 @@
 import React, { useState, useCallback } from 'react';
-import Gallery from "react-photo-gallery";
+import PhotoAlbum from "react-photo-album";
 import './Portfolio.css'
 
-const images = [
+
+const photos = [
   {
     src: "./Images/BeautyInBloom.jpg",
     width: 4,
@@ -138,8 +139,8 @@ function Portfolio() {
     const handleCategoryClick = (medium) => setActiveCategory(medium);
   
     const filteredImages = activeCategory === "all"
-      ? images
-      : images.filter(image => image.medium === activeCategory);
+      ? photos
+      : photos.filter(image => image.medium === activeCategory);
     const [activeButton, setActiveButton] = useState("All");
   
     return (
@@ -152,11 +153,12 @@ function Portfolio() {
         <button className={`label-button ${activeButton === 'All' ? 'active' : ''}`} key="all" onClick={() =>{handleCategoryClick('all'); setActiveButton('All');}}>All</button>
         <button className={`label-button ${activeButton === 'Acrylics' ? 'active' : ''}`} key="acrylics" onClick={() =>{handleCategoryClick('acrylics'); setActiveButton('Acrylics');}}>Acrylics</button>
         <button className={`label-button ${activeButton === 'Poster-colors' ? 'active' : ''}`} key="poster-colors" onClick={() =>{handleCategoryClick('poster-colors'); setActiveButton('Poster-colors');}}>Poster Colors</button>
-        <button className={`label-button ${activeButton === 'Water-colors' ? 'active' : ''}`} key="water-colors" onClick={() =>{handleCategoryClick('water-colors'); setActiveButton('water-colors');}}>Water Colors</button>
-        <button className={`label-button ${activeButton === 'charcoal' ? 'active' : ''}`} key="charcoal" onClick={() =>{handleCategoryClick('charcoal'); setActiveButton('charcoal');}}>Charcoal</button>
+        <button className={`label-button ${activeButton === 'Water-colors' ? 'active' : ''}`} key="water-colors" onClick={() =>{handleCategoryClick('water-colors'); setActiveButton('Water-colors');}}>Water Colors</button>
+        <button className={`label-button ${activeButton === 'Charcoal' ? 'active' : ''}`} key="charcoal" onClick={() =>{handleCategoryClick('charcoal'); setActiveButton('Charcoal');}}>Charcoal</button>
         
   
-        <Gallery key={activeCategory} photos={filteredImages} />
+        
+        <PhotoAlbum layout="rows" photos={filteredImages} />
 
   </div>
 );
