@@ -1,48 +1,86 @@
 .hero {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
   height: auto;
   color: black;
-  background-color: whitesmoke;
+  position: relative; 
+  height: 90vh; 
+  width: 100%;
 }
 
 .portfolio-header {
-  text-align: center;
-  padding: 20px 0;
+  text-align: left;
+  padding: 20px 20px;
   font-size: 2em;
+  position: absolute;
+  top: 5%;
+  left: 0;
+  z-index: 4;
 }
 
 .canvas-container {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
+  top: 0%;  /* move 10% down from the top edge */
+  left: -13%; /* move 10% to the right from the left edge */
 }
 
-.canvas{
-  width: 30%;
-  height: 50vh;
-  background-color:whitesmoke;
+.canvas {
+  position: absolute;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-content {
-  flex: 0.55; /* Adjust this to control the width of the content */
-  max-width: 800px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
+  max-width: 610px;
   padding: 20px;
-  text-align: left;
+  top: 25%; /* move 5% up from the bottom edge */
+  right: -5%; /* move 5% to the left from the right edge */
+  z-index: 4;
+  width: fit-content;
+  right: 0%;
+  align-items: flex-end;
 }
 
 .hero-title {
   font-size: 2em;
   margin-bottom: 20px;
+  text-align: right;
 }
 
 .hero-text {
   font-size: 1em;
   line-height: 1.6;
+  text-align: right;
+}
+
+.square {
+  position: relative;
+  height: 600px; /* or any desired size */
+  width: 400px; /* or any desired size */
+  justify-content: center;
+}
+
+.circle {
+  height: 400px;
+  width: 400px;
+  background-color: #146C94;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;  /* added */
+  z-index: 1;  /* added */
 }
 
 @media (min-width: 768px) {
@@ -62,3 +100,22 @@
     font-size: 1.2em;
   }
 }
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.typing-effect::after {
+  content: '|';
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+

@@ -1,0 +1,74 @@
+.portfolio {
+  padding: 2em;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.grid-item {
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+}
+
+.grid-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.grid-image {
+  transition: all 0.5s ease-in-out;
+}
+
+.grid-image:hover {
+  transform: scale(1.1);
+}
+
+/* Here starts the Media Query for Mobile devices */
+@media screen and (max-width: 600px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filters {
+    flex-direction: column;
+  }
+
+  .grid-item {
+    margin-bottom: 10px;
+  }
+  
+  .grid-image:hover, .grid-item:hover {
+    transform: none;
+  }
+
+}

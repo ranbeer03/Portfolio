@@ -1,4 +1,5 @@
 .App {
+  background-color: whitesmoke;
   text-align: center;
 }
 
@@ -23,6 +24,88 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.header {
+  position: relative;
+  text-align: center;
+  height: 300; 
+  margin-bottom: 2em
+}
+.background-title {
+  font-size: 7em; 
+  color: gray;
+  opacity: 0.2; 
+  z-index: 1; 
+  white-space: nowrap;
+}
+.overlay-title {
+  font-size: 3em; 
+  color: black;
+  z-index: 2;
+  text-decoration: underline;
+  text-decoration-color: #146C94;
+}
+
+.button01 {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #146C94;
+  color: #146C94;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  background: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 1em;
+  border-radius: 5px;
+  width: 200px;
+}
+.button01 span:first-child {
+  position: relative;
+  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 10;
+}
+.button01 span:last-child {
+  color: white;
+  position: absolute;
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
+  opacity: 0;
+  top: 65%;
+  left: 50%;
+  transform: translateY(225%) translateX(-50%);
+}
+.button01:after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #146C94;
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: 50;
+}
+.button01:hover {
+  color:white
+}
+.button01:hover:after {
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2);
+}
+.button01:hover span:last-child {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 1;
+  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+
 
 .App-link {
   color: #61dafb;

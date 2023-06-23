@@ -1,8 +1,15 @@
 /* HomePage.css */
 
 .home {
-  margin: 2em;
+  /* background-image: url('../Images/grain_wall.jpg'); */
+  background-color: whitesmoke;
+  background-size: cover;  /* or cover */
+  background-repeat: repeat; /* Prevents the background image from repeating */
   font-family: Arial, sans-serif;
+  padding: 2em;
+  text-align: center;
+  width: 80%;
+  margin: auto;
 }
 
 .recent-artworks {
@@ -25,20 +32,10 @@
   gap: 2em;
 }
 
-.view-more-button {
-  display: inline-block;
-  border: none;
-  padding: 1em 2em;
-  margin-top: 2em;
-  text-decoration: none;
-  background: #0066ff;
-  color: #ffffff;
-  font-size: 1em;
-  text-align: center;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
+@media screen and (max-width: 600px) {
 
-.view-more-button:hover {
-  background: #004cb7;
+  .home{
+    width: 100%;
+  }
+
 }

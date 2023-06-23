@@ -23,14 +23,9 @@
                 0.6640594005584717
             ],
             "scale" : [
-                8,
+                7,
                 4.889983654022217,
-                11.99897575378418
-            ],
-            "translation" : [
-                -0.017498016357421875,
-                11.289039611816406,
-                -0.4552233815193176
+                10.499103546142578
             ]
         }
     ],
@@ -65,7 +60,7 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material",
+            "name" : "SanjayDutt",
             "pbrMetallicRoughness" : {
                 "baseColorTexture" : {
                     "index" : 0

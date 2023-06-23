@@ -1,0 +1,46 @@
+.contact {
+    position: relative;
+    padding: 2em;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .info {
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .info h4 {
+    margin-bottom: 0.5em;
+  }
+  
+  .info p {
+    margin-bottom: 1.5em;
+  }
+
+  .heading{
+    padding-left: 1em;
+    text-align: left;
+  }
+
+  .message-name{
+    width: 45%;
+    height: 60px;
+    margin: 1em;
+    border-radius: 10px;
+    padding: 1em;
+  }
+  .message-note{
+    width: 94%;
+    height: 200px;
+    margin: 1em;
+    border-radius: 10px;
+    padding: 1em;
+  }

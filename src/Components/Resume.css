@@ -1,0 +1,78 @@
+.resume {
+    padding: 2em;
+}
+
+.education-experience {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.heading{
+    padding-left: 1em;
+    text-align: left;
+}
+
+.edu-item, .exp-item {
+    padding: 1em;
+    margin: 2em;
+    border-radius: 10px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.skill-set {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.skill-items {
+    width: 48%; /* Set width to less than 50% to prevent overflow and leave some space between the columns */
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+}
+
+.skill-item{
+    margin-bottom: 1em;
+}
+
+.item-year{
+    background-color: #146C94;
+    width: 120px;
+    text-align:  center;
+    border-radius: 5px;
+    color: white;
+    font-size: large;
+}
+
+.item-location{
+    color: #146C94;
+}
+
+.skill-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bar {
+    margin-right: 1em;
+    height: 15px;
+    background-color: rgb(208, 206, 206);
+    width: 100%;
+    border-radius: 30px;
+}
+
+.bar-fill {
+    height: 100%; /* Increase the height to fill the bar */
+    background-color: #146C94; /* Change the color to black */
+    border-radius: 30px;
+}

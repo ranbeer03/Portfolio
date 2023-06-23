@@ -1,11 +1,11 @@
 import React from 'react';
-import './ContactPage.css'; // We will create this file for styling.
+import './ContactPage.css'; 
+import Contact from '../Components/Contact';
 
 const ContactPage = () => {
   return (
     <div className="Contact">
-      <h2>Contact </h2>
-      <p>You can reach me at my-email@example.com</p>
+      <Contact/>
     </div>
   );
 }

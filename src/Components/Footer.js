@@ -4,7 +4,7 @@ import './Footer.css'; // We will create this file for styling.
 const Footer = () => {
   return (
     <footer>
-      <p>© 2023 My Artwork Portfolio</p>
+      <p>Copyright © 2023 Ranbeer Chaudhary. All Rights Reserved.</p>
     </footer>
   );
 }

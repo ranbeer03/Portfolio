@@ -1,0 +1,71 @@
+.aboutMe {
+    position: relative;
+    padding: 2em;
+    display: flex;   /* Add this */
+    flex-direction: column; /* Add this */
+}
+
+.highlight{
+  color: #146C94;
+}
+
+.description {
+    text-align: left;
+    display: flex;
+    justify-content:space-between;
+    width: 100%;  /* Add this */
+    align-items: center;
+}
+
+.desc-text {
+    width: 70%;  /* Edit this */
+    /* Remove flex: 8; */
+}
+
+.personal-info {
+    width: 30%;  /* Edit this */
+    height: auto;
+    padding: 0;
+    margin: 1em;
+    /* Remove flex: 4; */
+}
+  
+  .p-info {
+    border-bottom: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    margin-top: 0.5em;
+}
+
+  .downloads {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;  
+    text-align: center; 
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .stat strong {
+    font-size: 2em; 
+  }
+  .vertical-line {
+    border-left: 1px solid black;
+    height: 100px;
+    width: 0;
+  }
+  
+  
