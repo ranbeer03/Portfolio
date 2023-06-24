@@ -25,15 +25,7 @@ const Hero = () => {
         <h1>Welcome</h1>
         <h1 className="typing-effect">{magicNameHook}</h1>
       </div>
-      <div className="hero-content">
-        <h1 className="hero-title">Transforming Expressions Into Dimensions</h1>
-        <p className="hero-text">
-          Welcome to my portfolio, a place where traditional artistry fuses with the innovation of the digital world.
-          I navigate the canvas of both classic and modern art, transcending the conventional boundaries of art.
-          Step into this curated showcase where each piece of artwork and every technical skill demonstrated is not just my 
-          creative vision, but also my dedication to mastering modern technology.
-        </p>
-      </div>
+
       <div className="canvas-container">
         <div className='square'> 
           <Canvas shadows className='canvas' camera={{ position: [-220, 90, -292] }}>
@@ -49,7 +41,16 @@ const Hero = () => {
         </div>
       </div>
 
-      
+      <div className="hero-content">
+        <h1 className="hero-title">Transforming Expressions Into Dimensions</h1>
+        <p className="hero-text">
+          Welcome to my portfolio, a place where traditional artistry fuses with the innovation of the digital world.
+          I navigate the canvas of both classic and modern art, transcending the conventional boundaries of art.
+          Step into this curated showcase where each piece of artwork and every technical skill demonstrated is not just my 
+          creative vision, but also my dedication to mastering modern technology.
+        </p>
+      </div>
+    
     </div>
   );
 }

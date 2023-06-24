@@ -71,4 +71,22 @@ h2{
     width: 0;
   }
   
+  @media screen and (max-width: 768px){
+  
+
+    .description{
+      flex-direction: column;
+    }
+
+    .desc-text {
+      width: 100%; 
+      height: auto;
+    }
+    .personal-info {
+      width: 100%; 
+    }
+    .stats {
+      justify-content: center;
+    }
+  }
   

@@ -40,4 +40,10 @@
     justify-content: center;
   }
   
+  @media screen and (max-width: 768px) {
   
+    .about {
+      width: 100%;
+      padding: 1em;
+    }
+  }

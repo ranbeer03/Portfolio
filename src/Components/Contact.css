@@ -46,3 +46,28 @@
     border-radius: 10px;
     padding: 1em;
   }
+
+  @media screen and (max-width: 600px) {
+  
+    .content{
+      flex-direction: column;
+    }
+    .message-name{
+      width: 95%;
+      height: 60px;
+      margin: 1em;
+      border-radius: 10px;
+      padding: 1em;
+    }
+    .message-note{
+      width: 95%;
+      height: 200px;
+      margin: 1em;
+      border-radius: 10px;
+      padding: 1em;
+    }
+    .heading{
+      padding-left: 0em;
+    }
+
+  }

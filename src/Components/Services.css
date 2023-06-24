@@ -38,3 +38,17 @@
 .service-description {
     color: #555;
 }
+
+@media screen and (max-width: 768px) {
+
+    .service-list {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1em;
+        padding-top: 1em;
+    }
+    .icon {
+         width: 200px;
+         height: 80px;
+    }
+
+}

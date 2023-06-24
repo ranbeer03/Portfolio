@@ -5,10 +5,12 @@ import './Contact.css'
 function Contact() {
   return (
     <div className='contact'>
+      
       <div className="header">
         <span className="background-title">CONTACT</span>
         <span className="overlay-title">Get In Touch</span>
       </div>
+
       <div className='content'>
         <div className='info'>
           <h4>Address</h4>

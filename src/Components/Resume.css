@@ -79,3 +79,21 @@
     background-color: #146C94; /* Change the color to black */
     border-radius: 30px;
 }
+
+@media screen and (max-width: 768px) {
+
+    .resume {
+        padding: 1em;
+    }
+    .education-experience {
+        justify-content: center;
+        padding-top: 2em;
+        flex-direction: column;
+    }
+    .skill-set{
+        flex-direction: column;
+    }
+    .skill-items {
+        width: 80%;
+    }
+}

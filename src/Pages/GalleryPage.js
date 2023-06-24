@@ -215,7 +215,7 @@ const GalleryPage = () => {
   return (
   <div className="Gallery">
     <div className="header">
-      <span className="background-title">MY ARTWORK</span>
+      <span className="background-title">ARTWORK</span>
       <span className="overlay-title">Gallery</span>
     </div>
 
