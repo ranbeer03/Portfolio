@@ -1,8 +1,5 @@
 .about {
-    /* background-image: url('../Images/black_canvas.jpg'); */
     background-color: whitesmoke;
-    background-size: cover;  /* or cover */
-    background-repeat: repeat; /* Prevents the background image from repeating */
     padding: 2em;
     text-align: center;
     width: 80%;

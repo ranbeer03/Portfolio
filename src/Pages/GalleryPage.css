@@ -20,13 +20,43 @@
     color: #777;
 }
 
-.main-button-container {
+.main-main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    text-align: left;
+}
+
+.main-heading{
+    width: 100%;
+    font-size: 3em;
+    margin: 1em;
+}
+
+.main-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.button-container {
     width: 100%;
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
     justify-content: center;
-  }
+}
+
+.card-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
 
 .label-button {
     overflow: hidden;
@@ -74,14 +104,6 @@
     color: white;
 }
 
-
-  
-
-h3 {
-    margin-top: 3em;
-    text-align: center;
-    color: #333;
-}
 
 .Card {
     display: flex;

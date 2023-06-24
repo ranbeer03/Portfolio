@@ -1,8 +1,8 @@
 .aboutMe {
     position: relative;
+    display: flex;
+    flex-direction: column;
     padding: 2em;
-    display: flex;   /* Add this */
-    flex-direction: column; /* Add this */
 }
 
 .highlight{
@@ -13,21 +13,24 @@
     text-align: left;
     display: flex;
     justify-content:space-between;
-    width: 100%;  /* Add this */
-    align-items: center;
+    align-items:center;
+    padding-top: 1em;
 }
 
 .desc-text {
-    width: 70%;  /* Edit this */
-    /* Remove flex: 8; */
+    width: 62%; 
+    height: auto;
+}
+
+h2{
+  padding-bottom: 1em;
 }
 
 .personal-info {
-    width: 30%;  /* Edit this */
+    width: 30%; 
     height: auto;
     padding: 0;
     margin: 1em;
-    /* Remove flex: 4; */
 }
   
   .p-info {
@@ -47,7 +50,7 @@
   .stats {
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
+    padding-top: 2em;
   }
   
   .stat {

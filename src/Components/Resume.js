@@ -90,7 +90,6 @@ const Resume = () => {
                     </div>
                 </div>
             </div>
-
             <button className="button01" role="button"><span class="text">Download CV</span><span>Download CV</span></button>
         </div>
     );

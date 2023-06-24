@@ -41,8 +41,9 @@ const AboutMe = () => {
             <button className="button01" role="button"><span class="text">Download Portfolio</span><span>Download Portfolio</span></button>
           </div>
         </div>
+          
       </div>
-
+  
       <div className="stats">
         <div className="stat"><strong>2+</strong> Years Experience</div>
         <div class="vertical-line"></div>

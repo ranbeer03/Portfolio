@@ -149,16 +149,16 @@ function Portfolio() {
             <span className="background-title">MY WORK</span>
             <span className="overlay-title">Portfolio</span>
         </div>
-    
-        <button className={`label-button ${activeButton === 'All' ? 'active' : ''}`} key="all" onClick={() =>{handleCategoryClick('all'); setActiveButton('All');}}>All</button>
-        <button className={`label-button ${activeButton === 'Acrylics' ? 'active' : ''}`} key="acrylics" onClick={() =>{handleCategoryClick('acrylics'); setActiveButton('Acrylics');}}>Acrylics</button>
-        <button className={`label-button ${activeButton === 'Poster-colors' ? 'active' : ''}`} key="poster-colors" onClick={() =>{handleCategoryClick('poster-colors'); setActiveButton('Poster-colors');}}>Poster Colors</button>
-        <button className={`label-button ${activeButton === 'Water-colors' ? 'active' : ''}`} key="water-colors" onClick={() =>{handleCategoryClick('water-colors'); setActiveButton('Water-colors');}}>Water Colors</button>
-        <button className={`label-button ${activeButton === 'Charcoal' ? 'active' : ''}`} key="charcoal" onClick={() =>{handleCategoryClick('charcoal'); setActiveButton('Charcoal');}}>Charcoal</button>
-        
-  
-        
-        <PhotoAlbum layout="rows" photos={filteredImages} />
+      
+        <div className='image-container'>
+          <button className={`label-button ${activeButton === 'All' ? 'active' : ''}`} key="all" onClick={() =>{handleCategoryClick('all'); setActiveButton('All');}}>All</button>
+          <button className={`label-button ${activeButton === 'Acrylics' ? 'active' : ''}`} key="acrylics" onClick={() =>{handleCategoryClick('acrylics'); setActiveButton('Acrylics');}}>Acrylics</button>
+          <button className={`label-button ${activeButton === 'Poster-colors' ? 'active' : ''}`} key="poster-colors" onClick={() =>{handleCategoryClick('poster-colors'); setActiveButton('Poster-colors');}}>Poster Colors</button>
+          <button className={`label-button ${activeButton === 'Water-colors' ? 'active' : ''}`} key="water-colors" onClick={() =>{handleCategoryClick('water-colors'); setActiveButton('Water-colors');}}>Water Colors</button>
+          <button className={`label-button ${activeButton === 'Charcoal' ? 'active' : ''}`} key="charcoal" onClick={() =>{handleCategoryClick('charcoal'); setActiveButton('Charcoal');}}>Charcoal</button>
+          
+          <PhotoAlbum layout="rows" photos={filteredImages} />
+        </div>
 
   </div>
 );
