@@ -1,8 +1,9 @@
 footer {
+   display: flex;
     padding: 2em;
     background-color: black;
     color: white;
-    text-align: left;
+    justify-content: space-between;
     
   }
   

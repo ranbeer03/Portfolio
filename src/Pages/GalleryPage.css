@@ -1,44 +1,32 @@
-/* GalleryPage.css */
 
 .Gallery {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     margin: 2em;
-    font-family: Arial, sans-serif;
 }
 
-.Gallery h2 {
-    margin-top: 1em;
-    color: #333;
-    text-align: center;
-}
 
-.Gallery p {
-    text-align: center;
-    color: #777;
-}
 
 .main-main-container{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 80%;
-    text-align: left;
-}
-
-.main-heading{
-    width: 100%;
-    font-size: 3em;
-    margin: 1em;
 }
 
 .main-container{
     width: 100%;
     display: flex;
     flex-direction: column;
-    
+    align-items: center;
+}
+
+.main-heading{
+    width: 100%;
+    font-size: 3em;
+    margin: 1em;
 }
 
 .button-container {
@@ -49,15 +37,39 @@
     justify-content: center;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+
 .card-container{
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     text-align: left;
 }
 
+.cards-container{
+    
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.label-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .label-button {
     overflow: hidden;
     font-size: 15px;
@@ -81,12 +93,7 @@
     color: white;
   }
 
-.button-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2em;
-}
+
 
 .scroll-button {
     display: inline-block;
@@ -104,27 +111,7 @@
     color: white;
 }
 
-
-.Card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2em;
-}
-
 html {
     scroll-behavior: smooth;
 }
-
-.option-button {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    text-decoration: none;
-    color: black;
-    transition: background-color 0.3s ease;
-    background-color: white;
-  }
   

@@ -14,12 +14,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    text-align: left;
     width: 100%;
 }
 
-.card-left, .card-centre, .card-right {
+.card-left, .card-right {
     flex: 1;
     padding-left: 1em;
+    text-align: left;
 }
 
 .card-image {

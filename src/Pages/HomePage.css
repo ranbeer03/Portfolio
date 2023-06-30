@@ -2,14 +2,17 @@
 
 .home {
   /* background-image: url('../Images/grain_wall.jpg'); */
-  background-color: whitesmoke;
-  background-size: cover;  /* or cover */
-  background-repeat: repeat; /* Prevents the background image from repeating */
-  font-family: Arial, sans-serif;
+  /* background-color: whitesmoke; */
+
   padding: 2em;
   text-align: center;
-  width: 80%;
+  width: 100%;
   margin: auto;
+
+  background-image: url('../Images/TwoDoor.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  padding: 2em;
 }
 
 .recent-artworks {

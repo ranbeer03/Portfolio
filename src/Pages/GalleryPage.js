@@ -15,7 +15,8 @@ import GoldenLeaf from '../Components/3DModels/GoldenLeaf';
 import BlueGalaxy from '../Components/3DModels/BlueGalaxy';
 import Flower from '../Components/3DModels/Flower';
 import PinkSky from '../Components/3DModels/PinkSky';
-import './GalleryPage.css'; // We will create this file for styling.
+import './GalleryPage.css'; 
+import '../App.css'
 
 const GalleryPage = () => {
 
@@ -197,6 +198,7 @@ const GalleryPage = () => {
   // Render cards
   const renderCards = (filterType) => {
     return getFilteredCards(filterType).map((card, index) => (
+      <div className='cards'>
       <Card
         key={index}
         name={card.name}
@@ -209,6 +211,7 @@ const GalleryPage = () => {
         subjectMatter={card.subjectMatter}
         Model3D={card.Model3D}
       />
+      </div>
     ))
   }
 
@@ -219,7 +222,7 @@ const GalleryPage = () => {
       <span className="overlay-title">Gallery</span>
     </div>
 
-    <div className="label-container">
+    <div className="label-button-container">
       <button className={`label-button ${activeButton === 'medium' ? 'active' : ''}`} id="medium" onClick={() => setActiveButton('medium')}>Medium</button>
       <button className={`label-button ${activeButton === 'sizeRange' ? 'active' : ''}`} id="sizeRange" onClick={() => setActiveButton('sizeRange')}>Size</button>
       <button className={`label-button ${activeButton === 'subjectMatter' ? 'active' : ''}`} id="subjectMatter" onClick={() => setActiveButton('subjectMatter')}>Subject Matter</button>
@@ -239,7 +242,9 @@ const GalleryPage = () => {
 
           <div className='card-container'> 
             <h3 className='main-heading' id="acrylics">Acrylics</h3>
-            {renderCards('acrylics')}
+            <div className='cards-container'>
+              {renderCards('acrylics')}
+            </div>
             <h3 className='main-heading' id="poster-colors">Poster Colors</h3>
             {renderCards('poster-colors')}
             <h3 className='main-heading' id="water-colors">Water Colors</h3>
