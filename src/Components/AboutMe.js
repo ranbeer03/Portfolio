@@ -10,7 +10,6 @@ const AboutMe = () => {
     }
   return (
     <div className="aboutMe">
-
       <div className="header">
         <span className="background-title">ABOUT ME</span>
         <span className="overlay-title">Know Me More</span>

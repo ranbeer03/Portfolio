@@ -1,0 +1,78 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .title {
+    font-family: "Syne-Extra";
+    font-size: 2em;
+    color: gray;
+    opacity: 0.2;
+  }
+  
+  .subtitle {
+    font-family: "Syne-Regular";
+    font-size: 1em;
+    text-decoration: underline;
+  }
+  
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    margin: 1em 0;
+  }
+  
+  .scrollable-cards {
+    display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+    max-height: 600px;
+    white-space: nowrap;
+    
+  }
+  .scrollable-cards button img {
+    width: 50px;    /* Or any other value */
+    height: 150px;   /* Or any other value */
+    object-fit: cover; /* To maintain aspect ratio */
+    margin-right: 10px; /* To add some space between the image and the name */
+  }
+  
+  .scrollable-cards button {
+    width: 200px;  /* Or any other value */
+    height: 200px; /* Or any other value */
+    border: none;  /* Optional: remove the default button border */
+    background: none; /* Optional: remove the default button background */
+  }
+  
+  
+    
+  .canvas-container {
+    display: flex;
+    justify-content: center;
+    margin: 2em;
+  }
+  
+  .canvas-wrapper {
+    position: relative;
+    height: 600px;
+    width: 400px;
+    justify-content: center;
+  }
+  
+  .circle {
+    height: 400px;
+    width: 400px;
+    background-color: #146C94;
+    border-radius: 5%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+  

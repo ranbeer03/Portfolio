@@ -26,7 +26,7 @@
 .main-heading{
     width: 100%;
     font-size: 3em;
-    margin: 1em;
+    margin-top: 1em;
 }
 
 .button-container {
@@ -81,11 +81,12 @@
     margin: 1em;
     width: 150px;
     border: none;
+    color: gray;
 }
   
   .label-button.active {
-    color: #146C94; 
-    border-bottom: 2px solid #146C94;
+    color: black; 
+    border-bottom: 2px solid black;
   }
 
   .scroll-button.selected {

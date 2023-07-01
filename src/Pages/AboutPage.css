@@ -2,18 +2,7 @@
     background-color: whitesmoke;
     padding: 2em;
     text-align: center;
-    width: 80%;
     margin: auto;
-  }
-  
-  .about h1 {
-    color: #444;
-    margin: 50px 0;
-  }
-  
-  .about p {
-    color: #666;
-    line-height: 1.6;
   }
   
   .skills {

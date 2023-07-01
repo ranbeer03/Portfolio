@@ -7,15 +7,15 @@ import BeautyInBloom from '../Components/3DModels/BeautyInBloom'
 import HeroSection from '../Components/HeroSection'
 import AboutMe from '../Components/AboutMe';
 import Portfolio from '../Components/Portfolio';
+import ThreeD from '../Components/ThreeD';
 
 const HomePage = () => {
   return (
     <div className="home">
       <HeroSection />
-      <div className='recent-artworks'>
-        <Portfolio/>
-        <Link to="/gallery" className='button01'><span class="text">View More</span><span class="text">Gallery</span></Link>
-      </div>
+      <Portfolio/>
+      <Link to="/gallery" className='button01'><span class="text">View More</span><span class="text">Gallery</span></Link>
+      <ThreeD/>
       <AboutMe/>
       <Link to="/about" className='button01'><span class="text">View More</span><span class="text">About</span></Link>
     </div>

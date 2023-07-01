@@ -27,9 +27,8 @@ const Hero = () => {
         <h1>Welcome</h1>
         <h1 className="typing-effect">{magicNameHook}</h1>
       </div>
+      
       <div className='main-content'>
-        
-
         <div className="hero-content">
           <h1 className="hero-title">Transforming Expressions Into Dimensions</h1>
           <p className="hero-text">

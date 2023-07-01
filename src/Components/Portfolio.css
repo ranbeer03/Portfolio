@@ -1,15 +1,11 @@
 .portfolio {
   padding: 2em;
-  margin-top: 65em;
+  margin-top: 2em;
 }
 
 .header {
   text-align: center;
   margin-bottom: 1em;
-}
-
-.image-container{
-  padding-top: 2em;
 }
 
 .filters {
@@ -19,43 +15,82 @@
   flex-wrap: wrap;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
-  transition: all 0.3s ease-in-out;
+.image-container {
+  padding-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.grid-item {
-  overflow: hidden;
+.image-container .image-wrapper {
+  flex-basis: calc(33.3333% - 20px);  /* adjust this as per your needs */
+  margin: 10px;
+  cursor: pointer;
+  align-self: start;
+}
+
+.image-container img {
+  width: 100%;
   height: auto;
+}
+
+.modal-card{
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 90%;
+  padding: 1em;
   border: 1px solid #ddd;
-  padding: 10px;
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  margin: 2em;
+  background-color: white;
+  border-radius: 10px;
+  
 }
 
-.grid-item:hover {
-  transform: scale(1.05);
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  padding: 1em;
+  border: 1px solid #ddd;
+  margin: 2em;
+  /* background-image: url('/Images/crumpled_paper.jpg'); */
 }
 
-.grid-item img {
+.card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+}
+
+.card-left, .card-right {
+  flex: 1;
+  padding-left: 1em;
+  text-align: left;
+}
+
+.card-image {
+  display: block;
   max-width: 100%;
   max-height: 100%;
-  object-fit: cover;
 }
 
-.grid-image {
-  transition: all 0.5s ease-in-out;
+.card-size, .card-name, .card-description {
+  text-align: left;
 }
 
-.grid-image:hover {
-  transform: scale(1.1);
+.back-button-container{
+  position: relative;
+  width: 100%;
+  height: 40px;
 }
+
 
 /* Here starts the Media Query for Mobile devices */
 @media screen and (max-width: 600px) {
@@ -77,5 +112,7 @@
   .grid-image:hover, .grid-item:hover {
     transform: none;
   }
-
+  .card-content {
+    flex-direction: column;
+}
 }
