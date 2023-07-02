@@ -83,6 +83,7 @@ function Portfolio() {
               <i className="fas fa-chevron-left fa-01x info-icon"></i>
             </div>
           </div>
+          
           {selectedImage && (
             <div className="card-content">
               <div className="card-left">

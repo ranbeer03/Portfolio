@@ -21,7 +21,6 @@ const ThreeD = () => {
       </div>
 
       
-      <div className="cards-container">
       <div className="card-content">
             <div className="card-left">
             <div className="canvas-container">
@@ -37,7 +36,6 @@ const ThreeD = () => {
                 </Canvas>
                 <div className="circle"></div>
                 </div>
-            </div>
             </div>
             
             <div className='card-right'>
@@ -55,17 +53,12 @@ const ThreeD = () => {
             key={card.id}
             className={`card-button ${selectedCard?.id === card.id ? 'active' : ''}`}
             onClick={() => handleCardClick(card)}
-            style={{ display: 'flex', flexDirection: 'column' }}
             >
-            <div style={{ flexBasis: '70%', overflow: 'hidden' }}>
-                <img src={card.imageUrl} alt={card.name} style={{ width: '100%', objectFit: 'cover' }} />
-            </div>
-            <div style={{ flexBasis: '30%', overflow: 'auto' }}>
-                {card.name}
-            </div>
+            <img src={card.imageUrl} alt={card.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </button>
         ))}
         </div>
+
 
 
     </div>

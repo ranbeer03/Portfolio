@@ -28,30 +28,28 @@
     justify-content: center;
     margin: 1em 0;
   }
-  
+
   .scrollable-cards {
     display: flex;
     overflow-x: auto;
     max-width: 100%;
     max-height: 600px;
     white-space: nowrap;
+  }
+  
+  .scrollable-cards .card-button {
+    width: 450px;  /* Or any other value */
+    height: 150px; /* Or any other value */
+    border-radius: 10px; /* Add border-radius */
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.3); /* Add shadow */
+    margin-right: 10px; /* Add some spacing between the buttons */
+    border: none;  /* Remove the default button border */
+    background: none; /* Remove the default button background */
     
   }
-  .scrollable-cards button img {
-    width: 50px;    /* Or any other value */
-    height: 150px;   /* Or any other value */
-    object-fit: cover; /* To maintain aspect ratio */
-    margin-right: 10px; /* To add some space between the image and the name */
+  .scrollable-cards .card-button.active {
+    border: 1px solid black; /* Optional: Highlight the selected button */
   }
-  
-  .scrollable-cards button {
-    width: 200px;  /* Or any other value */
-    height: 200px; /* Or any other value */
-    border: none;  /* Optional: remove the default button border */
-    background: none; /* Optional: remove the default button background */
-  }
-  
-  
     
   .canvas-container {
     display: flex;
