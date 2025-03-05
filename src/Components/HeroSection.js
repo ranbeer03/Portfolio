@@ -24,7 +24,7 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="portfolio-header">
-        <h1>Welcome</h1>
+        <h1 style={{zIndex:'101', position:'relative'}}>Welcome</h1>
         <h1 className="typing-effect">{magicNameHook}</h1>
       </div>
       
