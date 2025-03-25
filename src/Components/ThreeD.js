@@ -3,19 +3,19 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import LoadingBar from './LoadingBar';
 import { Html } from '@react-three/drei';
-import { cards } from '../Pages/GalleryPage';
+import { artData } from './Data';
 import './ThreeD.css'
 
 const ThreeD = () => {
-    const [selectedCard, setSelectedCard] = useState(cards.find(card => card.name === 'BEAUTY IN BLOOM'));
+    const [selectedCard, setSelectedCard] = useState(artData.find(card => card.name === 'BEAUTY IN BLOOM'));
 
   const handleCardClick = (card) => {
     setSelectedCard(card);
   };
 
   return (
-    <div className="main-container">
-      <div className="header">
+    // <div className="main-container">
+      {/* <div className="header">
         <span className="background-title">Artwork</span>
         <span className="overlay-title">3-D</span>
       </div>
@@ -61,7 +61,7 @@ const ThreeD = () => {
 
 
 
-    </div>
+    </div> */}
   );
 }
 

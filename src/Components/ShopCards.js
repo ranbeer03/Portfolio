@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Card from '../Components/Cards';
-import { cards } from "../Pages/GalleryPage";
+import { artData } from './Data';
 import '../App.css';
 import './ShopCards.css'
 
@@ -43,9 +43,39 @@ const sectionConfig = {
 };
 
 const ShopCards = ({ activeSection }) => {
+
+  useEffect(() => {
+    const containers = document.querySelectorAll('.row-container');
+
+    containers.forEach(container => {
+      container.addEventListener('wheel', handleHorizontalScroll, { passive: false });
+    });
+
+    function handleHorizontalScroll(e) {
+      const container = e.currentTarget;
+      const delta = e.deltaY;
+
+      const atStart = container.scrollLeft === 0;
+      const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
+
+      if ((delta < 0 && !atStart) || (delta > 0 && !atEnd)) {
+        // Scroll horizontally instead
+        e.preventDefault();
+        container.scrollLeft += delta;
+      }
+      // Otherwise, allow vertical scroll to resume
+    }
+
+    return () => {
+      containers.forEach(container => {
+        container.removeEventListener('wheel', handleHorizontalScroll);
+      });
+    };
+  }, [activeSection]);
+
   // Filter cards based on the activeSection field
   const getFilteredCards = (filterType) => {
-    return cards.filter(card => card[activeSection] === filterType);
+    return artData.filter(card => card[activeSection] === filterType);
   };
 
   // Get the config for the current active section
@@ -60,7 +90,8 @@ const ShopCards = ({ activeSection }) => {
           <div  className='row-container'>
             {filteredCards.map((card) => (
                 <div  className='cards-container' key={card.id || card.name}>
-                  <Card {...card} />
+                 <Card key={card.id} id={card.id} {...card} />
+
                 </div>
             ))}
           </div>

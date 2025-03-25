@@ -60,12 +60,12 @@ const HomePage = () => {
             zIndex: 1,
           }}>
             <Canvas >
-              <Scene progress={progress}/>
+              {/* <Scene progress={progress}/> */}
             </Canvas>
           </div>
       <HeroSection/>
       <Portfolio/>
-      <ThreeD/>
+      {/* <ThreeD/> */}
       <AboutMe/>
 
 

@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import Modal from 'react-modal';
 import './Portfolio.css';
-import { cards } from '../Pages/GalleryPage';
+import { artData } from './Data';
 
 const categories = [
   "All",
@@ -20,8 +20,8 @@ function Portfolio() {
   const handleCategoryClick = (medium) => setActiveCategory(medium);
 
   const filteredImages = activeCategory === "all"
-    ? cards
-    : cards.filter(image => image.medium === activeCategory);
+    ? artData
+    : artData.filter(image => image.medium === activeCategory);
 
   const handleImageClick = (image) => {
       setSelectedImage(image);

@@ -10,6 +10,8 @@ import AboutPage from './Pages/AboutPage';
 import GalleryPage from './Pages/GalleryPage';
 import ContactPage from './Pages/ContactPage';
 import ScrollToTop from './Components/ScrollToTop';
+import ProductPage from './Pages/ProductPage';
+
 import './App.css';
 import Scene from "./Scene";
 
@@ -58,24 +60,14 @@ function App() {
       <div className="App">
         <Navbar />
         <ScrollToTop />
-        {/*<div ref={sceneRef} style={{*/}
-        {/*  position: 'fixed',*/}
-        {/*  top: 80,*/}
-        {/*  left: 0,*/}
-        {/*  width: '100vw',*/}
-        {/*  height: '100vh',*/}
-        {/*  zIndex: 1*/}
-        {/*}}>*/}
-        {/*  <Canvas>*/}
-        {/*    <Scene progress={progress}/>*/}
-        {/*  </Canvas>*/}
-        {/*</div>*/}
+
         <Routes>
 
           <Route path="/" element={<HomePage/>}/>
           <Route path="/about" element={<AboutPage/>}/>
           <Route path="/gallery" element={<GalleryPage/>}/>
           <Route path="/contact" element={<ContactPage/>}/>
+          <Route path="/product/:id" element={<ProductPage/>}/>
         </Routes>
         <Footer />
       </div>

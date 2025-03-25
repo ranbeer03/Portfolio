@@ -1,6 +1,8 @@
-import React, { Suspense, useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import React, { useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { useNavigate } from 'react-router-dom';
+import '../Pages/GalleryPage.css'; 
+import '../App.css'
 import './Card.css';
 
 const ModelWrapper = ({ model: Model3D }) => {
@@ -15,7 +17,12 @@ const ModelWrapper = ({ model: Model3D }) => {
   return <Model3D ref={modelRef} />;
 }
 
-const Card = ({ name, description, imageUrl, size, medium, style, sizeRange, subjectMatter, Model3D }) => {
+const Card = ({ id, name, description, imageUrl, size, medium, sizeRange, subjectMatter, Model3D }) => {
+  
+  const navigate = useNavigate();
+  const handleBuyClick = () => {
+    navigate(`/product/${id}`);
+  };
   return (
       <div className="card2">
           <img src={imageUrl} alt={name} className="card-image" />
@@ -26,7 +33,7 @@ const Card = ({ name, description, imageUrl, size, medium, style, sizeRange, sub
         {/*  <p className="card-description">{description}</p>*/}
         {/*  <p className="card-description">Medium: {medium}</p>*/}
         {/*</div>*/}
-        <button>Buy</button>
+        <button className='scroll-button' onClick={handleBuyClick}>Buy</button>
       </div>
   );
 };
