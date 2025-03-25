@@ -17,6 +17,8 @@ import Flower from '../Components/3DModels/Flower';
 import PinkSky from '../Components/3DModels/PinkSky';
 import './GalleryPage.css'; 
 import '../App.css'
+import ShopCards from "../Components/ShopCards";
+
 
 export const cards = [
   {
@@ -36,7 +38,7 @@ export const cards = [
     imageUrl: "./Images/3Women.jpg",
     size: "5.3 x 8.3 inches",
     medium: "acrylics",
-    type: 'abstract', 
+    type: 'abstract',
     sizeRange: 'large',
     subjectMatter: 'portrait',
     Model3D: ThreeWomen
@@ -59,7 +61,7 @@ export const cards = [
     size: "12 x 10 inches",
     medium: "acrylics",
     type: 'abstract',
-    sizeRange: 'medium', 
+    sizeRange: 'medium',
     subjectMatter: 'portrait',
     Model3D: Simpson
   },
@@ -70,7 +72,7 @@ export const cards = [
     size: "24 x 16 inches",
     medium: "charcoal",
     type: 'realistic' ,
-    sizeRange: 'large', 
+    sizeRange: 'large',
     subjectMatter: 'portrait',
     Model3D: SanjayDutt
   },
@@ -81,7 +83,7 @@ export const cards = [
     size: "24 x 16 inches",
     medium: "charcoal",
     type: 'realistic' ,
-    sizeRange: 'large', 
+    sizeRange: 'large',
     subjectMatter: 'portrait',
     Model3D: Norman
   },
@@ -91,7 +93,7 @@ export const cards = [
     imageUrl: "./Images/BlueGalaxy.jpg",
     size: "4 x 4 inches",
     medium: "acrylics",
-    type:'surrealistic', 
+    type:'surrealistic',
     sizeRange:'small',
     subjectMatter:'nature',
     Model3D: BlueGalaxy
@@ -147,7 +149,7 @@ export const cards = [
     size: "5.3 x 8.3 inches",
     medium: "water-colors",
     type: 'abstract',
-    sizeRange: 'medium', 
+    sizeRange: 'medium',
     subjectMatter: 'nature',
     Model3D: Fox
   },
@@ -190,14 +192,11 @@ const GalleryPage = () => {
 
   const [activeButton, setActiveButton] = useState("medium");
 
-  
-
   // Get filtered cards based on active button
   const getFilteredCards = (filterType) => {
     return cards.filter(card => card[activeButton] === filterType);
   }
 
-  // Render cards
   const renderCards = (filterType) => {
     return getFilteredCards(filterType).map((card, index) => (
       <div className='cards'>
@@ -220,8 +219,7 @@ const GalleryPage = () => {
   return (
   <div className="Gallery">
     <div className="header">
-      <span className="background-title">ARTWORK</span>
-      <span className="overlay-title">Gallery</span>
+      <span className="background-title">Shop</span>
     </div>
 
     <div className="label-button-container">
@@ -232,89 +230,7 @@ const GalleryPage = () => {
     </div>
 
 
-    <div className='main-main-container'>
-      {activeButton === "medium" && (
-        <div className='main-container'>
-          <div className="button-container">
-            <a href="#acrylics" className="scroll-button">Acrylics </a>
-            <a href="#poster-colors" className="scroll-button">Poster Colors</a>
-            <a href="#water-colors" className="scroll-button">Water Colors</a>
-            <a href="#charcoal" className="scroll-button">Charcoal</a>
-          </div>
-
-          <div className='card-container'> 
-            <h3 className='main-heading' id="acrylics">Acrylics</h3>
-            <div className='cards-container'>
-              {renderCards('acrylics')}
-            </div>
-            <h3 className='main-heading' id="poster-colors">Poster Colors</h3>
-            {renderCards('poster-colors')}
-            <h3 className='main-heading' id="water-colors">Water Colors</h3>
-            {renderCards('water-colors')}
-            <h3 className='main-heading' id="charcoal">Charcoal</h3>
-            {renderCards('charcoal')}
-          </div>
-        </div>
-      )}
-      {activeButton === "type" && (
-        <div className='main-container'>
-          <div className="button-container">
-            <a href="#abstract" className="scroll-button">Abstract</a>           
-            <a href="#realistic" className="scroll-button">Realistic</a>           
-            <a href="#surrealistic" className="scroll-button">Surrealistic</a>          
-            <a href="#minimalistic" className="scroll-button">Minimalistic</a>            
-          </div>
-          
-          <div className='card-container'> 
-            <h3 className='main-heading' id="abstract">Abstracts</h3>
-            {renderCards('abstract')}
-            <h3 className='main-heading' id="realistic">Realistic</h3>
-            {renderCards('realistic')}
-            <h3 className='main-heading' id="surrealistic">Surrealistic</h3>
-            {renderCards('surrealistic')}
-            <h3 className='main-heading' id="minimalistic">Minimalistic</h3>
-            {renderCards('minimalistic')}
-          </div>
-        </div>
-      )}
-      {activeButton === "sizeRange" && (
-        <div className='main-container'>
-          <div className="button-container">
-            <a href="#small" className="scroll-button">Small</a>
-            <a href="#medium-size" className="scroll-button">Medium</a>
-            <a href="#large" className="scroll-button">Large</a>
-            <a href="#extra-large" className="scroll-button">Extra Large</a>
-          </div>
-          <div className='card-container'> 
-            <h3 className='main-heading' id="small">Small</h3>
-            {renderCards('small')}
-            <h3 className='main-heading' id="medium-size">Medium</h3>
-            {renderCards('medium')}
-            <h3 className='main-heading' id="large">Large</h3>
-            {renderCards('large')}
-            <h3 className='main-heading' id="extra-large">Extra Large</h3>
-            {renderCards('extra-large')}
-          </div>
-        </div>
-      )}
-      {activeButton === "subjectMatter" && (
-        <div className='main-container'>
-          <div className="button-container">
-            <a href="#portrait" className="scroll-button">Portrait</a>
-            <a href="#nature" className="scroll-button">Nature</a>
-            <a href="#abstract" className="scroll-button">Abstract</a>
-          </div>
-          <div className='card-container'> 
-            <h3 className='main-heading' id="portrait">Portrait</h3>
-            {renderCards('portrait')}
-            <h3 className='main-heading' id="nature">Nature</h3>
-            {renderCards('nature')}
-            <h3 className='main-heading' id="abstract">Abstract</h3>
-            {renderCards('abstract')}
-          </div>
-        </div>
-      )}
-    </div>
+    <ShopCards activeSection={activeButton}/>
     </div>
   );
 }

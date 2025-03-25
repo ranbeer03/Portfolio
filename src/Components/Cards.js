@@ -17,20 +17,17 @@ const ModelWrapper = ({ model: Model3D }) => {
 
 const Card = ({ name, description, imageUrl, size, medium, style, sizeRange, subjectMatter, Model3D }) => {
   return (
-    <div className="card">
-      <div className="card-content">
-        <div className="card-left">
+      <div className="card2">
           <img src={imageUrl} alt={name} className="card-image" />
-          <p className="card-size">Size: {size}</p>
-        </div>
-        
-        <div className='card-right'>
-          <h2 className="card-name">{name}</h2>
-          <p className="card-description">{description}</p>
-          <p className="card-description">Medium: {medium}</p>
-        </div>
+          <p className="card-size">{name}</p>
+
+        {/*<div className='card-right'>*/}
+        {/*  <h2 className="card-name">{name}</h2>*/}
+        {/*  <p className="card-description">{description}</p>*/}
+        {/*  <p className="card-description">Medium: {medium}</p>*/}
+        {/*</div>*/}
+        <button>Buy</button>
       </div>
-    </div>
   );
 };
 

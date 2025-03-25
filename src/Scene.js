@@ -19,7 +19,9 @@ const Scene = ({progress}) => {
       const positions = [
           [30,15,15],
           [-30,40,30],
-          [-30,20,-30]
+          [-30,20,-30],
+          [50,60,20],
+          [20,20,30]
       ];
 
       if(progress >=1 ){
@@ -32,15 +34,16 @@ const Scene = ({progress}) => {
         })
       }
       else {
-        const segmentProgress = 1/5;
+        const segmentProgress = 1/4;
         const segmentIndex = Math.floor(progress/segmentProgress);
+        console.log(segmentIndex);
         const percentage=(progress%segmentProgress)/segmentProgress;
         const [startX,startY,startZ] = positions[segmentIndex];
         const [endX,endY,endZ]=positions[segmentIndex + 1];
         const x=startX+(endX-startX)*percentage;
         const y= startY+(endY-startY)*percentage;
         const z= startZ+(endZ-startZ)*percentage;
-
+        console.log("x :" + x, "Y: " + y, "Z: " + z, "Progress: " + progress)
         gsap.to(cameraRef.current.position,{
           x:x,
           y:y,
@@ -55,7 +58,7 @@ const Scene = ({progress}) => {
   },[progress, cameraRef.current])
   return(
       <>
-        {/*<OrbitControls/>*/}
+
         <PerspectiveCamera
             ref={cameraRef}
             fov={60}
@@ -63,9 +66,10 @@ const Scene = ({progress}) => {
             far={10000}
             makeDefault
             position={[-30,20,-30]}
+
         />
         <Environment preset="city" />
-        <PracticeGallery />
+        <PracticeGallery/>
       </>
   )
 }

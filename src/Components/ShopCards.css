@@ -1,0 +1,36 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.card-container {
+  max-width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.row-container {
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+}

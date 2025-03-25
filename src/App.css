@@ -1,7 +1,7 @@
 .App {
+  position: relative;
   background-color: whitesmoke;
   text-align: left;
-  font-family: 'Cormorant Garamond', serif;
 }
 
 .App-logo {

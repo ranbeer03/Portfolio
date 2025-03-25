@@ -9,7 +9,7 @@
   width: 100%;
   margin: auto;
 
-  background-image: url('../Images/TwoDoor.png');
+  /*background-image: url('../Images/TwoDoor.png');*/
   background-repeat: repeat-x;
   background-size: contain;
   padding: 2em;

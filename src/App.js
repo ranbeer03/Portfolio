@@ -54,33 +54,33 @@ function App() {
   },[])
 
   return (
-      <main ref={mainRef}>
-    <Router>
+      <Router >
       <div className="App">
         <Navbar />
         <ScrollToTop />
-        <div ref={sceneRef} style={{
-          position: 'fixed',
-          top: 80,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          zIndex: 1
-        }}>
-          <Canvas>
-            <Scene progress={progress}/>
-          </Canvas>
-        </div>
+        {/*<div ref={sceneRef} style={{*/}
+        {/*  position: 'fixed',*/}
+        {/*  top: 80,*/}
+        {/*  left: 0,*/}
+        {/*  width: '100vw',*/}
+        {/*  height: '100vh',*/}
+        {/*  zIndex: 1*/}
+        {/*}}>*/}
+        {/*  <Canvas>*/}
+        {/*    <Scene progress={progress}/>*/}
+        {/*  </Canvas>*/}
+        {/*</div>*/}
         <Routes>
 
           <Route path="/" element={<HomePage/>}/>
           <Route path="/about" element={<AboutPage/>}/>
           <Route path="/gallery" element={<GalleryPage/>}/>
+          <Route path="/contact" element={<ContactPage/>}/>
         </Routes>
         <Footer />
       </div>
-    </Router>
-      </main>
+
+      </Router>
   );
 }
 
