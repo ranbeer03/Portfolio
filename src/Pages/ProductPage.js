@@ -37,61 +37,89 @@ const ProductPage = () => {
       <div className="product-content">
         {/* Left Section: Title and Image */}
         <div className="product-image-section">
-          <h1 className="product-title">{product.name}</h1>
           <img src={product.imageUrl} alt={product.name} className="product-image" />
         </div>
 
         {/* Right Section: Details and Selectors */}
         <div className="product-details-section">
+          <h1 className="product-title">{product.name}</h1>
           <p className="product-description">{product.description}</p>
           <p><strong>Size:</strong> {product.size}</p>
           <p><strong>Medium:</strong> {product.medium}</p>
           <p><strong>Size Range:</strong> {product.sizeRange}</p>
           <p><strong>Subject Matter:</strong> {product.subjectMatter}</p>
-          
           <div className="selector-section">
-            <label htmlFor="type-selector">Type:</label>
-            <select 
-              id="type-selector"
-              value={productType} 
-              onChange={(e) => setProductType(e.target.value)}
-            >
-              <option value="original">Original</option>
-              <option value="print">Print</option>
-            </select>
+            <label>Type:</label>
+            <div className="button-group">
+              <button
+                  className={productType === 'original' ? 'selected' : ''}
+                  onClick={() => setProductType('original')}
+                  type="button"
+              >
+                Original
+              </button>
+              <button
+                  className={productType === 'print' ? 'selected' : ''}
+                  onClick={() => setProductType('print')}
+                  type="button"
+              >
+                Print
+              </button>
+            </div>
           </div>
 
           {productType === 'original' ? (
-            <div className="selector-section">
-              <label htmlFor="frame-selector">Frame Option:</label>
-              <select 
-                id="frame-selector"
-                value={frameOption} 
-                onChange={(e) => setFrameOption(e.target.value)}
-              >
-                <option value="framed">Framed</option>
-                <option value="notFramed">Not Framed</option>
-              </select>
-            </div>
+              <div className="selector-section">
+                <label>Frame Option:</label>
+                <div className="button-group">
+                  <button
+                      className={frameOption === 'framed' ? 'selected' : ''}
+                      onClick={() => setFrameOption('framed')}
+                      type="button"
+                  >
+                    Framed
+                  </button>
+                  <button
+                      className={frameOption === 'notFramed' ? 'selected' : ''}
+                      onClick={() => setFrameOption('notFramed')}
+                      type="button"
+                  >
+                    Not Framed
+                  </button>
+                </div>
+              </div>
           ) : (
-            <div className="selector-section">
-              <label htmlFor="size-selector">Print Size:</label>
-              <select 
-                id="size-selector"
-                value={printSize} 
-                onChange={(e) => setPrintSize(e.target.value)}
-              >
-                <option value="A5">A5</option>
-                <option value="A4">A4</option>
-                <option value="A3">A3</option>
-              </select>
-            </div>
+              <div className="selector-section">
+                <label>Print Size:</label>
+                <div className="button-group">
+                  <button
+                      className={printSize === 'A5' ? 'selected' : ''}
+                      onClick={() => setPrintSize('A5')}
+                      type="button"
+                  >
+                    A5
+                  </button>
+                  <button
+                      className={printSize === 'A4' ? 'selected' : ''}
+                      onClick={() => setPrintSize('A4')}
+                      type="button"
+                  >
+                    A4
+                  </button>
+                  <button
+                      className={printSize === 'A3' ? 'selected' : ''}
+                      onClick={() => setPrintSize('A3')}
+                      type="button"
+                  >
+                    A3
+                  </button>
+                </div>
+              </div>
           )}
 
-          <div className="button-group">
-            <button className="buy-now-button">Buy Now</button>
-            <button className="add-to-basket-button">Add to Basket</button>
-          </div>
+
+            <button className="scroll-button">Buy Now</button>
+            <button className="scroll-button">Add to Basket</button>
         </div>
       </div>
     </div>

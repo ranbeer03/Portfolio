@@ -1,5 +1,5 @@
 .product-page {
-    margin-top: 50px;
+    margin-top: 70px;
     padding: 2rem;
     font-family: Arial, sans-serif;
   }
@@ -23,16 +23,20 @@
   }
   
   .product-image-section {
+    max-height: 80vh;
+    display: flex;
     flex: 1 1 40%;
+    align-items: center;
+    justify-content: center;
   }
-  
+
   .product-title {
     margin-bottom: 1rem;
   }
-  
+
   .product-image {
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
@@ -65,23 +69,24 @@
     gap: 1rem;
     margin-top: 1.5rem;
   }
-  
-  .buy-now-button,
-  .add-to-basket-button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .buy-now-button {
-    background-color: #007BFF;
-    color: white;
-  }
-  
-  .add-to-basket-button {
-    background-color: #28A745;
-    color: white;
-  }
-  
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.button-group button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.button-group button.selected {
+  background: black;
+  color: white;
+  border-color: black;
+}

@@ -2,7 +2,7 @@ export const artData = [
     {
       id: 1,
       name: "BEAUTY IN BLOOM",
-      description: "This piece of art exists within its true bohemian element...",
+      description: "This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element",
       imageUrl: "/Images/BeautyInBloom.jpg",
       size: "19 X 16 inches",
       medium: "acrylics",
