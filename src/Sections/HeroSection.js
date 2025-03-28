@@ -1,0 +1,24 @@
+import React, { Suspense, useState, useEffect } from 'react';
+import useTypewriter from 'react-typewriter-hook';
+import './HeroSection.css';
+
+const Hero = () => {
+  return (
+      <div className="container">
+        <div className="hero-content">
+          <h1 className ="hero-header">
+            Ranbeer Chaudhary
+          </h1>
+          <h2>Artist / Painter / Creative</h2>
+          <p>
+            Welcome to my portfolio, a place where traditional artistry fuses
+            with the innovation of the digital world.
+            I navigate the canvas of both classic and modern art, transcending
+            the conventional boundaries of art.
+          </p>
+        </div>
+      </div>
+  );
+}
+
+export default Hero;

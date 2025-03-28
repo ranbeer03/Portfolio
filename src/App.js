@@ -56,13 +56,11 @@ function App() {
   },[])
 
   return (
-      <Router >
+    <Router >
       <div className="App">
         <Navbar />
         <ScrollToTop />
-
         <Routes>
-
           <Route path="/" element={<HomePage/>}/>
           <Route path="/about" element={<AboutPage/>}/>
           <Route path="/gallery" element={<GalleryPage/>}/>
@@ -71,8 +69,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
-
-      </Router>
+    </Router>
   );
 }
 

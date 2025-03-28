@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import Modal from 'react-modal';
 import './Portfolio.css';
-import { artData } from './Data';
+import { artData } from '../Data/Data';
 
 const categories = [
   "All",

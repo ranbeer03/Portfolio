@@ -6,10 +6,7 @@ function Contact() {
   return (
     <div className='contact'>
       
-      <div className="header">
-        <span className="background-title">CONTACT</span>
-        <span className="overlay-title">Get In Touch</span>
-      </div>
+      <h1 className='page-header'>Contact</h1>
 
       <div className='content'>
         <div className='info'>

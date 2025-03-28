@@ -1,9 +1,9 @@
 import React from 'react';
 import './AboutPage.css'; 
-import AboutMe from '../Components/AboutMe';
-import Services from '../Components/Services';
-import Resume from '../Components/Resume';
-import Contact from '../Components/Contact';
+import AboutMe from '../Sections/AboutMe';
+import Services from '../Sections/Services';
+import Resume from '../Sections/Resume';
+import Contact from '../Sections/Contact';
 
 const AboutPage = () => {
   return (

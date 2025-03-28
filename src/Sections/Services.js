@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaPaintBrush, FaLaptopCode, FaMagic, FaMobileAlt, FaLightbulb, FaChartLine } from "react-icons/fa";
-import './Services.css';
-
+import './Services.css'
 const Services = () => {
 
     const services = [

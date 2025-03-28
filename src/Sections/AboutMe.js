@@ -10,11 +10,7 @@ const AboutMe = () => {
     }
   return (
     <div className="aboutMe">
-      <div className="header">
-        <span className="background-title">ABOUT ME</span>
-        <span className="overlay-title">Know Me More</span>
-      </div>
-
+      <h1 className="page-header">About Me</h1>
       <div className="description">
         <div className="desc-text">
           <h2>I'm <span class="highlight">Ranbeer Chaudhary,</span> a Software Engineer and Artist.</h2>

@@ -1,9 +1,9 @@
 import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import LoadingBar from './LoadingBar';
+import LoadingBar from '../Components/LoadingBar';
 import { Html } from '@react-three/drei';
-import { artData } from './Data';
+import { artData } from '../Data/Data';
 import './ThreeD.css'
 
 const ThreeD = () => {

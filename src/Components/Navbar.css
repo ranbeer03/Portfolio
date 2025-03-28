@@ -1,27 +1,24 @@
 .nav-container {
   position: fixed;
-  top: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  width:100vw;
+  justify-content: center;
+  width:100%;
   z-index: 1000;
-
 }
 
 .nav{
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width:95vw;
   color: #ffffff;
+  border-radius: 50px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.5);
-  width:95%;
-  border-radius: 50px;
-  z-index: 1000;
-  margin: 10px 10px;
+  margin-top: 25px;
 }
 
 .logo-title-container {

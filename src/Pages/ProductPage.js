@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { artData } from '../Components/Data';
+import { artData } from '../Data/Data';
 import './ProductPage.css';
 
 const ProductPage = () => {
