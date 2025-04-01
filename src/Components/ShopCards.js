@@ -57,7 +57,7 @@ const ShopCards = ({ activeSection }) => {
     const filteredCards = getFilteredCards(option.id);
     return (
         <div className={"main-container"} key={option.id}>
-          <h3 className='main-heading' id={option.id}>{option.label}</h3>
+          <h3 id={option.id}>{option.label}</h3>
           <div  className='row-container'>
             {filteredCards.map((card) => (
                 <div  className='cards-container' key={card.id || card.name}>
@@ -83,7 +83,7 @@ const ShopCards = ({ activeSection }) => {
                 </a>
             ))}
           </div>
-          <div className='card-container'>
+          <div className='cards-container'>
             {section.options.map(renderCardsForOption)}
           </div>
         </div>

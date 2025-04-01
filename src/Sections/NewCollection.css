@@ -1,0 +1,26 @@
+.new-collection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:30%;
+    opacity: 0.99;
+    height: 80vh;
+}
+
+.header{
+    font-size: 3em;
+    width: 100%;
+    text-align: center;
+}
+
+.art-info-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+}
+
+.art-info{
+    width: 25%;
+}

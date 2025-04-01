@@ -1,5 +1,5 @@
 .home {
-  padding: 4em;
+  padding: 0em 4em;
   text-align: center;
   width: 100%;
   margin: auto;
@@ -18,11 +18,4 @@
 .recent-artworks p {
   color: #777;
   margin-bottom: 2em;
-}
-
-.card-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2em;
 }
