@@ -15,6 +15,7 @@ const Scene = ({ progress, sectionsWithSettings, hoveredButton, clickedButton })
   const [showModel, setShowModel] = useState(true);
   const lastLoggedSectionRef = useRef("");
 
+
   const spotlightMapping = {
     "Pop Art": {
       position: [-10.24, 2.11, 3.85],
@@ -31,41 +32,54 @@ const Scene = ({ progress, sectionsWithSettings, hoveredButton, clickedButton })
   };
 
   // Compute camera settings based on scroll progress using trigger values.
-  const computeScrollPositions = () => {
-    if (sectionsWithSettings && sectionsWithSettings.length > 0) {
-      const triggers = sectionsWithSettings.map(s => s.trigger);
-      
-      if (progress <= triggers[0]) {
-        return { pos: sectionsWithSettings[0].position, target: sectionsWithSettings[0].target };
-      }
-      if (progress >= triggers[triggers.length - 1]) {
-        return {
-          pos: sectionsWithSettings[sectionsWithSettings.length - 1].position,
-          target: sectionsWithSettings[sectionsWithSettings.length - 1].target,
-        };
-      }
-      
-      let lowerIndex = 0;
-      for (let i = 0; i < triggers.length - 1; i++) {
-        if (progress >= triggers[i] && progress < triggers[i + 1]) {
-          lowerIndex = i;
-          break;
-        }
-      }
-      const upperIndex = lowerIndex + 1;
-      const localProgress = (progress - triggers[lowerIndex]) / (triggers[upperIndex] - triggers[lowerIndex]);
-      
-      const pos = sectionsWithSettings[lowerIndex].position.map((start, i) =>
-        start + (sectionsWithSettings[upperIndex].position[i] - start) * localProgress
-      );
-      const target = sectionsWithSettings[lowerIndex].target.map((start, i) =>
-        start + (sectionsWithSettings[upperIndex].target[i] - start) * localProgress
-      );
-      
-      return { pos, target };
+// Compute camera settings based on scroll progress using trigger values.
+const computeScrollPositions = () => {
+  if (sectionsWithSettings && sectionsWithSettings.length > 0) {
+    const triggers = sectionsWithSettings.map(s => s.trigger);
+
+    // When progress is before the first section's trigger.
+    if (progress <= triggers[0]) {
+      return {
+        pos: sectionsWithSettings[0].position,
+        target: sectionsWithSettings[0].target,
+      };
     }
-    return { pos: [2.76, 1.81, 3.67], target: [-10.24, 2.1, 8.9] };
-  };
+    // When progress is beyond the last section's trigger.
+    if (progress >= triggers[triggers.length - 1]) {
+      return {
+        pos: sectionsWithSettings[sectionsWithSettings.length - 1].position,
+        target: sectionsWithSettings[sectionsWithSettings.length - 1].target,
+      };
+    }
+
+    // Find the current interval.
+    let lowerIndex = 0;
+    for (let i = 0; i < triggers.length - 1; i++) {
+      if (progress >= triggers[i] && progress < triggers[i + 1]) {
+        lowerIndex = i;
+        break;
+      }
+    }
+    const upperIndex = lowerIndex + 1;
+    const localProgress =
+      (progress - triggers[lowerIndex]) / (triggers[upperIndex] - triggers[lowerIndex]);
+
+    // Only animate in the first 30% of the local progress.
+    const animationProgress = localProgress > 0.5 ? (localProgress - 0.5) / 0.5 : 0;
+
+    const pos = sectionsWithSettings[lowerIndex].position.map((start, i) =>
+      start + (sectionsWithSettings[upperIndex].position[i] - start) * animationProgress
+    );
+    const target = sectionsWithSettings[lowerIndex].target.map((start, i) =>
+      start + (sectionsWithSettings[upperIndex].target[i] - start) * animationProgress
+    );
+
+    return { pos, target };
+  }
+  // Fallback positions.
+  return { pos: [2.76, 1.81, 3.67], target: [-10.24, 2.1, 8.9] };
+};
+
 
   // Determine the current section index based on the closest trigger.
   const getCurrentSectionIndex = () => {
@@ -93,14 +107,14 @@ const Scene = ({ progress, sectionsWithSettings, hoveredButton, clickedButton })
         x: pos[0],
         y: pos[1],
         z: pos[2],
-        ease: "power.out", 
+        ease: "customScroll", 
       });
       gsap.to(controlsRef.current.target, {
         duration: 0.5,
         x: target[0],
         y: target[1],
         z: target[2],
-        ease: "power.out",
+        ease: "customScroll",
         onUpdate: () => {
           controlsRef.current.update();
         },
