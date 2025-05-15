@@ -1,21 +1,26 @@
 // HomePage.js
 import React, { useEffect, useRef, useState } from "react";
-import "./HomePage.css";
+import { Canvas } from "@react-three/fiber";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import Scene from "../Scene";
+
 import HeroSection from "../Sections/HeroSection";
 import AboutMe from "../Sections/AboutMe";
 import NewCollection from "../Sections/NewCollection";
-import Portfolio from "../Sections/Portfolio";
-import Scene from "../Scene";
-import { Canvas } from "@react-three/fiber";
-import { gsap } from "gsap";
 import CollectionExplorer from "../Sections/CollectionExplorer";
 import Contact from "../Sections/Contact";
+
+import "./HomePage.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HomePage = () => {
   const mainRef = useRef(null);
   const sceneRef = useRef(null);
 
-  // Create refs for each section.
+  // Create refs for sections
   const heroRef = useRef(null);
   const newCollectionRef = useRef(null);
   const collectionExplorerRef = useRef(null);
@@ -25,29 +30,13 @@ const HomePage = () => {
 
   // Global scroll progress (0 to 1)
   const [progress, setProgress] = useState(0);
-  // Array to hold each section’s computed boundaries and settings.
+  // Array to hold each section’s computed boundaries and settings
   const [sectionsWithSettings, setSectionsWithSettings] = useState([]);
-  // State for hovered and clicked buttons.
+  // State for hovered and clicked buttons
   const [hoveredButton, setHoveredButton] = useState(null);
   const [clickedButton, setClickedButton] = useState(null);
 
-  // Setup GSAP ScrollTrigger to update global progress.
-  useEffect(() => {
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: mainRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1,
-        onUpdate: (self) => {
-          setProgress(self.progress);
-        },
-      },
-    });
-  }, []);
-
-  // Define settings for each section: ref, camera position, target, name, and whether to show the model.
-  const sectionSettings = [
+  const sectionCameraViews = [
     {
       name: "Hero",
       ref: heroRef,
@@ -92,33 +81,67 @@ const HomePage = () => {
     },
   ];
 
-  // After render, compute a trigger value for each section.
+  // Setup GSAP ScrollTrigger to update global progress.
   useEffect(() => {
-    const sections = sectionSettings.map((s) => s.ref.current);
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: mainRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+        onUpdate: (self) => {
+          setProgress(self.progress);
+        },
+      },
+    });
+  }, []);
+
+  // After render, compute trigger values for each section.
+  useEffect(() => {
+    const sections = sectionCameraViews.map((s) => s.ref.current);
     const totalHeight = mainRef.current.scrollHeight - window.innerHeight;
-    // Compute the normalized scroll progress at which the section's center aligns with the viewport center.
+    // Compute the normalized scroll progress at which the section's center aligns with the viewport center
     const computedTriggers = sections.map((section) => {
       const offsetTop = section.offsetTop;
-      const height = section.offsetHeight;
-      const trigger = (offsetTop + height / 2 - window.innerHeight / 2) / totalHeight;
+      const height = section.offsetHeight ;
+      const trigger = (offsetTop + height / 2 - window.innerHeight ) / totalHeight;
       return trigger;
     });
 
     // Merge the computed trigger with each section’s camera settings.
     const merged = computedTriggers.map((trigger, idx) => ({
       trigger,
-      position: sectionSettings[idx].position,
-      target: sectionSettings[idx].target,
-      name: sectionSettings[idx].name,
-      showModel: sectionSettings[idx].showModel,
+      position: sectionCameraViews[idx].position,
+      target: sectionCameraViews[idx].target,
+      name: sectionCameraViews[idx].name,
+      showModel: sectionCameraViews[idx].showModel,
     }));
     setSectionsWithSettings(merged);
+  }, []);
+  
+
+  // Setup ScrollTrigger to pin NewCollection section
+  useEffect(() => {
+    const newCollectionElement = newCollectionRef.current;
+    if (newCollectionElement) {
+      ScrollTrigger.create({
+        trigger: newCollectionElement,
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: false,
+        markers: true, 
+      });
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   return (
     <>
       <main ref={mainRef}>
-        {/* The 3D canvas is fixed in the background */}
         <div
           className="home"
           ref={sceneRef}
@@ -139,20 +162,13 @@ const HomePage = () => {
             />
           </Canvas>
         </div>
-        {/* The scrollable content */}
         <div className="home">
           <div ref={heroRef}>
             <HeroSection />
           </div>
-          <div ref={newCollectionRef}>
-            <NewCollection />
-          </div>
-          <div ref={collectionExplorerRef}>
-            <CollectionExplorer
-              onButtonHover={setHoveredButton}
-              onButtonClick={setClickedButton}
-            />
-          </div>
+          <NewCollection ref={newCollectionRef} />
+          <div style={{backgroundColor:"red", height: "100vh", zIndex: "100", display:"flex"}}></div>
+          <CollectionExplorer onButtonHover={setHoveredButton} onButtonClick={setClickedButton} ref={collectionExplorerRef}/>
           <div ref={portfolioRef}>
             <NewCollection />
           </div>

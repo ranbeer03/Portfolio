@@ -65,7 +65,7 @@ const computeScrollPositions = () => {
       (progress - triggers[lowerIndex]) / (triggers[upperIndex] - triggers[lowerIndex]);
 
     // Only animate in the first 30% of the local progress.
-    const animationProgress = localProgress > 0.5 ? (localProgress - 0.5) / 0.5 : 0;
+    const animationProgress = localProgress > 0.6 ? (localProgress - 0.6) / 0.6 : 0;
 
     const pos = sectionsWithSettings[lowerIndex].position.map((start, i) =>
       start + (sectionsWithSettings[upperIndex].position[i] - start) * animationProgress

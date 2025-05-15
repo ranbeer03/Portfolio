@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { artData } from '../Data/Data';
 import './ProductPage.css';
+import ReactImageGallery from 'react-image-gallery';
+
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -11,6 +13,11 @@ const ProductPage = () => {
   const [productType, setProductType] = useState('original');
   const [frameOption, setFrameOption] = useState('framed');
   const [printSize, setPrintSize] = useState('A5');
+
+  const images = Array(5).fill({
+    original: product.imageUrl,
+    thumbnail: product.imageUrl
+  });
 
   const handleBack = () => {
     if (window.history.length > 1) {
@@ -37,7 +44,12 @@ const ProductPage = () => {
       <div className="product-content">
         {/* Left Section: Title and Image */}
         <div className="product-image-section">
-          <img src={product.imageUrl} alt={product.name} className="product-image" />
+        <ReactImageGallery
+          showBullets={false}
+          showFullscreenButton={false}
+          showPlayButton={false}
+          items={images}
+        />
         </div>
 
         {/* Right Section: Details and Selectors */}

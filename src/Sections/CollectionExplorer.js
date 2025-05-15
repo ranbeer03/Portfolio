@@ -1,12 +1,12 @@
 // CollectionExplorer.js
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './CollectionExplorer.css';
 import './NewCollection.css';
 import '../App.css';
 
-const CollectionExplorer = ({ onButtonHover, onButtonClick }) => {
+const CollectionExplorer = forwardRef(({onButtonHover, onButtonClick}, ref ) => {
   return (
-    <div className="collection-explorer-container">
+    <div ref={ref} className="collection-explorer-container">
       <h1 className="header">Explore By Collection</h1>
       <div className="explorer-button-container">
         <button 
@@ -37,6 +37,6 @@ const CollectionExplorer = ({ onButtonHover, onButtonClick }) => {
       </div>
     </div>
   );
-};
+});
 
 export default CollectionExplorer;

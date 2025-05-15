@@ -3,9 +3,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:30%;
-    opacity: 0.99;
-    height: 80vh;
+    opacity: 0.5;
+    gap: 50%;
+    height:100vh;
 }
 
 .header{
