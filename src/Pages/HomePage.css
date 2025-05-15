@@ -7,15 +7,7 @@
   background-size: contain;
 }
 
-.recent-artworks {
-  text-align: center;
-}
-
-.recent-artworks h2 {
-  color: #333;
-}
-
-.recent-artworks p {
-  color: #777;
-  margin-bottom: 2em;
+.pinned-offset-fixer{
+  display: flex;
+  height: 100vh;
 }

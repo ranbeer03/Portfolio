@@ -122,22 +122,31 @@ const HomePage = () => {
 
   // Setup ScrollTrigger to pin NewCollection section
   useEffect(() => {
-    const newCollectionElement = newCollectionRef.current;
-    if (newCollectionElement) {
-      ScrollTrigger.create({
-        trigger: newCollectionElement,
-        start: "top top",
-        end: "bottom top",
-        pin: true,
-        pinSpacing: false,
-        markers: true, 
-      });
-    }
-
+    const elements = [
+      newCollectionRef.current,
+      collectionExplorerRef.current,
+      portfolioRef.current,
+    ];
+  
+    // Filter out any null or undefined refs
+    const triggers = elements
+      .filter(el => el != null)
+      .map(el =>
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top top",
+          end: "bottom top",
+          pin: true,
+          pinSpacing: false,
+          markers: false,
+        })
+      );
+  
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      triggers.forEach(trigger => trigger.kill());
     };
   }, []);
+  
 
   return (
     <>
@@ -163,21 +172,15 @@ const HomePage = () => {
           </Canvas>
         </div>
         <div className="home">
-          <div ref={heroRef}>
-            <HeroSection />
-          </div>
+          <HeroSection ref={heroRef}/>
           <NewCollection ref={newCollectionRef} />
-          <div style={{backgroundColor:"red", height: "100vh", zIndex: "100", display:"flex"}}></div>
+          <div className="pinned-offset-fixer"></div>
           <CollectionExplorer onButtonHover={setHoveredButton} onButtonClick={setClickedButton} ref={collectionExplorerRef}/>
-          <div ref={portfolioRef}>
-            <NewCollection />
-          </div>
-          <div ref={aboutMe2Ref}>
-            <AboutMe />
-          </div>
-          <div ref={contactRef}>
-            <Contact />
-          </div>
+          <div className="pinned-offset-fixer"></div>
+          <NewCollection ref={portfolioRef}/>
+          <div className="pinned-offset-fixer"></div>
+          <AboutMe ref={aboutMe2Ref}/>
+          <Contact ref={contactRef}/>
         </div>
       </main>
     </>

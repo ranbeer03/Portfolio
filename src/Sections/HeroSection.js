@@ -1,10 +1,10 @@
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect, forwardRef } from 'react';
 import useTypewriter from 'react-typewriter-hook';
 import './HeroSection.css';
 
-const Hero = () => {
+const Hero = forwardRef((props, ref) => {
   return (
-      <div className="container">
+      <div ref={ref} className="container">
         <div className="hero-content">
           <h1 className ="hero-header">
             Ranbeer Chaudhary
@@ -19,6 +19,6 @@ const Hero = () => {
         </div>
       </div>
   );
-}
+});
 
 export default Hero;

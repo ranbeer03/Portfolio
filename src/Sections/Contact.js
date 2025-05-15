@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { FaInstagram, FaWhatsapp, FaTwitter } from 'react-icons/fa';
 import './Contact.css'
 
-function Contact() {
+const Contact = forwardRef((props, ref) => {
   return (
-    <div className='contact'>
+    <div ref={ref} className='contact'>
       
       <h1 className='page-header'>Contact</h1>
 
@@ -41,6 +41,6 @@ function Contact() {
       </div>
     </div>
   );
-}
+});
 
 export default Contact;

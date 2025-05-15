@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AboutMe.css';
 
-const AboutMe = () => {
+const AboutMe = forwardRef((props, ref) => {
     const navigate = useNavigate();
   
     const handleKnowMore = () => {
       navigate("/about");
     }
   return (
-    <div className="aboutMe">
+    <div ref={ref} className="aboutMe">
       <h1 className="page-header">About Me</h1>
       <div className="description">
         <div className="desc-text">
@@ -53,6 +53,6 @@ const AboutMe = () => {
 
     </div>
   );
-}
+});
 
 export default AboutMe;
