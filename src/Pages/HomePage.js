@@ -1,8 +1,10 @@
 // HomePage.js
 import React, { useEffect, useRef, useState } from "react";
+import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useProgress, Html } from '@react-three/drei';
 
 import Scene from "../Scene";
 
@@ -13,6 +15,7 @@ import CollectionExplorer from "../Sections/CollectionExplorer";
 import Contact from "../Sections/Contact";
 
 import "./HomePage.css";
+import StackedCards from "../Sections/StackedCards";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,6 +39,11 @@ const HomePage = () => {
   const [hoveredButton, setHoveredButton] = useState(null);
   const [clickedButton, setClickedButton] = useState(null);
 
+  function Loader() {
+    const { progress } = useProgress();
+    return <Html center>{progress.toFixed(0)} % loaded</Html>;
+  }
+  
   const sectionCameraViews = [
     {
       name: "Hero",
@@ -163,12 +171,14 @@ const HomePage = () => {
           }}
         >
           <Canvas style={{ width: "100%", height: "100%" }}>
+          <Suspense fallback={<Loader />}>
             <Scene
               progress={progress}
               sectionsWithSettings={sectionsWithSettings}
               hoveredButton={hoveredButton}
               clickedButton={clickedButton}
             />
+            </Suspense>
           </Canvas>
         </div>
         <div className="home">
@@ -180,6 +190,7 @@ const HomePage = () => {
           <NewCollection ref={portfolioRef}/>
           <div className="pinned-offset-fixer"></div>
           <AboutMe ref={aboutMe2Ref}/>
+          <StackedCards/>
           <Contact ref={contactRef}/>
         </div>
       </main>

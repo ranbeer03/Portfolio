@@ -1,0 +1,33 @@
+.print-card-container{
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+.print-cards{
+    display: flex;
+    position: relative;
+    height: 180px;
+    cursor: pointer;
+}
+
+.print-card{
+    position: absolute;
+    top: 0;
+    width: 180px;
+    height: 160px;
+    background: "white";
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
+.print-card:hover{
+    top: 130;
+    transform: translateY(-130px);
+}

@@ -1,6 +1,6 @@
 export const artData = [
     {
-      id: 1,
+      id: 101,
       name: "BEAUTY IN BLOOM",
       description: "This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element This piece of art exists within its true bohemian element",
       imageUrl: "/Images/BeautyInBloom.jpg",
@@ -11,7 +11,7 @@ export const artData = [
       subjectMatter: 'portrait',
     },
     {
-      id: 2,
+      id: 102,
       name: "EVERY SISTERHOOD HAS RULES",
       description: "This piece of modern art showcases the subtle strength...",
       imageUrl: "/Images/3Women.jpg",
@@ -22,7 +22,7 @@ export const artData = [
       subjectMatter: 'portrait',
     },
     {
-      id: 3,
+      id: 103,
       name: "THE BEETLE",
       description: "This particular piece seeks to capture the sprightly spirit...",
       imageUrl: "/Images/Beetle.jpg",
@@ -33,7 +33,7 @@ export const artData = [
       subjectMatter: 'abstract',
     },
     {
-      id: 4,
+      id: 104,
       name: "THE HUNGRY SIMPSON",
       description: "By utilising an array of vibrant colours, the Hungry Simpson...",
       imageUrl: "/Images/Simpson.jpg",
@@ -44,7 +44,7 @@ export const artData = [
       subjectMatter: 'portrait',
     },
     {
-      id: 5,
+      id: 105,
       name: "SANJAY DUTT",
       description: "This particular piece is a visual representation of an Indian actor...",
       imageUrl: "/Images/SanjayDutt.jpg",
@@ -55,7 +55,7 @@ export const artData = [
       subjectMatter: 'portrait',
     },
     {
-      id: 6,
+      id: 106,
       name: "NORMAN REEDUS",
       description: "This is a realistic portrait of an American actor and model...",
       imageUrl: "/Images/Norman.jpg",
@@ -66,7 +66,7 @@ export const artData = [
       subjectMatter: 'portrait',
     },
     {
-      id: 7,
+      id: 107,
       name: "CELESTIAL TIDE",
       description: "An asterism of stars spills across the night sky...",
       imageUrl: "/Images/BlueGalaxy.jpg",
@@ -77,7 +77,7 @@ export const artData = [
       subjectMatter: 'nature',
     },
     {
-      id: 8,
+      id: 108,
       name: "FALLEN ANGELS",
       description: "This piece of art captures the beauty of a peaceful pink sky...",
       imageUrl: "/Images/PinkSky.jpg",
@@ -88,7 +88,7 @@ export const artData = [
       subjectMatter: 'nature',
     },
     {
-      id: 9,
+      id: 109,
       name: "SHADES OF SPRING",
       description: "This artwork captures the various blazing colors of springtime...",
       imageUrl: "/Images/Flower.jpg",
@@ -99,7 +99,7 @@ export const artData = [
       subjectMatter: 'nature',
     },
     {
-      id: 10,
+      id: 110,
       name: "UNNATURAL BEAUTY",
       description: "This painting embodies an overlap between natural and man-made...",
       imageUrl: "/Images/GoldenLeaf.jpg",
@@ -110,7 +110,7 @@ export const artData = [
       subjectMatter: 'nature',
     },
     {
-      id: 11,
+      id: 111,
       name: "SAPPHIRE SYMPHONY",
       description: "The sapphire flowers in this piece have a little transparency...",
       imageUrl: "/Images/BlueFlower.jpg",
@@ -121,7 +121,7 @@ export const artData = [
       subjectMatter: 'nature',
     },
     {
-      id: 12,
+      id: 112,
       name: "TWO OF A KIND",
       description: "This artwork showcases two foxes trying to to hold onto each other...",
       imageUrl: "/Images/Fox.jpg",
@@ -132,7 +132,7 @@ export const artData = [
       subjectMatter: 'nature',
     },
     {
-      id: 13,
+      id: 113,
       name: "A HAPPY FACE",
       description: "This artwork seeks to capture the essence of a troubled character...",
       imageUrl: "/Images/Joker.jpg",
@@ -143,7 +143,7 @@ export const artData = [
       subjectMatter: 'portrait',
     },
     {
-      id: 14,
+      id: 114,
       name: "DALÍ",
       description: "This abstracted piece of art captures the sharp-eyed expression...",
       imageUrl: "/Images/Dali.jpg",
@@ -154,7 +154,7 @@ export const artData = [
       subjectMatter: 'portrait',
     },
     {
-      id: 15,
+      id: 115,
       name: "THE HUNGRY SIMPSON",
       description: "By utilising an array of vibrant colours, the Hungry Simpson...",
       imageUrl: "/Images/Simpson.jpg",
