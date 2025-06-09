@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../Pages/GalleryPage.css'; 
 import '../App.css';
 import './Card.css';
 
@@ -50,7 +49,7 @@ const Card = ({ id, name, description, imageUrl, size, medium, sizeRange, subjec
           <img src={imageUrl} alt={name} className="card-image" />
         </div>
         <div className="card-item card-buttons" style={{ transform: 'translateZ(20px)' }}>
-          <button className="card-item scroll-button" onClick={handleBuyClick}>
+          <button className="card-item secondary-button" onClick={handleBuyClick}>
             Buy
           </button>
         </div>

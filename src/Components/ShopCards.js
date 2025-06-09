@@ -56,14 +56,11 @@ const ShopCards = ({ activeSection }) => {
   const renderCardsForOption = (option) => {
     const filteredCards = getFilteredCards(option.id);
     return (
-        <div className={"main-container"} key={option.id}>
-          <h3 id={option.id}>{option.label}</h3>
+        <div className='cards-container' key={option.id}>
+          <h2 id={option.id}>{option.label}</h2>
           <div  className='row-container'>
             {filteredCards.map((card) => (
-                <div  className='cards-container' key={card.id || card.name}>
                  <Card key={card.id} id={card.id} {...card} />
-
-                </div>
             ))}
           </div>
         </div>
@@ -72,20 +69,8 @@ const ShopCards = ({ activeSection }) => {
 
   return (
         <div className='main-container'>
-          <div className="button-container">
-            {section.options.map(option => (
-                <a
-                    key={option.id}
-                    href={`#${option.id}`}
-                    className="scroll-button"
-                >
-                  {option.label}
-                </a>
-            ))}
-          </div>
-          <div className='cards-container'>
+         
             {section.options.map(renderCardsForOption)}
-          </div>
         </div>
   );
 };

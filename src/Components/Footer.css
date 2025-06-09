@@ -1,9 +1,8 @@
-footer {
-   display: flex;
-    padding: 2em;
-    background-color: black;
-    color: white;
-    justify-content: space-between;
-    
-  }
-  
+.footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 2em;
+  width: 100%;
+  z-index:10
+}

@@ -1,16 +1,18 @@
 import React, {use, useEffect, useRef, useState} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import {Canvas} from "@react-three/fiber";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import HomePage from './Pages/HomePage';
 import AboutPage from './Pages/AboutPage';
-import GalleryPage from './Pages/GalleryPage';
+import ShopPage2 from './Pages/ShopPage2';
 import ContactPage from './Pages/ContactPage';
+import ShopPage from './Pages/ShopPage';
 import ScrollToTop from './Components/ScrollToTop';
 import ProductPage from './Pages/ProductPage';
+import CartPage from './Pages/CartPage'
+import LoginPage from './Pages/LoginPage'
 
 import './App.css';
 import Scene from "./Scene";
@@ -56,19 +58,26 @@ function App() {
   },[])
 
   return (
-    <Router >
+    <Router>
       <div className="App">
-        <Navbar />
-        <ScrollToTop />
+      <Navbar />
+      <ScrollToTop />
+      
+      <main className="main-content">
         <Routes>
-          <Route path="/" element={<HomePage/>}/>
-          <Route path="/about" element={<AboutPage/>}/>
-          <Route path="/gallery" element={<GalleryPage/>}/>
-          <Route path="/contact" element={<ContactPage/>}/>
-          <Route path="/product/:id" element={<ProductPage/>}/>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/shop" element={<ShopPage2 />} />
+          <Route path="/contact" element={<ShopPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
-        <Footer />
-      </div>
+      </main>
+      
+      <Footer />
+    </div>
+
     </Router>
   );
 }

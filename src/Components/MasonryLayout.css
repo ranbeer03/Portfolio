@@ -1,0 +1,18 @@
+/* MasonryLayout.css */
+.masonry-grid {
+    display: -webkit-box; /* Not needed if using the library */
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -16px; /* gutter size offset */
+    width: auto;
+  }
+  
+  .masonry-grid_column {
+    padding-left: 16px; /* gutter size */
+    background-clip: padding-box;
+  }
+  
+  .masonry-card {
+    margin-bottom: 16px;
+  }
+  

@@ -16,6 +16,8 @@ import Contact from "../Sections/Contact";
 
 import "./HomePage.css";
 import StackedCards from "../Sections/StackedCards";
+import Collection from "../Sections/Collection";
+import Footer from "../Components/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,7 +32,7 @@ const HomePage = () => {
   const portfolioRef = useRef(null);
   const aboutMe2Ref = useRef(null);
   const contactRef = useRef(null);
-
+  const printsRef = useRef(null);
   // Global scroll progress (0 to 1)
   const [progress, setProgress] = useState(0);
   // Array to hold each section’s computed boundaries and settings
@@ -38,6 +40,9 @@ const HomePage = () => {
   // State for hovered and clicked buttons
   const [hoveredButton, setHoveredButton] = useState(null);
   const [clickedButton, setClickedButton] = useState(null);
+
+  const [plane004ScreenPos, setPlane004ScreenPos] = useState(null);
+
 
   function Loader() {
     const { progress } = useProgress();
@@ -55,8 +60,8 @@ const HomePage = () => {
     {
       name: "New Collection",
       ref: newCollectionRef,
-      position: [-10.13, 2.29, 4.58],
-      target: [-10.1, 2.2, 8.35],
+      position: [-7.58, 2.28, 4.59],
+      target: [-7.77, 2.33, 8.31],
       showModel: true,
     },
     {
@@ -69,23 +74,37 @@ const HomePage = () => {
     {
       name: "Portfolio",
       ref: portfolioRef,
-      position: [-6.5, 2.48, -3.08],
-      target: [-8.43, 2.5, -3.46],
+      position: [-7.7, 2.44, -3.9],
+      target: [-8.8, 2.45, -3.91],
       showModel: true,
     },
     {
       name: "About Me",
       ref: aboutMe2Ref,
-      position: [-4.33, 2.2, -6.18],
-      target: [-4.3, 2.4, -6.1],
+      position: [-9.2, 2.4, -4.79],
+      target: [-9.2, 2.4, -4.4],
       showModel: true,
     },
+    // {
+    //   name: "Contact",
+    //   ref: contactRef,
+    //   position: [-4.33, 2.2, -6.18],
+    //   target: [-4.3, 2.4, -6.1],
+    //   showModel: true,
+    // },
     {
       name: "Contact",
       ref: contactRef,
-      position: [-4.33, 2.2, -6.18],
-      target: [-4.3, 2.4, -6.1],
-      showModel: false,
+      position: [1.18, 4.71, -2.67],
+      target: [1.16, 4.87, -2.3],
+      showModel: true,
+    },
+    {
+      name: "Prints",
+      ref: printsRef,
+      position: [-3.82, 2.61, 0.44],
+      target: [-3.43, 2.61, 0.47],
+      showModel: true,
     },
   ];
 
@@ -106,17 +125,21 @@ const HomePage = () => {
 
   // After render, compute trigger values for each section.
   useEffect(() => {
-    const sections = sectionCameraViews.map((s) => s.ref.current);
+    const sections = sectionCameraViews
+      .map((s) => s.ref.current)
+      .filter((s) => s !== null); 
+  
+    if (!mainRef.current) return;
+  
     const totalHeight = mainRef.current.scrollHeight - window.innerHeight;
-    // Compute the normalized scroll progress at which the section's center aligns with the viewport center
+  
     const computedTriggers = sections.map((section) => {
       const offsetTop = section.offsetTop;
-      const height = section.offsetHeight ;
-      const trigger = (offsetTop + height / 2 - window.innerHeight ) / totalHeight;
+      const height = section.offsetHeight;
+      const trigger = (offsetTop + height / 2 - window.innerHeight) / totalHeight;
       return trigger;
     });
-
-    // Merge the computed trigger with each section’s camera settings.
+  
     const merged = computedTriggers.map((trigger, idx) => ({
       trigger,
       position: sectionCameraViews[idx].position,
@@ -124,8 +147,10 @@ const HomePage = () => {
       name: sectionCameraViews[idx].name,
       showModel: sectionCameraViews[idx].showModel,
     }));
+  
     setSectionsWithSettings(merged);
   }, []);
+  
   
 
   // Setup ScrollTrigger to pin NewCollection section
@@ -157,7 +182,7 @@ const HomePage = () => {
   
 
   return (
-    <>
+    <div className="page">
       <main ref={mainRef}>
         <div
           className="home"
@@ -177,24 +202,25 @@ const HomePage = () => {
               sectionsWithSettings={sectionsWithSettings}
               hoveredButton={hoveredButton}
               clickedButton={clickedButton}
+              setPlane004ScreenPos={setPlane004ScreenPos}
             />
             </Suspense>
           </Canvas>
         </div>
         <div className="home">
           <HeroSection ref={heroRef}/>
-          <NewCollection ref={newCollectionRef} />
+          <NewCollection ref={newCollectionRef} screenPos={plane004ScreenPos} />
           <div className="pinned-offset-fixer"></div>
           <CollectionExplorer onButtonHover={setHoveredButton} onButtonClick={setClickedButton} ref={collectionExplorerRef}/>
           <div className="pinned-offset-fixer"></div>
-          <NewCollection ref={portfolioRef}/>
+          <Collection ref={portfolioRef} />
           <div className="pinned-offset-fixer"></div>
           <AboutMe ref={aboutMe2Ref}/>
-          <StackedCards/>
+          <StackedCards ref={printsRef}/>
           <Contact ref={contactRef}/>
         </div>
       </main>
-    </>
+    </div>
   );
 };
 

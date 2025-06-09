@@ -1,0 +1,39 @@
+.shop-page{
+    display: flex;
+    flex-direction: row;
+
+    background-color: aqua;
+}
+.filter-container{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 20px;
+    background-color: antiquewhite;
+}
+
+.filter{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    background-color: blueviolet;
+}
+
+.products-section{
+    flex: 4;
+    flex-direction: column;
+    background-color: red;
+}
+
+.shop-header{
+    justify-content: space-between;
+    background-color: green;
+}
+
+.product-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust 250px as min card width */
+    gap: 1rem; 
+    padding: 0em 1rem;
+}

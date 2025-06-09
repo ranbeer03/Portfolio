@@ -10,7 +10,7 @@ const CollectionExplorer = forwardRef(({onButtonHover, onButtonClick}, ref ) => 
       <h1 className="header">Explore By Collection</h1>
       <div className="explorer-button-container">
         <button 
-          className="scroll-button" 
+          className="secondary-button" 
           onMouseEnter={() => onButtonHover("Pop Art")}
           onMouseLeave={() => onButtonHover(null)}
           onClick={() => onButtonClick("Pop Art")}
@@ -18,7 +18,7 @@ const CollectionExplorer = forwardRef(({onButtonHover, onButtonClick}, ref ) => 
           Pop Art
         </button>
         <button 
-          className="scroll-button" 
+          className="secondary-button" 
           onMouseEnter={() => onButtonHover("Monopoly")}
           onMouseLeave={() => onButtonHover(null)}
           onClick={() => onButtonClick("Monopoly")}
@@ -26,7 +26,7 @@ const CollectionExplorer = forwardRef(({onButtonHover, onButtonClick}, ref ) => 
           Monopoly
         </button>
         <button 
-          className="scroll-button" 
+          className="secondary-button" 
           id="medium"
           onMouseEnter={() => onButtonHover("Animals")}
           onMouseLeave={() => onButtonHover(null)}

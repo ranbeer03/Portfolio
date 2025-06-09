@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import './StackedCards.css'
 
-const StackedCards = () => {
+const StackedCards = forwardRef((props, ref) => {
   const cards = [
     { id: 1, title: "Card One", description: "This is the first card." },
     { id: 2, title: "Card Two", description: "This is the second card." },
@@ -27,7 +27,7 @@ const StackedCards = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div className="print-card-container">
+    <div ref={ref} className="print-card-container">
       <h2 style={{ marginBottom: "1.5rem", textAlign: "center" }}>Stacked Cards</h2>
       <div className="print-cards">
         {cards.map((card, index) => {
@@ -53,6 +53,6 @@ const StackedCards = () => {
       </div>
     </div>
   );
-};
+});
 
 export default StackedCards;

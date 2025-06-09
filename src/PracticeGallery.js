@@ -6,7 +6,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function PracticeGallery(props) {
-  const { nodes, materials } = useGLTF('./practice-gallery.glb')
+  const { nodes, materials } = useGLTF('./practicegallery3.glb')
   return (
       <group scale={[5,5,5]}{...props} dispose={null}>
         <mesh

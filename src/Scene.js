@@ -1,20 +1,35 @@
 // Scene.js
 import React, { useState, useRef, useEffect } from "react";
+import { useThree, useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 import {
   OrbitControls,
   Environment,
   PerspectiveCamera,
 } from "@react-three/drei";
-import { PracticeGallery } from "./Practice-gallery";
+import { PracticeGallery } from "./PracticeGallery2";
 import { gsap } from "gsap";
 
-const Scene = ({ progress, sectionsWithSettings, hoveredButton, clickedButton }) => {
+
+const Scene = ({ progress, sectionsWithSettings, hoveredButton, clickedButton, setPlane004ScreenPos }) => {
   const cameraRef = useRef(null);
   const controlsRef = useRef(null);
   const spotlightRef = useRef();
   const [showModel, setShowModel] = useState(true);
   const lastLoggedSectionRef = useRef("");
 
+  const planeRef = useRef();
+  const sizeRef = useRef({ width: window.innerWidth, height: window.innerHeight });
+  const { size, camera, gl } = useThree();
+  const [screenPosition, setScreenPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      sizeRef.current = { width: window.innerWidth, height: window.innerHeight };
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const spotlightMapping = {
     "Pop Art": {
@@ -165,6 +180,46 @@ const computeScrollPositions = () => {
     }
   }, [clickedButton]);
 
+  useFrame(() => {
+    if (planeRef.current && camera && setPlane004ScreenPos) {
+      const vector = new THREE.Vector3();
+      const size = new THREE.Vector2();
+      const box = new THREE.Box3().setFromObject(planeRef.current);
+      
+      // Get the 3D corners of the bounding box
+      const min = box.min.clone();
+      const max = box.max.clone();
+  
+      const corners = [
+        new THREE.Vector3(min.x, min.y, min.z),
+        new THREE.Vector3(max.x, max.y, max.z),
+      ];
+  
+      // Project both corners to 2D screen space
+      corners.forEach(corner => corner.project(camera));
+  
+      // Convert to pixel coordinates
+      const [p1, p2] = corners;
+      const x1 = (p1.x * 0.5 + 0.5) * sizeRef.current.width;
+      const y1 = (1 - (p1.y * 0.5 + 0.5)) * sizeRef.current.height;
+      const x2 = (p2.x * 0.5 + 0.5) * sizeRef.current.width;
+      const y2 = (1 - (p2.y * 0.5 + 0.5)) * sizeRef.current.height;
+  
+      // Calculate screen-space width and height
+      const width = Math.abs(x2 - x1);
+      const height = Math.abs(y2 - y1);
+  
+      // Send screen coordinates and size to parent
+      setPlane004ScreenPos({
+        x: (x1 + x2) / 2,
+        y: (y1 + y2) / 2,
+        width,
+        height,
+      });
+    }
+  });
+  
+
   // Determine whether to show the model based on the current section.
   const currentSectionIndex = getCurrentSectionIndex();
   const currentSection = sectionsWithSettings[currentSectionIndex];
@@ -179,24 +234,27 @@ const computeScrollPositions = () => {
         makeDefault
         position={[3.6, 1.79, 2.8]}
       />
-      <Environment preset="city" />
+      <Environment 
+        background={false}
+        preset="studio" 
+      />
       <OrbitControls
         ref={controlsRef}
         enableRotate={true}
         enableZoom={true}
         enablePan={true}
         target={[-8, 2, 5]}
-        // Log current positions whenever OrbitControls change
-        onChange={() => {
-          console.log(
-            "OrbitControls onChange:",
-            "Camera Position:", cameraRef.current.position.toArray(),
-            "Target:", controlsRef.current.target.toArray()
-          );
-        }}
+        Log current positions whenever OrbitControls change
+        // onChange={() => {
+        //   console.log(
+        //     "OrbitControls onChange:",
+        //     "Camera Position:", cameraRef.current.position.toArray(),
+        //     "Target:", controlsRef.current.target.toArray()
+        //   );
+        // }}
       />
       {/* Render the 3D model only if the current section’s showModel is true */}
-      {currentSection && currentSection.showModel && <PracticeGallery />}
+      {currentSection && currentSection.showModel && <PracticeGallery ref={planeRef} />}
       {hoveredButton && spotlightMapping[hoveredButton] && (
         <spotLight
           ref={spotlightRef}
