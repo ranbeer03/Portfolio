@@ -5,6 +5,7 @@ export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
   const [artworks, setArtworks] = useState([]);
+  const [prices_and_stock, setPricesAndStock] = useState([]);
   const [artwork_images, setArtworkImages] = useState([]);
 
   const currency = '£';
@@ -26,6 +27,14 @@ const ShopContextProvider = (props) => {
         setArtworkImages(imageData);
         console.log("images recieved at context= " + imageData.length)
       }
+
+      const { data: priceStockData, error: error3 } = await supabase.from('prices').select('*');
+      if (error2) {
+        console.error('Error fetching prices:', error3);
+      } else {
+        setPricesAndStock(priceStockData);
+        console.log("prices recieved at context= " + priceStockData.length)
+      }
     };
 
     fetchArtworks();
@@ -33,6 +42,7 @@ const ShopContextProvider = (props) => {
 
   const value = {
     artworks,
+    prices_and_stock,
     artwork_images,
     currency,
     delivery_fees

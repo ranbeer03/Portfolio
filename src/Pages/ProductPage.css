@@ -164,8 +164,8 @@
   margin: 0px;
   transition: all 0.3s ease;
   border: 1px solid #ddd; 
-  overflow: hidden;
-  background-color: powderblue;
+  /*overflow: hidden;*/
+  /*background-color: powderblue;*/
 }
 
 .image-gallery-thumbnail-inner{

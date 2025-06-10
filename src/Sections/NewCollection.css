@@ -2,11 +2,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     opacity: 0.5;
     height:100vh;
     z-index: 2;
-    /* background-color: aqua; */
+    /*background-color: red;*/
+    /* background-color: aqua;*/
+}
+
+h1{
+  /*height: 50vh;*/
+  /*background-color: #0dcaf0;*/
 }
 
 .art-info-container{
@@ -15,7 +21,6 @@
     gap: 15vw;
     justify-content: center;
     align-items: center;
-    align-items: space-between;
     /* background-color: blue; */
 }
 

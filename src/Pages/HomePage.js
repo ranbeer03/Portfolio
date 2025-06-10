@@ -171,7 +171,7 @@ const HomePage = () => {
           end: "bottom top",
           pin: true,
           pinSpacing: false,
-          markers: false,
+          markers: true,
         })
       );
   

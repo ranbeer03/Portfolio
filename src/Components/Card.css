@@ -1,14 +1,14 @@
 /* Keep the perspective on the container */
 .card-container {
   perspective: 1000px;
-  margin-bottom: 35px;
   width: 15vw;
+  height: 50vh;
   min-width: 250px;
   padding: 10px;
   display: flex;
   will-change: transform;
   overflow: visible;
-  background-color: blue;
+  /*background-color: blue;*/
 }
 
 .card-body {
@@ -18,7 +18,8 @@
   justify-content: space-between;
   max-width: 25vw;
   min-width: 250px;
-  max-height: 50h;
+  max-height: 50vh;
+  min-height: 300px;
   gap: 10px;
   padding: 5px;
   border: 2px solid rgba(0, 0, 0, 0.1);
@@ -26,7 +27,7 @@
   transform-style: preserve-3d;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   will-change: transform;
-  /* background-color: red; */
+  background-color: green;
 }
 
 .card-body:hover {
