@@ -17,6 +17,9 @@ const ProductPage = () => {
   const navigate = useNavigate();
 
   const{artwork_images} = useContext(ShopContext)
+  const [filtered_artwork_images, setFilteredArtworkImages] = useState([]);
+
+
 
   const [productType, setProductType] = useState('original');
   const [frameOption, setFrameOption] = useState('framed');
@@ -53,7 +56,15 @@ const ProductPage = () => {
       if (priceData) {
         setPricing(priceData);
       }
+
+      const urlsForThisProduct = artwork_images
+        .filter(img => img.artwork_id === Number(id))
+        .map(img => img.url);
+
+      setFilteredArtworkImages(urlsForThisProduct);
+      
       setLoading(false);
+      
     };
 
     fetchProduct();
@@ -107,19 +118,6 @@ const ProductPage = () => {
     );
   }
 
-const generateImageArray = (artwork_images) => {
-  if (!artwork_images || artwork_images.length === 0) return [];
-
-  return artwork_images.map((img, index) => ({
-    original: artwork_images[index].url,
-    thumbnail: artwork_images[index].url,
-  }));
-};
-
-// Usage
-const images = generateImageArray(artwork_images);
-
-
   const productProperties = [
     { name: 'Dimensions', icon: rulerpen, value: product.size_inches },
     { name: 'Made on', icon: calendar, value: '12 January 2019' },
@@ -147,6 +145,7 @@ const images = generateImageArray(artwork_images);
   
 
   return (
+    
     <div className="product-page">
       <div className="back-button-container">
         <button className="back-button" onClick={handleBack}>← Back</button>
@@ -157,7 +156,7 @@ const images = generateImageArray(artwork_images);
             showBullets={false}
             showFullscreenButton={false}
             showPlayButton={false}
-            items={images}
+            items={filtered_artwork_images}
           />
         <div className="product-details-section">
           <h1 className="product-title">{product.name}</h1>

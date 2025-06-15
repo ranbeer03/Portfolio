@@ -1,33 +1,67 @@
 .shop-page{
     display: flex;
     flex-direction: row;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
+
 .filter-container{
+    position: sticky;
+    top: 100px;     
     display: flex;
     flex: 1;
     flex-direction: column;
-    gap: 20px;
-    padding: 0px 20px;
-    background-color: antiquewhite;
+    gap: 10px;
+    padding: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    height: fit-content;
+    transition: 0.3s ease-in
+    /* background-color: antiquewhite; */
 }
 
 .filter{
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
+}
+
+.filter-title{
+
 }
 
 .products-section{
     flex: 4;
     flex-direction: column;
-    /*background-color: red;*/
+    /* background-color: red; */
 }
 
 .shop-header{
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    background-color: green;
+    padding: 0px 20px;
+    /* background-color: green; */
+}
+
+.sort-button {
+  /* remove default OS/browser chrome */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* 3) your custom “box” styling */
+  background-color: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 8px 30px 8px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+
+    /* arrow indicator */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23666' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
 }
 
 .product-cards{
