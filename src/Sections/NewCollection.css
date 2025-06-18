@@ -4,15 +4,29 @@
     align-items: center;
     justify-content: flex-start;
     opacity: 0.5;
-    height:100vh;
+    height:200vh;
     z-index: 2;
-    /*background-color: red;*/
-    /* background-color: aqua;*/
+    position: relative;
+    overflow: hidden;
+    background-color: aqua;
+    min-height: 150vh;
 }
 
-h1{
-  /*height: 50vh;*/
-  /*background-color: #0dcaf0;*/
+.heading-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  background-color: red;
+}
+
+.new-collection-heading {
+  text-align: center;
+  font-size: 3rem;
+  z-index: 3;
+  background-color: transparent;
 }
 
 .art-info-container{
@@ -29,12 +43,12 @@ h1{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background-color: bisque; */
+     background-color: bisque;
 }
 
 .painting-component{
     width: 100%;
-    /* background-color: green; */
+     /*background-color: green;*/
 }
 
 .painting-component:hover{

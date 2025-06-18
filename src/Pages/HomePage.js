@@ -58,7 +58,7 @@ const HomePage = () => {
       showModel: true,
     },
     {
-      name: "New Collection",
+      name: "New Collections",
       ref: newCollectionRef,
       position: [-7.58, 2.28, 4.59],
       target: [-7.77, 2.33, 8.31],
@@ -156,9 +156,9 @@ const HomePage = () => {
   // Setup ScrollTrigger to pin NewCollection section
   useEffect(() => {
     const elements = [
-      newCollectionRef.current,
-      collectionExplorerRef.current,
-      portfolioRef.current,
+      // newCollectionRef.current,
+      // collectionExplorerRef.current,
+      // portfolioRef.current,
     ];
   
     // Filter out any null or undefined refs

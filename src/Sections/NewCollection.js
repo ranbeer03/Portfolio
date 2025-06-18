@@ -3,7 +3,10 @@ import './NewCollection.css';
 import '../App.css'
 import { ShopContext } from '../context/ShopContext';
 import ProductItem from '../Components/ProductItem';
-import {ScrollTrigger} from "gsap/ScrollTrigger";
+
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const NewCollection = forwardRef(({ screenPos }, ref) => {
 const headingRef = useRef(null);
@@ -14,7 +17,7 @@ const style = screenPos
   ? {
       position: 'absolute',
       left: screenPos.x - 65,
-      top: screenPos.y,
+      top: screenPos.y + 140,
       width: screenPos.width,
       height: (screenPos.height + 100),
       transform: 'translate(-50%, -50%)',
@@ -30,31 +33,38 @@ const style = screenPos
     }
   : { display: 'none' };
 
-  // Setup ScrollTrigger to pin NewCollection section
   useEffect(() => {
-    const elements = [
-      ref.current,
-      headingRef.current,
-    ];
+    if (!ref?.current || !headingRef?.current) return;
 
-    // Filter out any null or undefined refs
-    const triggers = elements
-    .filter(el => el != null)
-    .map(el =>
-        ScrollTrigger.create({
-          trigger: el,
-          start: "top top",
-          end: "bottom top",
-          pin: true,
-          pinSpacing: false,
-          markers: true,
-        })
-    );
+    const ctx = gsap.context(() => {
+      // 1. Pin the entire component at 100px from top
+      ScrollTrigger.create({
+        trigger: ref.current,
+        start: 'top top+=100',
+        end: 'bottom top+=100',
+        pin: true,
+        pinSpacing: true,
+        scrub: true,
+        markers: true,
+      });
 
-    return () => {
-      triggers.forEach(trigger => trigger.kill());
-    };
+      // 2. Pin the heading earlier at 200px from top, unstick with section
+      ScrollTrigger.create({
+        trigger: headingRef.current,
+        start: 'top top+=300',
+        endTrigger: ref.current,
+        end: 'bottom+=100 top+=100',
+        pin: true,
+        pinSpacing: true,
+        scrub: true,
+        markers: true,
+      });
+    });
+
+    return () => ctx.revert();
   }, []);
+
+
 
 useEffect(() => {
   if (artworks.length > 0) {
@@ -68,30 +78,33 @@ useEffect(() => {
 
 return (
     <section ref={ref} className="new-collection">
-        <h1 ref={headingRef}>New Collection</h1>
-        <div className="art-info-container">
-          <div className="art-info-1" style={style}>
-              <div className='painting-component' style={style2}></div>
-              {newCollection[0] && (        
-                <ProductItem 
-                  key={newCollection[0].id} 
-                  id={newCollection[0].id} 
-                  name={newCollection[0].name} 
-                />
-              )}
-          </div>
-          <div>
-            {newCollection[1] && (        
-              <ProductItem 
-                key={newCollection[1].id} 
-                id={newCollection[1].id} 
-                name={newCollection[1].name} 
+      <div className="heading-wrapper" ref={headingRef}>
+        <h1 className="new-collection-heading">New Collection</h1>
+      </div>
+      <div className="art-info-container">
+        <div className="art-info-1" style={style}>
+          <div className='painting-component' style={style2}></div>
+          {newCollection[0] && (
+              <ProductItem
+                  key={newCollection[0].id}
+                  id={newCollection[0].id}
+                  name={newCollection[0].name}
               />
-            )}
-          </div>
+          )}
         </div>
+        {/*TODO: Add second element following the location of the painting in the 3d model*/}
+        {/*<div>*/}
+        {/*  {newCollection[1] && (        */}
+        {/*    <ProductItem */}
+        {/*      key={newCollection[1].id} */}
+        {/*      id={newCollection[1].id} */}
+        {/*      name={newCollection[1].name} */}
+        {/*    />*/}
+        {/*  )}*/}
+        {/*</div>*/}
+      </div>
     </section>
-    );
+);
 });
 
 export default NewCollection;
