@@ -26,3 +26,17 @@
   font-weight: 800;
   z-index: 1;
 }
+
+.blue-box {
+  width:100px;
+  height: 100px;
+  background-color: blue;
+  border-radius: 10px;
+}
+
+.yellow-box{
+  width:100px;
+  height: 100px;
+  background-color: yellow;
+  border-radius: 10px;
+}

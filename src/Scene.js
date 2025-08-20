@@ -234,10 +234,7 @@ const computeScrollPositions = () => {
         makeDefault
         position={[3.6, 1.79, 2.8]}
       />
-      <Environment 
-        background={false}
-        preset="studio" 
-      />
+      {/* <Environment background={false} preset="studio" /> */}
       <OrbitControls
         ref={controlsRef}
         enableRotate={true}

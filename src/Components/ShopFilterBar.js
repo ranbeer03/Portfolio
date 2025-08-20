@@ -54,7 +54,7 @@ export default function ShopFilterBar({selectedFormats=[], onFormatToggle}) {
             </TreeItem>
             <TreeItem itemId="material" label="Material">
               <TreeItem itemId="acrylics" label="acrylics" />
-              <TreeItem itemId="water-colors"       label="water colros" />
+              <TreeItem itemId="water-colors" label="water colros" />
             </TreeItem>
         </TreeItem>      
         <TreeItem itemId="prints" label="Prints">
