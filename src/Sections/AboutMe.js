@@ -2,57 +2,100 @@ import React, { forwardRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AboutMe.css';
 
-const AboutMe = forwardRef((props, ref) => {
-    const navigate = useNavigate();
-  
-    const handleKnowMore = () => {
-      navigate("/about");
-    }
+export default function AboutMe() {
   return (
-    <div ref={ref} className="aboutMe">
-      <h1 className="page-header">About Me</h1>
-      <div className="description">
-        <div className="desc-text">
-          <h2>I'm <span class="highlight">Ranbeer Chaudhary,</span> a Software Engineer and Artist.</h2>
-          <p>A recent Computer Science graduate from King's College London and a passionate artist, I reside in London, UK, perfectly poised at the intersection of technology and art. I'm on the lookout for opportunities in software engineering, UI/UX design, and software management, while also creating and selling original artwork, always aiming to merge aesthetics with functionality.</p>
-          <p>Keen on delving deeper into this fusion of art and science, I'm ready to expand my horizons and create perfect blends of beauty and utility in my professional journey. I eagerly anticipate learning, evolving, and making a significant contribution in the tech and art sectors.</p>
+    <main className="relative mx-auto max-w-6xl px-6 py-20 text-zinc-200">
+      {/* Hero */}
+      <section className="mb-24 text-center">
+        <h1 className="text-5xl font-bold tracking-tight">
+          Art that speaks in color and power.
+        </h1>
+        <p className="mt-6 text-lg max-w-2xl mx-auto">
+          Bold, motivational paintings — large animals, vibrant abstracts, and
+          pop-inspired works that inspire strength and ambition.
+        </p>
+        <div className="mt-8 flex justify-center gap-4">
+          <a href="/shop" className="rounded-xl bg-zinc-100 px-6 py-3 text-black">
+            Browse Art
+          </a>
+          <a href="/commissions" className="rounded-xl border border-zinc-700 px-6 py-3">
+            Commission a Piece
+          </a>
         </div>
+      </section>
 
-        <div className="personal-info">
-          <div className='p-info'>
-            <p ><strong>Name:</strong> Ranbeer Chaudhary</p>
-          </div>
-          <div className='p-info'>
-            <p><strong>Email:</strong><span class="highlight">ranbeerchaudhary03@gmail.com</span></p>
-          </div>
-          <div className='p-info'>
-            <p><strong>Age:</strong> 21</p>
-          </div>
-          <div className='p-info'>
-            <p><strong>From:</strong> London, United Kingdom</p>
-          </div>
-          <div className="downloads">
-            <button className="button01" role="button"><span class="text">Download CV</span><span>Download CV</span></button>
-            <button className="button01" role="button"><span class="text">Download Portfolio</span><span>Download Portfolio</span></button>
-          </div>
+      {/* My Story */}
+      <section className="mb-24 grid gap-12 md:grid-cols-2">
+        <img
+          src="/images/studio-hero.webp"
+          alt="Artist painting in studio"
+          className="rounded-2xl border border-zinc-700 object-cover"
+        />
+        <div>
+          <h2 className="text-3xl font-semibold">From Canvas to Vision</h2>
+          <p className="mt-4 text-zinc-400 leading-relaxed">
+            With a diploma in Fine Arts and a degree in Computer Science,
+            painting became my outlet to capture energy, resilience, and ambition.
+            My work celebrates strength — from a tiger’s gaze to the vastness of
+            a whale or the playful edge of pop culture reimagined with motivational
+            themes.
+          </p>
+          <p className="mt-4 text-zinc-400 leading-relaxed">
+            I believe art should do more than decorate a wall — it should inspire
+            you every day.
+          </p>
+          <p className="mt-6 text-sm text-zinc-500 italic">
+            (This website is my own creation — designed and built by me.)
+          </p>
         </div>
-          
-      </div>
-  
-      <div className="stats">
-        <div className="stat"><strong>2+</strong> Years Experience</div>
-        <div class="vertical-line"></div>
-        <div className="stat"><strong>40+</strong> Happy Clients</div>
-        <div class="vertical-line"></div>
-        <div className="stat"><strong>50+</strong> Projects Done</div>
-        <div class="vertical-line"></div>
-        <div className="stat"><strong>8</strong> Awards</div>
-      </div>
+      </section>
 
-      
+      {/* My Art */}
+      <section className="mb-24">
+        <h2 className="text-3xl font-semibold text-center">What I Paint</h2>
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          <img src="/images/tiger.webp" alt="Tiger painting" className="rounded-xl border border-zinc-700 object-cover"/>
+          <img src="/images/abstract.webp" alt="Abstract painting" className="rounded-xl border border-zinc-700 object-cover"/>
+          <img src="/images/pop.webp" alt="Pop-inspired painting" className="rounded-xl border border-zinc-700 object-cover"/>
+        </div>
+      </section>
 
-    </div>
+      {/* Originals / Prints / Commissions */}
+      <section className="mb-24 text-center">
+        <h2 className="text-3xl font-semibold">Originals, Prints & Commissions</h2>
+        <p className="mt-4 text-zinc-400">
+          From one-of-a-kind canvases to limited giclée prints and custom commissions.
+        </p>
+        <a href="/commissions" className="mt-6 inline-block rounded-xl border border-zinc-700 px-5 py-3">
+          Commission Your Piece
+        </a>
+      </section>
+
+      {/* Exhibitions */}
+      <section className="mb-24 text-center">
+        <h2 className="text-3xl font-semibold">Seen & Collected</h2>
+        <p className="mt-4 text-zinc-400">
+          Exhibited at London art fairs, including the <strong>Roy Art Fair (2023)</strong>.
+          Collected by private buyers internationally.
+        </p>
+      </section>
+
+      {/* Final CTA */}
+      <section className="text-center">
+        <h2 className="text-3xl font-semibold">Bring Power to Your Space</h2>
+        <p className="mt-4 text-zinc-400 max-w-xl mx-auto">
+          Whether it’s an original canvas or a custom commission, my art is about
+          energy, drive, and presence.
+        </p>
+        <div className="mt-8 flex justify-center gap-4">
+          <a href="/shop" className="rounded-xl bg-zinc-100 px-6 py-3 text-black">
+            Browse Available Works
+          </a>
+          <a href="/commissions" className="rounded-xl border border-zinc-700 px-6 py-3">
+            Commission a Painting
+          </a>
+        </div>
+      </section>
+    </main>
   );
-});
-
-export default AboutMe;
+}

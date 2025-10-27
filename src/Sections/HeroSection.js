@@ -1,7 +1,7 @@
 import React, { Suspense, useState, useEffect, forwardRef } from 'react';
 import useTypewriter from 'react-typewriter-hook';
 import './HeroSection.css';
-import { supabase } from '../Data/SupaBaseClient';
+import { supabase } from '../Services/SupaBaseClient';
 import gsap from "gsap";
 import {useGSAP} from '@gsap/react'
 import { time } from 'motion';

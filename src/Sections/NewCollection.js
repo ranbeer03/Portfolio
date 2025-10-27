@@ -1,5 +1,5 @@
 import {forwardRef, useState, useEffect, useContext, useRef} from 'react';
-import './NewCollection.css';
+// import './NewCollection.css';
 import '../App.css'
 import { ShopContext } from '../context/ShopContext';
 import ProductItem from '../Components/ProductItem';

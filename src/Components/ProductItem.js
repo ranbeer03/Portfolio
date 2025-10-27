@@ -8,9 +8,12 @@ const ProductItem = ({id,name}) => {
 const{currency} = useContext(ShopContext);
 
   return (
-    <Link className='label' to={`/product/${id}`}>
+    <Link className='item-card' to={`/product/${id}`}>
+      <img src='../100vh' className="product-item-image"/>
+      <div className='horizontal-container'>
       <h3>{name}</h3>
       <button className="secondary-button">View</button>
+      </div>
     </Link>
   )
 }

@@ -17,13 +17,14 @@ const Navbar = () => {
           <img src={logo} alt="logo" className="nav-logo" />
         </NavLink>
         <div className="links-container">
-          {/* <NavLink className={({ isActive }) =>`underline-transition${isActive ? ' active-link' : ''}`} to="/">Home</NavLink> */}
-          <NavLink className='underline-transition' to="/">Home</NavLink>
+          {/* <NavLink className='underline-transition' to="/">Home</NavLink> */}
+          <NavLink className='underline-transition' to="/">My Work</NavLink>
           <NavLink className='underline-transition' to="/about">About</NavLink>
-          <NavLink className='underline-transition' to="/shop">Shop</NavLink> {/* Remember to create this component */}
           <NavLink className='underline-transition' to="/contact">Contact</NavLink>
+          {/* <NavLink className='underline-transition' to="/shop">Shop</NavLink>  */}
+
         </div>
-        <div className='icon-container'>
+        {/* <div className='icon-container'>
           <NavLink to="/cart" className="nav-icon-wrapper underline-transition">
             <img src={bag2} alt="bag icon" className="nav-icon" />
             <p className='cart-badge'>10</p>
@@ -41,7 +42,7 @@ const Navbar = () => {
             </div>
           </div>
           <img onClick={() => setVisible(true)} src={logo} className='menu-icon nav-logo'/>
-        </div>
+        </div> */}
 
         
 
@@ -53,9 +54,10 @@ const Navbar = () => {
                <img src={chevron} alt="user icon" className="nav-icon" />
                <p>Back</p>
             </div>
-            <NavLink onClick={() => setVisible(false)} className='underline-transition' to="/">Home</NavLink>
+            {/* <NavLink onClick={() => setVisible(false)} className='underline-transition' to="/">Home</NavLink> */}
+            <NavLink onClick={() => setVisible(false)} className='underline-transition' to="/">My Work</NavLink>
             <NavLink onClick={() => setVisible(false)} className='underline-transition' to="/about">About</NavLink>
-            <NavLink onClick={() => setVisible(false)} className='underline-transition' to="/shop">Shop</NavLink> {/* Remember to create this component */}
+            {/* <NavLink onClick={() => setVisible(false)} className='underline-transition' to="/shop">Shop</NavLink> */}
             <NavLink onClick={() => setVisible(false)} className='underline-transition' to="/contact">Contact</NavLink>
           </div>
         )}

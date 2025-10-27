@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { supabase } from '../Data/SupaBaseClient';
+import { supabase } from '../Services/SupaBaseClient';
 import './ProductPage.css';
 import ReactImageGallery from 'react-image-gallery';
 import image from '../Data/everysisterhood.png';

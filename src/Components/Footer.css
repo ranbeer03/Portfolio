@@ -1,8 +1,14 @@
 .footer {
-  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-secondary);
   color: white;
-  text-align: center;
-  padding: 2em;
-  width: 100%;
-  z-index:10
+  height: 100px;
+  gap: 4px; 
+}
+
+.footer p {
+  margin: 0;
 }

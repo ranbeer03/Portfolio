@@ -3,10 +3,10 @@ import './Footer.css'; // We will create this file for styling.
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <div className="footer">
       <p>Copyright © 2023 Ranbeer Chaudhary</p> 
       <p>All Rights Reserved</p>
-    </footer>
+    </div>
   );
 }
 

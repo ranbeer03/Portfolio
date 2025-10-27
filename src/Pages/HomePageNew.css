@@ -1,0 +1,13 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background-color: blue;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}

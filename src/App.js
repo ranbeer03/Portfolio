@@ -5,6 +5,7 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import HomePage from './Pages/HomePage';
+import HomePageNew from './Pages/HomePageNew';
 import AboutPage from './Pages/AboutPage';
 import ShopPage2 from './Pages/ShopPage2';
 import ContactPage from './Pages/ContactPage';
@@ -15,6 +16,7 @@ import CartPage from './Pages/CartPage'
 import LoginPage from './Pages/LoginPage'
 
 import './App.css';
+import './theme.css';
 import Scene from "./Scene";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -65,19 +67,18 @@ function App() {
       
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePageNew />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/shop" element={<ShopPage2 />} />
-          <Route path="/contact" element={<ShopPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
       </main>
-      
+
       <Footer />
     </div>
-
     </Router>
   );
 }
