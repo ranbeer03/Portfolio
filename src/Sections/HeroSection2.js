@@ -9,13 +9,8 @@ const HeroSection2 = ({
 }) => {
   const heroRef = useRef(null);
   return (
-    <section
-      id="hero"
-      ref={heroRef}
-      className="hero"
-      style={{height: "80vh"}}
-    >
-      <div className="hero-content">
+    <div className="horizontal-container hero-section">
+      <div className="vertical-container hero-content">
         <h1 className="hero-header">{title}</h1>
         <ul className="hero-subtitle">
           <li >
@@ -31,7 +26,7 @@ const HeroSection2 = ({
             </Link>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

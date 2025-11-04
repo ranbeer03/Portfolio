@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
-import ShopContextProvider from './context/ShopContext';
+import ShopContextProvider from './Context/ShopContext';
 
 
 

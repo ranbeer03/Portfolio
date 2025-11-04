@@ -1,6 +1,6 @@
-.hero {
-    display: flex;
+.hero-section {
     justify-content: flex-end;
+    align-items: center;
     width: 100%;
     height: 80vh;
     padding: 0 4em;
@@ -8,7 +8,6 @@
 }
 
 .hero-content{
-    display: flex;
     justify-content: center;
     align-items: flex-end;
     color: white;

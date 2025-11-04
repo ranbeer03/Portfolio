@@ -1,78 +1,76 @@
-  .contact {
+  .contact-container{
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 48px;
-    /* background-color: #25D366; */
+    width: 100%;
+    text-align: right;
+    .page-header{
+      text-align: left;
+    }
+    .secondary-header{
+      text-align: right;
+    }
   }
-
-  .vertical-container{
-    gap: 0px;
+  .contact-section{
+    justify-content: center;
+    gap: 10vw;
   }
-
-  /* All content */ 
-  .content{
-    display: flex;
-    flex-direction: row;
-    /* background-color: aqua; */
+  .contact-image{
+    height: 70vh;
   }
 
   /* Message Section */
-  .message{
+  .message-section{
     display: flex;
     flex-direction: column;
-    flex: 2;
-    gap: 24px;
+    width: 40%;
+    align-items: flex-end;
+    text-align: right;
+    gap: 8px;
     /* background-color: #E1306C; */
-  }
-  .message-name{
-    width: 30%;
-    height: 60px;
-    border-radius: 10px;
-    padding: 1em;
-  }
-  .message-email{
-    width: 90%;
-    height: 60px;
-    border-radius: 10px;
-    padding: 1em;
-  }
-  .message-note{
-    width: 100%;
-    height: 25vh;
-    border-radius: 10px;
-    padding: 1em;
+    .horizontal-container{
+      width: 100%;
+      gap: 20px;
+    }
   }
 
-  /* Information Section */
-  .info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    gap: 24px;
-    /* background-color: #1DA1F2; */
+  .input{
+    /* background-color: yellowgreen; */
+    border:0px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 8px;
+    border: 1px solid grey;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+      outline: none;
+  }
+  textarea::-webkit-scrollbar {
+  display: none;
+  }
+  textarea {
+    -ms-overflow-style: none;
+    scrollbar-width: none
+  }
+  .input-name{
+    width: 50%;
+  }
+  .input-email{
+    width: 100%;
+  }
+  .input-note{
+    width: 100%;
+    height: 100px; 
+    resize: none;
   }
   
-  .social-icons {
-    display: flex;
-    list-style: none;
-    gap: 24px;
+  textarea{
+    outline: none;
+    /* background-color: yellow; */
+    border: 0px;
   }
-  .social-icons li a {
-    color: #000; 
-    transition: color 0.3s ease; 
-  }
-  
-  .social-icons .fa-instagram:hover {
-    color: #E1306C;
-  }
-  
-  .social-icons .fa-whatsapp:hover {
-    color: #25D366;
-  }
-  
-  .social-icons .fa-twitter:hover {
-    color: #1DA1F2;
-  }
+
   

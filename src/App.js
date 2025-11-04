@@ -4,12 +4,10 @@ import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
-import HomePage from './Pages/HomePage';
 import HomePageNew from './Pages/HomePageNew';
 import AboutPage from './Pages/AboutPage';
 import ShopPage2 from './Pages/ShopPage2';
 import ContactPage from './Pages/ContactPage';
-import ShopPage from './Pages/ShopPage';
 import ScrollToTop from './Components/ScrollToTop';
 import ProductPage from './Pages/ProductPage';
 import CartPage from './Pages/CartPage'

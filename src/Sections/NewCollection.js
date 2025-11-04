@@ -1,7 +1,7 @@
 import {forwardRef, useState, useEffect, useContext, useRef} from 'react';
 // import './NewCollection.css';
 import '../App.css'
-import { ShopContext } from '../context/ShopContext';
+import { ShopContext } from '../Context/ShopContext';
 import ProductItem from '../Components/ProductItem';
 
 import { gsap } from 'gsap';

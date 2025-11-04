@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
-import Card from '../Components/Cards';
-import { artData } from '../Data/Data';
+import Card from './Cards';
 import '../App.css';
 import './ShopCards.css'
 
@@ -44,35 +43,33 @@ const sectionConfig = {
 
 const ShopCards = ({ activeSection }) => {
 
-  // Filter cards based on the activeSection field
-  const getFilteredCards = (filterType) => {
-    return artData.filter(card => card[activeSection] === filterType);
-  };
+  // const getFilteredCards = (filterType) => {
+  //   return artData.filter(card => card[activeSection] === filterType);
+  // };
 
-  // Get the config for the current active section
-  const section = sectionConfig[activeSection];
-  if (!section) return null;
+  // const section = sectionConfig[activeSection];
+  // if (!section) return null;
 
-  const renderCardsForOption = (option) => {
-    const filteredCards = getFilteredCards(option.id);
-    return (
-        <div className='cards-container' key={option.id}>
-          <h2 id={option.id}>{option.label}</h2>
-          <div  className='row-container'>
-            {filteredCards.map((card) => (
-                 <Card key={card.id} id={card.id} {...card} />
-            ))}
-          </div>
-        </div>
-    );
-  };
+  // const renderCardsForOption = (option) => {
+  //   const filteredCards = getFilteredCards(option.id);
+  //   return (
+  //       <div className='cards-container' key={option.id}>
+  //         <h2 id={option.id}>{option.label}</h2>
+  //         <div  className='row-container'>
+  //           {filteredCards.map((card) => (
+  //                <Card key={card.id} id={card.id} {...card} />
+  //           ))}
+  //         </div>
+  //       </div>
+  //   );
+  // };
 
-  return (
-        <div className='main-container'>
+  // return (
+  //       <div className='main-container'>
          
-            {section.options.map(renderCardsForOption)}
-        </div>
-  );
+  //           {section.options.map(renderCardsForOption)}
+  //       </div>
+  // );
 };
 
 export default ShopCards;

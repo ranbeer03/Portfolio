@@ -1,0 +1,13 @@
+.collection-container{
+    width: 100%;
+    align-items: flex-start;
+    background-color: aqua;
+}
+
+.collection-items{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 15vw;
+    background-color: orange;
+}

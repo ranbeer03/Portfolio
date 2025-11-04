@@ -1,8 +1,8 @@
 :root {
   /* 🎨 Colors */
-  --color-primary: #1e90ff;    /* blue */
-  --color-secondary: black;  /* orange */
-  --color-accent: #4caf50;     /* green */
+  --color-primary: #1e90ff;  
+  --color-secondary: black;
+  --color-accent: #4caf50;
   --color-background: #f5f5f5;
   --color-surface: #1e90ff;
   --color-text: #212121;

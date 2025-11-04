@@ -1,11 +1,10 @@
-// src/Services/ProductService.ts
 import { supabase } from "./SupaBaseClient";
-import type { Product } from "../types/product";
+import type { Artwork } from "../Types/artwork";
+import type { ArtworkImage } from "../Types/artworkImage";
 
-// List
 export async function listProducts(
   params?: { limit?: number; search?: string }
-): Promise<Product[]> {
+): Promise<Artwork[]> {
   let query = supabase
     .from("products")
     .select("*")
@@ -16,12 +15,11 @@ export async function listProducts(
 
   const { data, error } = await query;
   if (error) throw error;
-  // Supabase returns `Product[] | null` – normalize to [] for convenience
   return data ?? [];
 }
 
 // Get by ID
-export async function getProductById(id: string): Promise<Product> {
+export async function getProductInfoById(id: string): Promise<Artwork> {
   const { data, error } = await supabase
     .from("artworks")
     .select("*")
@@ -33,17 +31,37 @@ export async function getProductById(id: string): Promise<Product> {
   return data;
 }
 
-// Create
-export async function createProduct(
-  payload: Omit<Product, "id" | "created_at">
-): Promise<Product> {
+// Get all images for an artwork
+export async function getArtworkImages(
+  artworkId: string,
+  opts?: {tags?: string[]}
+): Promise<ArtworkImage[]> {
+  let q = supabase
+    .from("images")
+    .select("*")
+    .eq("artwork_id", artworkId)
+    .order("tag", { ascending: true });
+  if (opts?.tags?.length) q = q.in("tag", opts.tags);
+
+  const { data, error } = await q;
+  if (error) throw error;
+  return data ?? [];
+}
+
+// Get one thumbnail image by artwork ID and tag
+export async function getThumbnailImage(
+  artworkId: string,
+  tag: string
+): Promise<string | null> {
   const { data, error } = await supabase
-    .from("products")
-    .insert(payload)
-    .select()
+    .from("images")
+    .select("url")
+    .eq("artwork_id", artworkId)
+    .eq("tag", tag)
+    .limit(1)
     .single();
 
-  if (error) throw error;
-  if (!data) throw new Error("Failed to create product");
-  return data;
+  if (error && error.code !== "PGRST116") throw error;
+  return data?.url ?? null;
 }
+
