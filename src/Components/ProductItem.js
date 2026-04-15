@@ -8,7 +8,9 @@ const ProductItem = ({id,name,image}) => {
       <img src={image} className="product-item-image"/>
       <div className='horizontal-container item-footer'>
       <h4>{name}</h4>
-      <button className="secondary-button">View</button>
+      <button className="secondary-button" role="button">
+        View
+      </button>
       </div>
     </Link>
   )

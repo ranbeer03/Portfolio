@@ -1,101 +1,150 @@
-import React, { forwardRef } from 'react';
+import React, {useState, useEffect, useRef } from 'react';
+import { getArtworkImages } from '../Services/ProductsService.ts';
 import { useNavigate } from 'react-router-dom';
+import ranbeerDp from '../Icons/ranbeer-dp.png';
+import ranbeerBattersea from '../Icons/ranbeer-battersea.png';
+import ranbeerIndianSpeach from '../Icons/ranbeer-indian-speach.png';
+import ranbeerRoysArtFair from '../Icons/ranbeer-roys-art-fair.png';
 import './AboutMe.css';
 
 export default function AboutMe() {
+  const navigate = useNavigate();
+  const goToHomeCollection = () => {
+    navigate('/', { state: { scrollTo: 'collection' } });
+  };
+
+  const knowMoreRef = useRef(null);
+  const scrollToKnowMore = () => {
+    const y = knowMoreRef.current.getBoundingClientRect().top + window.pageYOffset - 100;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+
+  const whatIPaintIds = [130, 139, 102]; 
+  const [whatIPaint, setWhatIPaint] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const imgs = await Promise.all(
+          whatIPaintIds.map(async (id) => {
+            const res = await getArtworkImages(id, 'original'); // same pattern as Collection
+            return res?.[0]?.url || null;
+          })
+        );
+        setWhatIPaint(imgs.filter(Boolean));
+        console.log("imageUrls : " + whatIPaint)
+      } catch (e) {
+        console.error('Error fetching What I Paint images:', e);
+      }
+    };
+    fetchImages();
+  }, [whatIPaintIds]);
+
   return (
-    <main className="relative mx-auto max-w-6xl px-6 py-20 text-zinc-200">
-      {/* Hero */}
-      <section className="mb-24 text-center">
-        <h1 className="text-5xl font-bold tracking-tight">
-          Art that speaks in color and power.
-        </h1>
-        <p className="mt-6 text-lg max-w-2xl mx-auto">
-          Bold, motivational paintings — large animals, vibrant abstracts, and
-          pop-inspired works that inspire strength and ambition.
-        </p>
-        <div className="mt-8 flex justify-center gap-4">
-          <a href="/shop" className="rounded-xl bg-zinc-100 px-6 py-3 text-black">
-            Browse Art
-          </a>
-          <a href="/commissions" className="rounded-xl border border-zinc-700 px-6 py-3">
-            Commission a Piece
-          </a>
+    <div className='page-content section'>
+      <h1 className='page-header'>About Me</h1>
+      {/* Intro Section */}
+      <div className='horizontal-container section section-1'>
+        <div className='image-content'>
+          <img  src={ranbeerDp} alt="Artist painting in studio"/>
         </div>
-      </section>
+        <div className='vertical-container text-content'>
+          <div >
+            <h1 className="secondary-header">Art that speaks in color and power</h1>
+            <p>Bold, motivational paintings — large animals, vibrant abstracts, and
+              pop-inspired works that inspire strength and ambition.
+            </p>
+          </div>
+          <div className='horizontal-container button-container'>
+            <button className='button01' role="button" onClick={scrollToKnowMore}>
+              <span class="text">Know more</span>
+              <span>Know</span>
+            </button>
+            <button className='button01' role="button" onClick={goToHomeCollection}>
+              <span class="text">Explore Art</span>
+              <span>Explore</span>
+            </button>           
+          </div>
+        </div>
+        
+      </div>
 
       {/* My Story */}
-      <section className="mb-24 grid gap-12 md:grid-cols-2">
-        <img
-          src="/images/studio-hero.webp"
-          alt="Artist painting in studio"
-          className="rounded-2xl border border-zinc-700 object-cover"
-        />
+      <div ref={knowMoreRef} className='vertical-container section section-2'>
         <div>
-          <h2 className="text-3xl font-semibold">From Canvas to Vision</h2>
-          <p className="mt-4 text-zinc-400 leading-relaxed">
+          <h2 className='secondary-header'>From Canvas to Vision</h2>
+          <p>
             With a diploma in Fine Arts and a degree in Computer Science,
             painting became my outlet to capture energy, resilience, and ambition.
             My work celebrates strength — from a tiger’s gaze to the vastness of
             a whale or the playful edge of pop culture reimagined with motivational
             themes.
           </p>
-          <p className="mt-4 text-zinc-400 leading-relaxed">
+          <p >
             I believe art should do more than decorate a wall — it should inspire
             you every day.
           </p>
-          <p className="mt-6 text-sm text-zinc-500 italic">
+          <p>
             (This website is my own creation — designed and built by me.)
           </p>
         </div>
-      </section>
+      </div>
 
       {/* My Art */}
-      <section className="mb-24">
-        <h2 className="text-3xl font-semibold text-center">What I Paint</h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          <img src="/images/tiger.webp" alt="Tiger painting" className="rounded-xl border border-zinc-700 object-cover"/>
-          <img src="/images/abstract.webp" alt="Abstract painting" className="rounded-xl border border-zinc-700 object-cover"/>
-          <img src="/images/pop.webp" alt="Pop-inspired painting" className="rounded-xl border border-zinc-700 object-cover"/>
+      <div className='vertical-container section'>
+        <h2 className='secondary-header'>What I Paint</h2>
+        <div className='horizontal-container my-art-image-gallery'>
+          {whatIPaint.map((url, i) => (
+            <img className='art-image' key={i} src={url} alt={`What I Paint ${i + 1}`} />
+          ))}
         </div>
-      </section>
+      </div>
+
+
 
       {/* Originals / Prints / Commissions */}
-      <section className="mb-24 text-center">
-        <h2 className="text-3xl font-semibold">Originals, Prints & Commissions</h2>
-        <p className="mt-4 text-zinc-400">
+      <div className='vertical-container section'>
+        <h2 className='secondary-header'>Originals, Prints & Commissions</h2>
+        <p>
           From one-of-a-kind canvases to limited giclée prints and custom commissions.
         </p>
-        <a href="/commissions" className="mt-6 inline-block rounded-xl border border-zinc-700 px-5 py-3">
-          Commission Your Piece
-        </a>
-      </section>
+        <button 
+          className='button01' 
+          role="button"
+          onClick={() => {
+              const subject = encodeURIComponent(`Interested in a Commissioned Piece`);
+              const body = encodeURIComponent(
+                `Hi Ranbeer, \n\n I liked some of your paintings And would like to discuss an Idea.\n Could you please get in touch with me regarding a commissioned piece? Looking forward to hearing from you. \n\n Commision Details (Optional): \n [Provide details about the size, theme, colors, and any specific elements you want in the painting]\n\n Best Regards,\n [Your Name]`
+              );
+              window.location.href = `mailto:ranbeerchaudhary03@gmail.com?subject=${subject}&body=${body}`;
+            }}
+        >
+          <span class="text">Commission Your Piece</span>
+          <span>Commission Inquiry</span>
+        </button>
+      </div>
 
       {/* Exhibitions */}
-      <section className="mb-24 text-center">
-        <h2 className="text-3xl font-semibold">Seen & Collected</h2>
-        <p className="mt-4 text-zinc-400">
+      <div className='vertical-container section section-3'>
+        <h2 className='secondary-header'>Seen & Collected</h2>
+        <p>
           Exhibited at London art fairs, including the <strong>Roy Art Fair (2023)</strong>.
           Collected by private buyers internationally.
         </p>
-      </section>
+        <div className='horizontal-container about-me-image-gallery'>
+          <img src={ranbeerIndianSpeach} alt="Abstract painting"/>
+          <img src={ranbeerRoysArtFair} alt="Pop-inspired painting"/>
+          <img src={ranbeerBattersea} alt="Tiger painting"/>
+        </div>
+      </div>
 
       {/* Final CTA */}
-      <section className="text-center">
-        <h2 className="text-3xl font-semibold">Bring Power to Your Space</h2>
-        <p className="mt-4 text-zinc-400 max-w-xl mx-auto">
+      <div className='vertical-container section'>
+        <h2 className='secondary-header'>
           Whether it’s an original canvas or a custom commission, my art is about
           energy, drive, and presence.
-        </p>
-        <div className="mt-8 flex justify-center gap-4">
-          <a href="/shop" className="rounded-xl bg-zinc-100 px-6 py-3 text-black">
-            Browse Available Works
-          </a>
-          <a href="/commissions" className="rounded-xl border border-zinc-700 px-6 py-3">
-            Commission a Painting
-          </a>
-        </div>
-      </section>
-    </main>
-  );
+        </h2>
+      </div>
+    </div>
+);
 }

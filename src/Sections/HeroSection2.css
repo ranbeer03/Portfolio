@@ -1,28 +1,55 @@
 .hero-section {
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-    height: 80vh;
-    padding: 0 4em;
-    background-color: aqua;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100vw;
+  min-width: fit-content;
+  height: 90vh;
+  background-image: url(../Icons/gallery-background.jpg);
+  background-size: cover;
+  margin-top: -100px;   
+  background-repeat: no-repeat;
+  background-color: aqua;
 }
 
 .hero-content{
-    justify-content: center;
-    align-items: flex-end;
-    color: white;
-    width: 40%;
-    text-align: right;
-    gap: 12px;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+  height: 100%;
+  max-width: 40%;
+  width: fit-content;
+  text-align: right;
+  gap: 12px;
+  padding-top: 5vw;
+  padding-right: 5vw;
+  background: 
+    linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%),
+    linear-gradient(to right, #525252 50%, #242424 50%);
 }
 
 .hero-header {
-  text-align: right;
-  font-size: 4em;
+  min-width: fit-content;
+  width: 100%;
+  font-size: clamp(2rem, 6vw, 4rem);
   font-weight: 800;
-  z-index: 1;
+  /* background-color: aqua; */
 }
 
 .hero-subtitle{
-    list-style-type: none;
+  width: 100%;
+  list-style-type: none;
+  /* background-color: aquamarine; */
+}
+
+/* BUTTON */
+.button01.hero-button {
+  border-color: grey;
+  color: grey;
+}
+.button01.hero-button:after {
+  background-color: grey;
+}
+.button01.hero-button:hover {
+  color: black;
 }

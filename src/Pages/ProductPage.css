@@ -144,12 +144,13 @@
 }
 
 .image-gallery-thumbnail {
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   padding: 0px;
   margin: 0px;
   transition: all 0.3s ease;
   border: 0px; 
+  background-color: white;
 }
 
 .image-gallery-thumbnail-inner{

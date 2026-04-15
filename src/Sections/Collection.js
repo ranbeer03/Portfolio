@@ -1,7 +1,6 @@
 import { forwardRef, useState, useEffect, useContext } from 'react';
 import './Collection.css';
 import '../App.css'
-import { ShopContext } from '../context/ShopContext';
 import ProductItem from '../Components/ProductItem';
 
 const Collection = forwardRef(({ screenPos }, ref) => {

@@ -8,7 +8,6 @@ import HomePageNew from './Pages/HomePageNew';
 import AboutPage from './Pages/AboutPage';
 import ShopPage2 from './Pages/ShopPage2';
 import ContactPage from './Pages/ContactPage';
-import ScrollToTop from './Components/ScrollToTop';
 import ProductPage from './Pages/ProductPage';
 import CartPage from './Pages/CartPage'
 import LoginPage from './Pages/LoginPage'
@@ -61,7 +60,7 @@ function App() {
     <Router>
       <div className="App">
       <Navbar />
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       
       <main className="main-content">
         <Routes>

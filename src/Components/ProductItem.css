@@ -3,23 +3,25 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    max-width: 30vw;
-    max-height: 100%;
+    width: min-content;
     color: black;
     text-decoration: none;
-    background-color: aqua;
+    gap: 10px;
+    /* background-color: red; */
 }
 
 .product-item-image{
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 45vw;
+    max-height: 65vh;
 }
 
 .item-footer{
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0px;
+    gap: 20px;
+    /* padding: 5px 0px; */
+    /* background-color: blue; */
 }
 
 h4{

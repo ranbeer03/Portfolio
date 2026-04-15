@@ -19,6 +19,8 @@ import StackedCards from "../Sections/StackedCards";
 import Collection from "../Sections/Collection";
 import Footer from "../Components/Footer";
 
+import galleryBackground from "../Icons/gallery-background.jpg";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const HomePage = () => {
@@ -182,8 +184,8 @@ const HomePage = () => {
   
 
   return (
-    <div className="page">
-      <main ref={mainRef}>
+    <div className="page" style={{ backgroundImage: `url(${galleryBackground})` }}>
+      <div ref={mainRef}>
         <div
           className="home"
           ref={sceneRef}
@@ -219,7 +221,7 @@ const HomePage = () => {
           <StackedCards ref={printsRef}/>
           <Contact ref={contactRef}/>
         </div>
-      </main>
+      </div>
     </div>
   );
 };

@@ -1,20 +1,23 @@
   .contact-container{
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
     text-align: right;
+    padding-bottom: 0px;
     .page-header{
       text-align: left;
     }
     .secondary-header{
       text-align: right;
     }
+    /* background-color: yellowgreen; */
   }
+  
   .contact-section{
-    justify-content: center;
-    gap: 10vw;
+    padding-left: 4rem;
+    justify-content: space-between;
+    /* background-color: aqua; */
+    /* gap: 10vw; */
   }
+
   .contact-image{
     height: 70vh;
   }
@@ -23,8 +26,9 @@
   .message-section{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 60%;
     align-items: flex-end;
+    justify-content: center;
     text-align: right;
     gap: 8px;
     /* background-color: #E1306C; */
@@ -55,10 +59,8 @@
     -ms-overflow-style: none;
     scrollbar-width: none
   }
-  .input-name{
-    width: 50%;
-  }
-  .input-email{
+
+  .full-width{
     width: 100%;
   }
   .input-note{
@@ -73,4 +75,7 @@
     border: 0px;
   }
 
-  
+  .error-text{
+    color: red;
+    font-size: 0.8em;
+  }

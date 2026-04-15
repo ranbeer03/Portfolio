@@ -3,7 +3,7 @@ import ProductItem from './ProductItem.js';
 import { getArtworkImages, getProductInfoById } from '../Services/ProductsService.ts';
 import './Collection.css'
 
-const Collection = ({name,items}) => {
+const Collection = ({name, year, items}) => {
 
 const [newCollection, setNewCollection] = useState([]);
 
@@ -30,17 +30,20 @@ useEffect(() => {
 
   return (
     <div className='collection-container vertical-container'>
+      <div className='collection-header'>
         <h2 className='secondary-header'>{name}</h2>
-        <div className='collection-items horizontal-container'>
-            {newCollection.map((product) => (
-                <ProductItem
-                  key={product.id}
-                  id={product.id}
-                  name={product.name}
-                  image={product.thumbnail[0].url}
-                />
-            ))}
-        </div>
+        <p>{year}</p>
+      </div>
+      <div className='collection-items horizontal-container'>
+          {newCollection.map((product) => (
+              <ProductItem
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                image={product.thumbnail[0].url}
+              />
+          ))}
+      </div>
     </div>
   )
 }

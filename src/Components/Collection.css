@@ -1,13 +1,27 @@
 .collection-container{
     width: 100%;
     align-items: flex-start;
-    background-color: aqua;
+    justify-self: start;
+    /* border: red 2px solid; */
+    /* background-color: aqua; */
 }
 
 .collection-items{
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+   
+    /* background-color: orange; */
+}
+
+.collection-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
     width: 100%;
-    gap: 15vw;
-    background-color: orange;
+    border-bottom: 1px solid grey;
+    /* background-color: aquamarine; */
 }

@@ -1,90 +1,71 @@
-.aboutMe {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    z-index: 3000;
-    height: 100vh;
+.section{
+  display: flex;
+  text-align: left;
+  /* background-color: blue; */
 }
 
-.description {
-    text-align: left;
-    display: flex;
-    justify-content:space-between;
-    align-items:center;
-    padding-top: 2em;
+.section-1 {
+  justify-content: space-between;
+  align-items: center;
+  height: 50vh;
+  /* background-color: aquamarine; */
 }
 
-.desc-text {
-    width: 60%; 
+.section-1 .text-content {
+  align-items: flex-end;
+  width: 50%;
+  text-align: right;
+  h1{
+    text-align: right;
+  }
 }
 
-h2{
-  padding-bottom: 1em;
+.section-1 .vertical-container{
+  justify-content: center;
+  gap: 80px;
+  height: 100%;
 }
 
-.personal-info {
-    width: 30%; 
-    height: auto;
-    padding: 1em;
-    margin: 1em;
-    
-}
-  
-  .p-info {
-    border-bottom: 1px solid black;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    margin-top: 1em;
+.image-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: tomato; */
 }
 
-  .downloads {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .stats {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 2em;
-  }
-  
-  .stat {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;  
-    text-align: center; 
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .stat strong {
-    font-size: 2em; 
-  }
-  .vertical-line {
-    border-left: 1px solid black;
-    height: 100px;
-    width: 0;
-  }
-  
-  @media screen and (max-width: 768px){
-  
+.section-1 img {
+  height: 350px;
+  width: 350px;
+  border-radius: 100%;
+  object-fit: contain;
+}
 
-    .description{
-      flex-direction: column;
-    }
-
-    .desc-text {
-      width: 100%; 
-      height: auto;
-    }
-    .personal-info {
-      width: 100%; 
-    }
-    .stats {
-      justify-content: center;
-    }
+.my-art-image-gallery{
+  align-items: center;
+  justify-content: space-between;
+  img{
+    width: 30%;
+    height: 40vh;
+    border-radius: 10px;
+    object-fit: cover;
   }
-  
+  /* background-color: lime; */
+}
+
+.about-me-image-gallery{
+  align-items: center;
+  justify-content: space-between;
+  img{
+    width: 30%;
+    height: 60vh;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  /* background-color: lime; */
+}
+
+.art-image{
+  background-color: aqua;
+  height: 200px;
+  width: 200px;
+}

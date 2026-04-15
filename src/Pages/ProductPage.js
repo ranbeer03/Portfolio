@@ -113,7 +113,7 @@ const ProductPage = () => {
 
       <div className="content">
         <ReactImageGallery
-          showBullets={false}
+          showBullets={false}w
           showFullscreenButton={false}
           showPlayButton={false}
           items={images}

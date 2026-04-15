@@ -1,4 +1,5 @@
-import { Canvas } from "@react-three/fiber";
+import React, { useRef, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Scene from "../Scene2";
@@ -11,16 +12,31 @@ import Contact from "../Sections/Contact";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HomePageNew = () => {
-  return (
-    <div className="page">
-        {/* <Canvas style={{ position:'fixed', inset:0, width:'100vw', height:'100vh', display:'block', zIndex:0 }}>
-            <Scene />
-        </Canvas> */}
+  const HomePageNew = () => {
 
-        <div className="content">
-            <HeroSection2 />
-            <NewCollection2 />
+  const collectionRef = useRef(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToCollection = () => {
+    const y = collectionRef.current.getBoundingClientRect().top + window.pageYOffset - 100;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (location.state?.scrollTo === "collection" && collectionRef.current) {
+      requestAnimationFrame(() => {
+        scrollToCollection();
+        navigate(location.pathname, { replace: true, state: {} });
+      });
+    }
+  }, [location.state, navigate]);
+
+  return (
+    <div className="page home">
+        <div className="page-content">
+            <HeroSection2 onExploreClick={scrollToCollection}/>
+            <NewCollection2 sectionRef={collectionRef}/>
             <Contact />
         </div>
     </div>

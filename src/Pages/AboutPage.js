@@ -4,8 +4,8 @@ import Contact from '../Sections/Contact';
 
 const AboutPage = () => {
   return (
-    <div className="about">
-      <AboutMe/>
+    <div className="page">
+      <AboutMe />
       <Contact />
     </div>
   );
