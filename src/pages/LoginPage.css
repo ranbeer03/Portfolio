@@ -46,3 +46,15 @@
 .auth-switch-link:hover {
   text-decoration: underline;
 }
+
+.auth-hint {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted, #666);
+  margin-top: 0.5rem;
+}
+
+.auth-forgot {
+  font-size: var(--text-sm);
+  align-self: flex-start;
+  margin-top: 0.35rem;
+}

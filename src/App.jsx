@@ -15,6 +15,7 @@ const ProductPage = lazy(() => import('./pages/ProductPage'));
 const CartPage = lazy(() => import('./pages/CartPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const AccountPage = lazy(() => import('./pages/AccountPage'));
+const ResetPasswordPage = lazy(() => import('./pages/ResetPasswordPage'));
 const LegalPage = lazy(() => import('./pages/LegalPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/account" element={<AccountPage />} />
+                <Route path="/reset-password" element={<ResetPasswordPage />} />
                 <Route path="/legal/:slug" element={<LegalPage />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>

@@ -41,6 +41,11 @@ const AuthProvider = ({ children }) => {
           options: { data: { full_name: fullName } },
         }),
       signOut: () => supabase.auth.signOut(),
+      requestPasswordReset: (email) =>
+        supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: `${window.location.origin}/reset-password`,
+        }),
+      updatePassword: (password) => supabase.auth.updateUser({ password }),
     }),
     [user, loading]
   );
