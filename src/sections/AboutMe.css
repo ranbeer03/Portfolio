@@ -1,0 +1,124 @@
+.about-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+  text-align: left;
+}
+
+.about-page .section {
+  justify-content: center;
+}
+
+/* Intro — statement left, portrait right */
+.about-intro-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: var(--space-8);
+  width: min(var(--content-max-width), 100%);
+}
+
+.about-intro-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.about-intro-copy p {
+  max-width: 55ch;
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  color: var(--color-ink-soft);
+}
+
+.about-portrait {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* Story — editorial split: heading left, text right */
+.about-story-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-8);
+  width: min(var(--content-max-width), 100%);
+  padding: var(--space-7) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-story-text p {
+  max-width: 62ch;
+  margin: 0 0 var(--space-4);
+  line-height: 1.8;
+  color: var(--color-ink-soft);
+}
+
+.about-story-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Shared block layout */
+.about-block-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: min(var(--content-max-width), 100%);
+}
+
+.about-exhibitions-copy {
+  max-width: 60ch;
+  margin: 0;
+  line-height: 1.7;
+  color: var(--color-ink-soft);
+}
+
+/* Image grids */
+.about-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  width: 100%;
+  margin-top: var(--space-4);
+}
+
+.about-gallery img {
+  width: 100%;
+  height: 46vh;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-slow) var(--ease-out),
+    box-shadow var(--duration-slow) var(--ease-out);
+}
+
+.about-gallery img:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 900px) {
+  .about-intro-inner,
+  .about-story-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .about-portrait {
+    max-height: 420px;
+  }
+
+  .about-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .about-gallery img {
+    height: 40vh;
+  }
+}

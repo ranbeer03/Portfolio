@@ -1,0 +1,45 @@
+.about-teaser {
+  justify-content: center;
+}
+
+.about-teaser-inner {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  align-items: center;
+  gap: var(--space-8);
+  width: min(var(--content-max-width), 100%);
+}
+
+.about-teaser-portrait {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.about-teaser-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  text-align: left;
+}
+
+.about-teaser-copy p {
+  max-width: 60ch;
+  margin: 0;
+  line-height: 1.7;
+  color: var(--color-ink-soft);
+}
+
+@media (max-width: 768px) {
+  .about-teaser-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .about-teaser-portrait {
+    max-width: 260px;
+  }
+}

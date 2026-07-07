@@ -1,0 +1,21 @@
+/* One collection group inside the horizontal track. */
+.collection-container {
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.collection-items {
+  align-items: flex-start;
+  justify-content: start;
+  gap: 3rem;
+  padding-top: 1rem;
+}
+
+.collection-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  border-bottom: 1px solid var(--color-border-strong);
+}

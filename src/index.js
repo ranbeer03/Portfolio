@@ -1,21 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
-import ShopContextProvider from './Context/ShopContext';
-
-
+import './styles/theme.css';
+import './styles/global.css';
+import App from './App';
+import ShopContextProvider from './context/ShopContext';
+import CartProvider from './context/CartContext';
+import AuthProvider from './context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ShopContextProvider>
-      <App />
-    </ShopContextProvider>
+    <AuthProvider>
+      <ShopContextProvider>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </ShopContextProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
-
-reportWebVitals();

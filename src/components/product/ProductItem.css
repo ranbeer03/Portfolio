@@ -1,0 +1,53 @@
+.item-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: min-content;
+  color: var(--color-ink);
+  text-decoration: none;
+  gap: var(--space-3);
+}
+
+.product-item-image {
+  /* Fixed height reserves space before the image loads, so late-loading
+     artwork doesn't shift the layout (or the horizontal track width). */
+  height: 52vh;
+  width: auto;
+  max-width: 45vw;
+  object-fit: contain;
+  /* Soft cast shadow — the artwork hangs on the gallery wall */
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--duration-slow) var(--ease-out),
+    box-shadow var(--duration-slow) var(--ease-out);
+}
+
+.item-card:hover .product-item-image {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.item-footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.item-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .product-item-image {
+    height: 40vh;
+    max-width: 80vw;
+  }
+}

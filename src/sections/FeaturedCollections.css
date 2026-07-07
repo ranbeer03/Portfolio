@@ -1,0 +1,38 @@
+/* Pinned viewport-high stage on the settled gallery wall (the sticky
+   canvas behind it provides the background). */
+.collection-stage {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--section-gap);
+  overflow: hidden;
+}
+
+.collection-title {
+  margin: 0;
+  padding: 0 var(--page-padding-x);
+}
+
+/* Native horizontal scroller (reduced-motion fallback); GSAP switches it
+   to overflow hidden and drives the track transform instead. */
+.collection-scroller {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.collection-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.collection-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 6vw;
+  width: max-content;
+  padding: 0 var(--page-padding-x);
+  will-change: transform;
+}

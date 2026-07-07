@@ -1,0 +1,292 @@
+/* ==========================================================================
+   Global styles: app shell, page scaffolding, typography, the button and
+   link system, and form primitives. Component-specific styles live next to
+   their component — but every value they use comes from theme.css tokens.
+   ========================================================================== */
+
+/* App shell
+   ========================================================================== */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Bootstrap enables CSS smooth scrolling globally, which turns every
+   programmatic scroll into an interruptible animation and conflicts with
+   GSAP ScrollTrigger. Intentional smooth scrolls pass behavior: 'smooth'. */
+:root {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  /* Scroll position is driven by GSAP ScrollTrigger; browser scroll anchoring
+     fights it when async images change the layout. */
+  overflow-anchor: none;
+}
+
+::selection {
+  background-color: var(--color-ink);
+  color: var(--color-text-inverse);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Page scaffolding
+   ========================================================================== */
+.page {
+  padding-top: var(--nav-height);
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+}
+
+.section {
+  display: flex;
+  padding: 0 var(--page-padding-x);
+}
+
+/* Typography
+   ========================================================================== */
+.page-header {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-align: left;
+  margin: 0;
+}
+
+.secondary-header {
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-ink);
+  text-align: left;
+  margin: 0;
+}
+
+.eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-accent);
+  margin: 0 0 var(--space-3);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* Layout helpers
+   ========================================================================== */
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Button system — one visual language for every action.
+   Variants: .btn-primary (solid ink → gold), .btn-outline (outline → fill),
+   .btn-inverse (for dark surfaces), .btn-sm (compact contexts).
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 0.9em 1.8em;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition:
+    color var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-text-inverse);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-ink);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn-inverse {
+  border-color: rgba(250, 250, 249, 0.7);
+  color: var(--color-text-inverse);
+}
+
+.btn-inverse:hover {
+  background-color: var(--color-text-inverse);
+  border-color: var(--color-text-inverse);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  font-size: 0.85rem;
+  padding: 0.6em 1.3em;
+}
+
+/* Link underline — the single hover effect for text links (nav, footer). */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1.5px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.link-underline:hover::after,
+.link-underline.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Form primitives
+   ========================================================================== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  text-align: left;
+}
+
+.field label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.input {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-ink);
+  background-color: var(--color-surface);
+  height: 48px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(161, 98, 7, 0.15);
+}
+
+textarea.input {
+  height: 120px;
+  padding: var(--space-3) var(--space-4);
+  resize: none;
+  scrollbar-width: none;
+}
+
+textarea.input::-webkit-scrollbar {
+  display: none;
+}
+
+.error-text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-error);
+  font-size: var(--text-sm);
+}

@@ -1,0 +1,75 @@
+/* Taller than one viewport: the extra 70svh is scroll room for the camera
+   pan before the collections section arrives. Paired with SCRUB_VIEWPORTS
+   in GalleryPan.js. */
+.hero-runway {
+  position: relative;
+  z-index: 1;
+  height: 170vh;
+  height: 170svh;
+}
+
+.hero-viewport {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.hero-content {
+  justify-content: center;
+  align-items: flex-end;
+  color: var(--color-text-inverse);
+  height: 100%;
+  max-width: 44%;
+  text-align: right;
+  gap: 12px;
+  padding-right: var(--page-padding-x);
+  padding-left: 6vw;
+  /* Soft scrim so the headline stays readable over the moving footage */
+  background: linear-gradient(
+    to left,
+    rgba(9, 9, 11, 0.55) 30%,
+    rgba(9, 9, 11, 0.25) 70%,
+    transparent 100%
+  );
+}
+
+.hero-header {
+  min-width: fit-content;
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4.2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+.hero-subtitle {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle li {
+  padding: 2px 0;
+}
+
+.hero-content .button-container {
+  justify-content: flex-end;
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    max-width: 85%;
+    padding-right: var(--page-padding-x);
+  }
+}

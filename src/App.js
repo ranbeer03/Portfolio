@@ -1,81 +1,49 @@
-import React, {use, useEffect, useRef, useState} from 'react';
+import { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import {gsap} from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
-import Navbar from './Components/Navbar';
-import Footer from './Components/Footer';
-import HomePageNew from './Pages/HomePageNew';
-import AboutPage from './Pages/AboutPage';
-import ShopPage2 from './Pages/ShopPage2';
-import ContactPage from './Pages/ContactPage';
-import ProductPage from './Pages/ProductPage';
-import CartPage from './Pages/CartPage'
-import LoginPage from './Pages/LoginPage'
+import ScrollAnimations from './animations/ScrollAnimations';
+import ErrorBoundary from './components/layout/ErrorBoundary';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import HomePage from './pages/HomePage';
 
-import './App.css';
-import './theme.css';
-import Scene from "./Scene";
-
-gsap.registerPlugin(ScrollTrigger);
+/* Route-level code splitting: MUI (shop filters) and the image carousel
+   (product page) stay out of the main bundle until visited. */
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ShopPage = lazy(() => import('./pages/ShopPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const ProductPage = lazy(() => import('./pages/ProductPage'));
+const CartPage = lazy(() => import('./pages/CartPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const AccountPage = lazy(() => import('./pages/AccountPage'));
+const LegalPage = lazy(() => import('./pages/LegalPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function App() {
-  const mainRef=useRef(null)
-  const sceneRef=useRef(null)
-  const [progress, setProgress]=useState(0)
-
-  useEffect(()=>{
-    gsap.timeline({
-      scrollTrigger:{
-        trigger:mainRef.current,
-        start:"top top",
-        end:"bottom bottom",
-        scrub:1,
-        onUpdate:(self)=>{
-          setProgress(self.progress)
-        }
-      }
-    })
-    .to(sceneRef.current,{
-      ease:'none',
-    })
-    .to(sceneRef.current,{
-      ease:'none',
-    })
-    .to(sceneRef.current,{
-      ease:'none',
-    })
-    .to(sceneRef.current,{
-      ease:'none',
-    })
-    .to(sceneRef.current,{
-      ease:'none',
-    })
-    .to(sceneRef.current,{
-      ease:'none',
-      x:'-25vw',
-    })
-  },[])
-
   return (
     <Router>
       <div className="App">
-      <Navbar />
-      {/* <ScrollToTop /> */}
-      
-      <main className="main-content">
-        <Routes>
-          <Route path="/" element={<HomePageNew />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/shop" element={<ShopPage2 />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
-      </main>
-
-      <Footer />
-    </div>
+        <ScrollAnimations />
+        <Navbar />
+        <main className="main-content">
+          <ErrorBoundary>
+            <Suspense fallback={<div className="page" />}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/shop" element={<ShopPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/product/:id" element={<ProductPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/account" element={<AccountPage />} />
+                <Route path="/legal/:slug" element={<LegalPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </Suspense>
+          </ErrorBoundary>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }

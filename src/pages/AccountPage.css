@@ -1,0 +1,105 @@
+.account-page {
+  padding-left: var(--page-padding-x);
+  padding-right: var(--page-padding-x);
+}
+
+.account-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.account-email {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-muted);
+}
+
+.account-orders {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.account-note {
+  margin: 0;
+  color: var(--color-ink-soft);
+}
+
+.account-link {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.order-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.order-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.order-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-id {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.order-status {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-ink-soft);
+}
+
+.order-status-paid,
+.order-status-shipped {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.order-date {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.order-items {
+  margin: 0;
+  padding: 0 0 0 var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+  line-height: 1.8;
+}
+
+.order-total {
+  margin: 0;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  font-weight: 600;
+}

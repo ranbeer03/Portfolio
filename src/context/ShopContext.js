@@ -1,58 +1,58 @@
 import { createContext, useState, useEffect } from "react";
-import { supabase } from "../Services/SupaBaseClient";
+import { supabase } from "../services/supabaseClient";
 
-export const ShopContext = createContext();
+export const ShopContext = createContext({
+  artworks: [],
+  artworkImages: [],
+  prices: [],
+  currency: "£",
+  deliveryFee: 10,
+});
 
-const ShopContextProvider = (props) => {
+const ShopContextProvider = ({ children }) => {
   const [artworks, setArtworks] = useState([]);
-  const [prices_and_stock, setPricesAndStock] = useState([]);
-  const [artwork_images, setArtworkImages] = useState([]);
-
-  const currency = '£';
-  const delivery_fees = 10;
+  const [artworkImages, setArtworkImages] = useState([]);
+  const [prices, setPrices] = useState([]);
 
   useEffect(() => {
-    const fetchArtworks = async () => {
-      const { data, error } = await supabase.from('artworks').select('*');
-      if (error) {
-        console.error('Error fetching artworks:', error);
+    const fetchShopData = async () => {
+      const [artworksResult, imagesResult, pricesResult] = await Promise.all([
+        supabase.from("artworks").select("*"),
+        supabase.from("images").select("*"),
+        supabase.from("prices").select("*"),
+      ]);
+
+      if (artworksResult.error) {
+        console.error("Error fetching artworks:", artworksResult.error);
       } else {
-        setArtworks(data);
+        setArtworks(artworksResult.data);
       }
 
-      const { data: imageData, error: error2 } = await supabase.from('images').select('*');
-      if (error2) {
-        console.error('Error fetching artworks:', error2);
+      if (imagesResult.error) {
+        console.error("Error fetching images:", imagesResult.error);
       } else {
-        setArtworkImages(imageData);
-        console.log("images recieved at context= " + imageData.length)
+        setArtworkImages(imagesResult.data);
       }
 
-      const { data: priceStockData, error: error3 } = await supabase.from('prices').select('*');
-      if (error2) {
-        console.error('Error fetching prices:', error3);
+      if (pricesResult.error) {
+        console.error("Error fetching prices:", pricesResult.error);
       } else {
-        setPricesAndStock(priceStockData);
-        console.log("prices recieved at context= " + priceStockData.length)
+        setPrices(pricesResult.data);
       }
     };
 
-    fetchArtworks();
+    fetchShopData();
   }, []);
 
   const value = {
     artworks,
-    prices_and_stock,
-    artwork_images,
-    currency,
-    delivery_fees
+    artworkImages,
+    prices,
+    currency: "£",
+    deliveryFee: 10,
   };
 
-  return (
-    <ShopContext.Provider value={value}>
-      {props.children}
-    </ShopContext.Provider>
-  );
+  return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 };
 
 export default ShopContextProvider;

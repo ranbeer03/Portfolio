@@ -1,0 +1,19 @@
+.home {
+  /* Block layout (not flex): pinned sections inside need pin-spacer padding
+     to create scroll runway, which flex parents would swallow. */
+  display: block;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  /* Hero is full-bleed under the transparent navbar — no clearance needed */
+  padding-top: 0;
+}
+
+/* Positioning context for the sticky gallery-pan canvas. */
+.pan-stage {
+  position: relative;
+}
+
+.home .page-content {
+  padding-top: var(--section-gap);
+}

@@ -1,0 +1,242 @@
+.back-button {
+  background: none;
+  border: none;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding-left: var(--page-padding-x);
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.back-button:hover {
+  color: var(--color-ink);
+}
+
+.icon {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+.product-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.product-content .page-header {
+  text-transform: capitalize;
+}
+
+/* Image gallery (react-image-gallery overrides)
+   ============================================= */
+.image-gallery {
+  width: 45%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.image-gallery-content {
+  height: 100%;
+  width: 100%;
+}
+
+.image-gallery-slide-wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 80%;
+}
+
+.image-gallery-slide {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-gallery-image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Left / right navigation buttons */
+.image-gallery-left-nav,
+.image-gallery-right-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  cursor: pointer;
+  border: none;
+  z-index: 2;
+  /* Hidden until the slide is hovered */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-base) var(--ease-out), visibility var(--duration-base) var(--ease-out);
+}
+
+.image-gallery-left-nav {
+  left: 10px;
+}
+
+.image-gallery-right-nav {
+  right: 10px;
+}
+
+.image-gallery-left-nav:hover,
+.image-gallery-right-nav:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.image-gallery-slide-wrapper:hover .image-gallery-left-nav,
+.image-gallery-slide-wrapper:hover .image-gallery-right-nav {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Thumbnails */
+.image-gallery-thumbnails-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.image-gallery-thumbnail {
+  border-radius: var(--radius-md);
+  display: flex;
+  padding: 0;
+  margin: 0;
+  transition: all var(--duration-base) var(--ease-out);
+  border: 0;
+  background-color: var(--color-surface);
+}
+
+.image-gallery-thumbnail-inner {
+  height: 10vh;
+}
+
+.image-gallery-thumbnail-image {
+  height: 100%;
+  border-radius: 8px;
+}
+
+.image-gallery-thumbnail.active {
+  border: 2px solid var(--color-accent);
+  padding: 2px;
+}
+
+/* Details
+   ============================================= */
+.product-details-section {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 2em;
+}
+
+.properties {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.property-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+
+.property-name p {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.product-description {
+  color: var(--color-ink-soft);
+  line-height: 1.7;
+  margin: var(--space-4) 0 var(--space-6);
+}
+
+.properties {
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Purchase panel */
+.purchase-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.edition-select {
+  cursor: pointer;
+}
+
+.purchase-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.purchase-price {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.purchase-note {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 900px) {
+  .product-content {
+    gap: var(--space-5);
+  }
+
+  .image-gallery {
+    width: 90%;
+    height: auto;
+  }
+
+  .image-gallery-slide-wrapper {
+    height: 50vh;
+  }
+
+  .product-details-section {
+    width: 90%;
+    gap: var(--space-5);
+  }
+}

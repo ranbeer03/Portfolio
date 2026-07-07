@@ -1,0 +1,21 @@
+/* Backdrop spans the whole .pan-stage (hero runway + collections);
+   the canvas inside stays stuck to the viewport while scrolling through. */
+.pan-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.pan-canvas {
+  position: sticky;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  /* Poster while the first frame streams in */
+  background-image: url(../assets/images/gallery-background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-color: #101012;
+}
