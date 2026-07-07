@@ -4,9 +4,10 @@ import { CartContext } from '../context/CartContext';
 import { ShopContext } from '../context/ShopContext';
 import { AuthContext } from '../context/AuthContext';
 import { createOrder } from '../services/ordersService';
+import { startStripeCheckout } from '../services/checkoutService';
 import usePageTitle from '../hooks/usePageTitle';
 import './CartPage.css';
-import { CONTACT_EMAIL, CURRENCY_CODE } from '../config';
+import { CONTACT_EMAIL, CURRENCY_CODE, CHECKOUT_MODE } from '../config';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -44,6 +45,23 @@ const CartPage = () => {
       newErrors.shippingAddress = 'Shipping address is required';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  };
+
+  const handleStripeCheckout = async () => {
+    setStatus('sending');
+    try {
+      const url = await startStripeCheckout(
+        items.map((line) => ({
+          artworkId: line.artworkId,
+          editionKey: line.editionKey,
+          quantity: line.quantity,
+        }))
+      );
+      window.location.assign(url);
+    } catch (error) {
+      console.error('Error starting checkout:', error);
+      setStatus('error');
+    }
   };
 
   const handlePlaceOrder = async (event) => {
@@ -203,6 +221,30 @@ const CartPage = () => {
             </div>
           </div>
 
+          {CHECKOUT_MODE === 'stripe' ? (
+            <div className="cart-checkout">
+              <button
+                type="button"
+                className="btn btn-primary cart-place-order"
+                onClick={handleStripeCheckout}
+                disabled={status === 'sending'}
+              >
+                {status === 'sending'
+                  ? 'Opening secure checkout…'
+                  : `Checkout — ${currency}${total}`}
+              </button>
+              {status === 'error' && (
+                <p className="error-text" role="alert">
+                  Something went wrong starting the checkout. Please try again
+                  or email {CONTACT_EMAIL}.
+                </p>
+              )}
+              <p className="cart-disclaimer">
+                Payment and shipping details are collected on Stripe's secure
+                checkout page. Card data never touches this site.
+              </p>
+            </div>
+          ) : (
           <form className="cart-checkout" onSubmit={handlePlaceOrder} noValidate>
             <div className="field">
               <label htmlFor="order-name">Full name *</label>
@@ -285,6 +327,7 @@ const CartPage = () => {
               send secure payment details to your email within 24 hours.
             </p>
           </form>
+          )}
         </div>
       </div>
     </div>
