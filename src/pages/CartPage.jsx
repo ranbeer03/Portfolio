@@ -6,6 +6,7 @@ import { AuthContext } from '../context/AuthContext';
 import { createOrder } from '../services/ordersService';
 import usePageTitle from '../hooks/usePageTitle';
 import './CartPage.css';
+import { CONTACT_EMAIL, CURRENCY_CODE } from '../config';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -68,7 +69,7 @@ const CartPage = () => {
         subtotal,
         delivery_fee: deliveryFee,
         total,
-        currency: 'GBP',
+        currency: CURRENCY_CODE,
       });
       setPlacedOrderId(order.id);
       setStatus('success');
@@ -276,7 +277,7 @@ const CartPage = () => {
             {status === 'error' && (
               <p className="error-text" role="alert">
                 Something went wrong placing your order. Please try again or
-                email ranbeerchaudhary03@gmail.com.
+                email {CONTACT_EMAIL}.
               </p>
             )}
             <p className="cart-disclaimer">

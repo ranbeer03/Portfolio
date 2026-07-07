@@ -13,6 +13,7 @@ import { ShopContext } from "../context/ShopContext";
 import { CartContext } from "../context/CartContext";
 import { getAvailableEditions } from "../data/editions";
 import usePageTitle from "../hooks/usePageTitle";
+import { CONTACT_EMAIL } from '../config';
 
 const formatDate = (isoDate) => {
   if (!isoDate) return "";
@@ -97,7 +98,7 @@ const ProductPage = () => {
     const body = encodeURIComponent(
       `Hi Ranbeer,\n\nI like the painting "${product.name}" (${product.size_inches}). What is the price for it?\n\n`
     );
-    window.location.href = `mailto:ranbeerchaudhary03@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   if (loading) return <div className="page">Loading...</div>;

@@ -14,7 +14,7 @@
   height: 100vh;
   height: 100svh;
   /* Poster while the first frame streams in */
-  background-image: url(../assets/images/gallery-background.jpg);
+  background-image: url(../assets/images/gallery-background.webp);
   background-size: cover;
   background-position: center;
   background-color: #101012;

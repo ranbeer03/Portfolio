@@ -24,7 +24,7 @@
   color: var(--color-text-inverse);
   background:
     linear-gradient(rgba(12, 10, 9, 0.82), rgba(12, 10, 9, 0.82)),
-    url(../assets/images/ranbeer-india-painting.png) center / cover no-repeat;
+    url(../assets/images/ranbeer-india-painting.webp) center / cover no-repeat;
 }
 
 .contact-title {

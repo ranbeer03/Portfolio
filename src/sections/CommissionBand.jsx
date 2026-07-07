@@ -1,4 +1,5 @@
 import './CommissionBand.css';
+import { CONTACT_EMAIL } from '../config';
 
 const COMMISSION_EMAIL_SUBJECT = 'Interested in a Commissioned Piece';
 const COMMISSION_EMAIL_BODY = `Hi Ranbeer,\n\nI would like to discuss an idea for a commissioned piece. Could you please get in touch with me?\n\nCommission details (optional):\n[Size, theme, colors, and any specific elements you want in the painting]\n\nBest regards,\n[Your Name]`;
@@ -6,7 +7,7 @@ const COMMISSION_EMAIL_BODY = `Hi Ranbeer,\n\nI would like to discuss an idea fo
 const openCommissionEmail = () => {
   const subject = encodeURIComponent(COMMISSION_EMAIL_SUBJECT);
   const body = encodeURIComponent(COMMISSION_EMAIL_BODY);
-  window.location.href = `mailto:ranbeerchaudhary03@gmail.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
 };
 
 /** Full-width dark call-to-action band for commissions. */

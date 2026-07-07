@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /account
+Disallow: /cart
+Disallow: /login
+
+# TODO: replace with your real production domain before launch
+Sitemap: https://ranbeer.net/sitemap.xml

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { createInquiry } from '../services/inquiryService';
 import './ContactSection.css';
+import { CONTACT_EMAIL } from '../config';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -63,8 +64,8 @@ const ContactSection = () => {
           <ul className="contact-details">
             <li>
               <i className="fa-solid fa-envelope" aria-hidden="true" />
-              <a href="mailto:ranbeerchaudhary03@gmail.com">
-                ranbeerchaudhary03@gmail.com
+              <a href={`mailto:${CONTACT_EMAIL}`}>
+                {CONTACT_EMAIL}
               </a>
             </li>
             <li>

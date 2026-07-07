@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from '../config';
+
 /**
  * Content for the legal pages. Review before launch and replace the
  * [bracketed placeholders] with your real details.
@@ -9,7 +11,7 @@ export const LEGAL_DOCUMENTS = {
     sections: [
       {
         heading: 'Who we are',
-        body: 'This website is operated by Ranbeer Chaudhary ("we", "I"), an independent artist based in Geneva, Switzerland. For any privacy question, contact ranbeerchaudhary03@gmail.com.',
+        body: 'This website is operated by Ranbeer Chaudhary ("we", "I"), an independent artist based in Geneva, Switzerland. For any privacy question, contact ' + CONTACT_EMAIL + '.',
       },
       {
         heading: 'What we collect',
@@ -21,7 +23,7 @@ export const LEGAL_DOCUMENTS = {
       },
       {
         heading: 'Your rights',
-        body: 'You can request a copy of your data or its deletion at any time by emailing ranbeerchaudhary03@gmail.com. Account holders can also ask for their account to be removed.',
+        body: 'You can request a copy of your data or its deletion at any time by emailing ' + CONTACT_EMAIL + '. Account holders can also ask for their account to be removed.',
       },
     ],
   },
@@ -65,7 +67,7 @@ export const LEGAL_DOCUMENTS = {
       },
       {
         heading: 'Damaged in transit',
-        body: 'Every parcel is insured. If anything arrives damaged, email ranbeerchaudhary03@gmail.com within 48 hours with photos of the artwork and packaging so I can raise the claim and make it right.',
+        body: 'Every parcel is insured. If anything arrives damaged, email ' + CONTACT_EMAIL + ' within 48 hours with photos of the artwork and packaging so I can raise the claim and make it right.',
       },
     ],
   },

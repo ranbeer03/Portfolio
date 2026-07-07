@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import { CONTACT_EMAIL } from '../../config';
 
 const EXPLORE_LINKS = [
   { to: '/', label: 'My Work' },
@@ -32,10 +33,10 @@ const Footer = () => {
         <div className="footer-col">
           <p className="footer-heading">Get in touch</p>
           <a
-            href="mailto:ranbeerchaudhary03@gmail.com"
+            href={`mailto:${CONTACT_EMAIL}`}
             className="link-underline footer-link"
           >
-            ranbeerchaudhary03@gmail.com
+            {CONTACT_EMAIL}
           </a>
           <a href="tel:+447513368891" className="link-underline footer-link">
             +44 7513 368891

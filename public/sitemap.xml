@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: replace ranbeer.net with your real production domain before launch.
+     Product pages are client-rendered and not listed individually yet. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ranbeer.net/</loc></url>
+  <url><loc>https://ranbeer.net/shop</loc></url>
+  <url><loc>https://ranbeer.net/about</loc></url>
+  <url><loc>https://ranbeer.net/contact</loc></url>
+  <url><loc>https://ranbeer.net/legal/privacy</loc></url>
+  <url><loc>https://ranbeer.net/legal/terms</loc></url>
+</urlset>

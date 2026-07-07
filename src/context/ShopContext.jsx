@@ -1,12 +1,13 @@
 import { createContext, useState, useEffect } from "react";
 import { supabase } from "../services/supabaseClient";
+import { CURRENCY_SYMBOL, DELIVERY_FEE } from "../config";
 
 export const ShopContext = createContext({
   artworks: [],
   artworkImages: [],
   prices: [],
-  currency: "£",
-  deliveryFee: 10,
+  currency: CURRENCY_SYMBOL,
+  deliveryFee: DELIVERY_FEE,
 });
 
 const ShopContextProvider = ({ children }) => {
@@ -48,8 +49,8 @@ const ShopContextProvider = ({ children }) => {
     artworks,
     artworkImages,
     prices,
-    currency: "£",
-    deliveryFee: 10,
+    currency: CURRENCY_SYMBOL,
+    deliveryFee: DELIVERY_FEE,
   };
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
