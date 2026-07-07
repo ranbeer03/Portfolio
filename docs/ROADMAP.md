@@ -2,6 +2,17 @@
 
 _Audited 2026-07-07 against the live Supabase project and the current codebase._
 
+> **Progress 2026-07-07 (evening session):** 0.2 done (orders table live).
+> Code side done: Vite migration + typecheck + 13 unit tests (6.1–6.3 partly),
+> image compression (5.2), config extraction (6.8), robots/sitemap/.env.example
+> (6.9), security headers + caching (4.6, 5.4), password reset (3.3), dead
+> filters + sort fixed (6.7), Stripe edge functions + flagged client (1.2–1.4,
+> see docs/STRIPE-SETUP.md), admin dashboard code + SQL (2.1–2.3), GitHub
+> Actions CI. **Still on you:** 0.1 security-lockdown.sql (URGENT — inquiries
+> are still publicly readable), admin.sql + stripe-checkout.sql + your admin
+> user_id, prices-template.sql, 0.3/0.4, Stripe account + deploy (Phase 1),
+> emails (3.1/3.2), deploy + domain (Phase 4).
+
 **Goal:** a published website where customers browse, add to cart, pay online
 with card + shipping address; you see every order in an in-app admin
 dashboard and update statuses (new → confirmed → paid → shipped).
