@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { ShopContext } from '../context/ShopContext';
 import { AuthContext } from '../context/AuthContext';
-import { createOrder } from '../services/ordersService.ts';
+import { createOrder } from '../services/ordersService';
 import usePageTitle from '../hooks/usePageTitle';
 import './CartPage.css';
 

@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import { listMyOrders } from '../services/ordersService.ts';
+import { listMyOrders } from '../services/ordersService';
 import usePageTitle from '../hooks/usePageTitle';
 import './AccountPage.css';
 

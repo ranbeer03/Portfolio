@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useMemo } from 'react';
+import { getItemCount, getSubtotal } from '../data/cartTotals';
 
 const CART_STORAGE_KEY = 'ranbeer-art-cart';
 
@@ -66,11 +67,8 @@ const CartProvider = ({ children }) => {
 
     const clearCart = () => setItems([]);
 
-    const itemCount = items.reduce((sum, line) => sum + line.quantity, 0);
-    const subtotal = items.reduce(
-      (sum, line) => sum + line.unitPrice * line.quantity,
-      0
-    );
+    const itemCount = getItemCount(items);
+    const subtotal = getSubtotal(items);
     return { items, itemCount, subtotal, addItem, removeItem, setQuantity, clearCart };
   }, [items]);
 

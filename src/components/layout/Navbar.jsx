@@ -14,7 +14,7 @@ const navLinkClass = ({ isActive }) =>
   isActive ? 'link-underline active' : 'link-underline';
 
 const Navbar = () => {
-  const logoUrl = process.env.PUBLIC_URL + '/images/rc-logo.png';
+  const logoUrl = '/images/rc-logo.png';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { itemCount } = useContext(CartContext);
 

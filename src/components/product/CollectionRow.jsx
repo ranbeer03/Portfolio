@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import ProductItem from './ProductItem';
-import { getArtworkById, getPrimaryImageUrl } from '../../services/artworksService.ts';
+import { getArtworkById, getPrimaryImageUrl } from '../../services/artworksService';
 import './CollectionRow.css';
 
 /** A titled row of artworks, e.g. "Animals — 2023". */

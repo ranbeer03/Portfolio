@@ -14,7 +14,7 @@ const FRAME_COUNT = 127;
 const SCRUB_VIEWPORTS = 1.6;
 
 const frameUrl = (index) =>
-  `${process.env.PUBLIC_URL}/gallery-pan/frame-${String(index + 1).padStart(3, '0')}.webp`;
+  `/gallery-pan/frame-${String(index + 1).padStart(3, '0')}.webp`;
 
 /**
  * Sticky full-viewport canvas that lives behind the hero AND the collections

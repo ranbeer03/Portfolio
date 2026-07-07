@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getPrimaryImageUrl } from '../services/artworksService.ts';
+import { getPrimaryImageUrl } from '../services/artworksService';
 import { WHAT_I_PAINT_ARTWORK_IDS } from '../data/collections';
 import ranbeerDp from '../assets/images/ranbeer-dp.png';
 import ranbeerBattersea from '../assets/images/ranbeer-battersea.png';

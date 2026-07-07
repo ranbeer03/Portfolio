@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createInquiry } from '../services/inquiryService.ts';
+import { createInquiry } from '../services/inquiryService';
 import './ContactSection.css';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
