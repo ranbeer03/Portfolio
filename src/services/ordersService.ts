@@ -12,6 +12,7 @@ export type Order = {
   id?: number;
   created_at?: string;
   status?: string;
+  tracking_number?: string | null;
   user_id?: string | null;
   customer_name: string;
   email: string;
