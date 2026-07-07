@@ -10,6 +10,7 @@ const ShopPage = () => {
   usePageTitle('Gallery — Ranbeer Chaudhary');
   const { artworks, artworkImages, prices, currency } = useContext(ShopContext);
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [sortOrder, setSortOrder] = useState('relevant');
 
   const toggleFilter = (event) => {
     const { value } = event.target;
@@ -30,21 +31,56 @@ const ShopPage = () => {
     return (artworkId) => byArtworkId.get(artworkId);
   }, [artworkImages]);
 
-  const filteredArtworks = useMemo(() => {
+  const displayableArtworks = useMemo(
     // Only artworks with an uploaded image are shown; new pieces appear
     // automatically once their image lands in Supabase.
-    const displayable = artworks.filter((artwork) => findPrimaryImage(artwork.id));
-    if (selectedFilters.length === 0) return displayable;
-    return displayable.filter((artwork) =>
-      selectedFilters.includes(artwork.collection)
+    () => artworks.filter((artwork) => findPrimaryImage(artwork.id)),
+    [artworks, findPrimaryImage]
+  );
+
+  const availableCollections = useMemo(() => {
+    const collections = new Set(
+      displayableArtworks
+        .map((artwork) => artwork.collection)
+        // Skip empty values and data-entry placeholders still in the table.
+        .filter((collection) => collection && collection.toLowerCase() !== 'todo')
     );
-  }, [artworks, selectedFilters, findPrimaryImage]);
+    return [...collections].sort();
+  }, [displayableArtworks]);
+
+  const lowestPriceFor = useMemo(() => {
+    const byArtworkId = new Map(
+      prices.map((row) => [row.artwork_id, getLowestPrice(row)])
+    );
+    return (artworkId) => byArtworkId.get(artworkId) ?? null;
+  }, [prices]);
+
+  const filteredArtworks = useMemo(() => {
+    const filtered =
+      selectedFilters.length === 0
+        ? displayableArtworks
+        : displayableArtworks.filter((artwork) =>
+            selectedFilters.includes(artwork.collection)
+          );
+    if (sortOrder === 'relevant') return filtered;
+    // Unpriced pieces ("Request price") always sort last.
+    const direction = sortOrder === 'low-high' ? 1 : -1;
+    return [...filtered].sort((a, b) => {
+      const priceA = lowestPriceFor(a.id);
+      const priceB = lowestPriceFor(b.id);
+      if (priceA === null && priceB === null) return 0;
+      if (priceA === null) return 1;
+      if (priceB === null) return -1;
+      return (priceA - priceB) * direction;
+    });
+  }, [displayableArtworks, selectedFilters, sortOrder, lowestPriceFor]);
 
   return (
     <div className="page shop-page">
       <div className="filter-container">
         <h3 className="filter-title">Filters</h3>
         <ShopFilterBar
+          collections={availableCollections}
           selectedFilters={selectedFilters}
           onFilterToggle={toggleFilter}
         />
@@ -56,8 +92,12 @@ const ShopPage = () => {
             <p className="eyebrow">The full body of work</p>
             <h1 className="page-header">Gallery</h1>
           </div>
-          {/* TODO: wire sorting to price data once prices are linked to artworks */}
-          <select className="sort-button">
+          <select
+            className="sort-button"
+            aria-label="Sort artworks"
+            value={sortOrder}
+            onChange={(event) => setSortOrder(event.target.value)}
+          >
             <option value="relevant">Sort by : Relevant</option>
             <option value="low-high">Sort by : Low to High</option>
             <option value="high-low">Sort by : High to Low</option>
@@ -67,9 +107,7 @@ const ShopPage = () => {
         <div className="product-cards">
           {filteredArtworks.map((artwork) => {
             const image = findPrimaryImage(artwork.id);
-            const lowestPrice = getLowestPrice(
-              prices.find((row) => row.artwork_id === artwork.id)
-            );
+            const lowestPrice = lowestPriceFor(artwork.id);
             return (
               <ProductCard
                 key={artwork.id}

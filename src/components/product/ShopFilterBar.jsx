@@ -27,7 +27,14 @@ function TreeItem(props) {
   );
 }
 
-const ShopFilterBar = ({ selectedFilters = [], onFilterToggle }) => {
+const titleCase = (value) =>
+  value.replace(/\b\w/g, (letter) => letter.toUpperCase());
+
+/**
+ * Collection filter tree. `collections` comes from the artworks actually on
+ * display, so the options can never go stale or point at empty results.
+ */
+const ShopFilterBar = ({ collections = [], selectedFilters = [], onFilterToggle }) => {
   const handleSelectionChange = (event, newSelectedIds) => {
     // Emit one toggle per filter that was added or removed.
     selectedFilters
@@ -43,31 +50,18 @@ const ShopFilterBar = ({ selectedFilters = [], onFilterToggle }) => {
       <SimpleTreeView
         multiSelect
         checkboxSelection
-        defaultExpandedItems={['paintings', 'collections']}
+        defaultExpandedItems={['collections']}
         selectedItems={selectedFilters}
         onSelectedItemsChange={handleSelectionChange}
       >
-        <TreeItem itemId="paintings" label="Paintings">
-          <TreeItem itemId="collections" label="Collections">
-            <TreeItem itemId="animals" label="Animals" />
-            <TreeItem itemId="monopoly" label="Monopoly" />
-            <TreeItem itemId="african line art" label="African Line Art" />
-          </TreeItem>
-          <TreeItem itemId="material" label="Material">
-            <TreeItem itemId="acrylics" label="Acrylics" />
-            <TreeItem itemId="water-colors" label="Water Colors" />
-          </TreeItem>
-        </TreeItem>
-        <TreeItem itemId="prints" label="Prints">
-          <TreeItem itemId="a5" label="A5" />
-          <TreeItem itemId="a4" label="A4" />
-          <TreeItem itemId="a3" label="A3" />
-          <TreeItem itemId="a2" label="A2" />
-        </TreeItem>
-        <TreeItem itemId="custom-items" label="Custom Items">
-          <TreeItem itemId="sneakers" label="Sneakers" />
-          <TreeItem itemId="handbags" label="Handbags" />
-          <TreeItem itemId="skateboard" label="Skateboards" />
+        <TreeItem itemId="collections" label="Collections">
+          {collections.map((collection) => (
+            <TreeItem
+              key={collection}
+              itemId={collection}
+              label={titleCase(collection)}
+            />
+          ))}
         </TreeItem>
       </SimpleTreeView>
     </Box>
